@@ -1,0 +1,290 @@
+novalnet:
+  settings:
+    label: 'Novalnet Global Configuration'
+    credit_card_label:
+      label: 'Label'
+      tooltip: |
+        This label is used on the checkout screens
+    credit_card_short_label:
+      label: 'Short label'
+      tooltip: |
+        This label is used in order history
+    sepa_label:
+      label: 'Label'
+      tooltip: |
+        This label is used on the checkout screens
+    sepa_short_label:
+      label: 'Short Label'
+      tooltip: |
+        This label is used in order history
+    invoice_label:
+      label: 'Label'
+      tooltip: |
+        This label is used on the checkout screens
+    invoice_short_label:
+      label: 'Short Label'
+      tooltip: |
+        This label is used in order history
+    prepayment_label:
+      label: 'Label'
+      tooltip: |
+        This label is used on the checkout screens
+    prepayment_short_label:
+      label: 'Short Label'
+      tooltip: |
+        This label is used in order history
+    cashpayment_label:
+      label: 'Label'
+      tooltip: |
+        This label is used on the checkout screens
+    cashpayment_short_label:
+      label: 'Short Label'
+      tooltip: |
+        This label is used in order history
+    paypal_label:
+      label: 'Label'
+      tooltip: |
+        This label is used on the checkout screens
+    paypal_short_label:
+      label: 'Short Label'
+      tooltip: |
+        This label is used in order history
+    banktransfer_label:
+      label: 'Label'
+      tooltip: |
+        This label is used on the checkout screens
+    banktransfer_short_label:
+      label: 'Short Label'
+      tooltip: |
+        This label is used in order history
+    ideal_label:
+      label: 'Label'
+      tooltip: |
+        This label is used on the checkout screens
+    ideal_short_label:
+      label: 'Short Label'
+      tooltip: |
+        This label is used in order history
+    giropay_label:
+      label: 'Label'
+      tooltip: |
+        This label is used on the checkout screens
+    giropay_short_label:
+      label: 'Short Label'
+      tooltip: |
+        This label is used in order history
+    eps_label:
+      label: 'Label'
+      tooltip: |
+        This label is used on the checkout screens
+    eps_short_label:
+      label: 'Short Label'
+      tooltip: |
+        This label is used in order history
+    przelewy_label:
+      label: 'Label'
+      tooltip: |
+        This label is used on the checkout screens
+    przelewy_short_label:
+      label: 'Short Label'
+      tooltip: |
+        This label is used in order history
+    vendor_id:
+      label: 'Merchant ID'
+      tooltip: |
+        Enter Novalnet merchant ID
+    authcode:
+      label: 'Authentication Code'
+      tooltip: |
+        Enter Novalnet authentication code
+    product:
+      label: 'Project ID'
+      tooltip: |
+        Enter Novalnet project ID
+    tariff:
+      label: 'Tariff ID'
+      tooltip: |
+        Enter Tariff ID to match the preferred tariff plan you created at the Novalnet Merchant Administration portal for this project. Refer Novalnet Payment Bundle Installation Guide for further details.
+    payment_access_key:
+      label: 'Payment access key'
+      tooltip: |
+        Enter the Novalnet payment access key
+    invoice_payment_guarantee:
+      label: 'Enable payment guarantee'
+      tooltip: |
+        Payment guarantee requirements:<br>
+        Allowed countries: AT, DE, CH<br>
+        Allowed currency: EUR<br>
+        Minimum order amount: 9,99 EUR or more<br>
+        Age limit: 18 years or more<br>
+        The billing address must be the same as shipping address<br>
+        Gift cards/vouchers are not allowed
+    invoice_guarantee_min_amount:
+      label: 'Minimum order amount for payment guarantee'
+      tooltip: |
+        Enter the minimum amount (in cents) for the transaction to be processed with payment guarantee. For example, enter 100 which is equal to 1.00. By default, the amount will be 9,99 EUR.
+    invoice_force_non_guarantee:
+      label: 'Force non-guarantee payment'
+      tooltip: |
+        Even if payment guarantee is enabled, payments will still be processed as non-guarantee payment if payment guarantee requirements are not met. Review the requirements under "Enable Payment Guarantee" in the installation guide. 
+    sepa_payment_guarantee:
+      label: 'Enable payment guarantee'
+      tooltip: |
+        Payment guarantee requirements:<br>
+        Allowed countries: AT, DE, CH<br>
+        Allowed currency: EUR<br>
+        Minimum order amount: 9,99 EUR or more<br>
+        Age limit: 18 years or more<br>
+        The billing address must be the same as shipping address<br>
+        Gift cards/vouchers are not allowed
+    sepa_guarantee_min_amount:
+      label: 'Minimum order amount for payment guarantee'
+      tooltip: |
+        Enter the minimum amount (in cents) for the transaction to be processed with payment guarantee. For example, enter 100 which is equal to 1.00. By default, the amount will be 9,99 EUR.
+    sepa_force_non_guarantee:
+      label: 'Force non-guarantee payment'
+      tooltip: |
+        Even if payment guarantee is enabled, payments will still be processed as non-guarantee payment if payment guarantee requirements are not met. Review the requirements under "Enable Payment Guarantee" in the installation guide.
+    referrer_id:
+      label: 'Referrer ID'
+      tooltip: |
+        Referrer ID of the person/company who recommended Novalnet to you.  
+    test_mode:
+      label: 'Enable test mode'
+      tooltip: |
+        Enable this option to test payments at your checkout page. In the test mode the amount will not actually be charged by Novalnet. Remember to disable the test mode again after testing to ensure that actual purchased are properly charged.  
+    gateway_timeout:
+      label: 'Gateway timeout (in seconds)'
+      tooltip: |
+        Set the maximum wait time to receive a transaction response from the Novalnet system before marking the transaction as incomplete. The recommended limit is 240 seconds.
+    invoice_duedate:
+      label: 'Payment due date (in days)'
+      tooltip: |
+        Number of days given to the buyer to transfer the amount to Novalnet (must be greater than 7 days). In case this field is empty, 14 days will be set as due date by default. 
+    sepa_duedate:
+      label: 'Payment due date (in days)'
+      tooltip: |
+        Number of days after which the payment is debited (must be between 2 and 14 days).
+    onhold_amount:
+      label: 'Minimum transaction amount for authorization'
+      tooltip: |
+        Transactions above this amount will be 'authorized only' until you capture. Leave blank to apply to all transactions.
+    cashpayment_duedate:
+      label: 'Slip expiry date (in days)'
+      tooltip: |
+        Number of days given to the buyer to pay at a store. In case this field is empty, 14 days will be set as slip expiry date by default.
+    cc_3d:
+      label: 'Enable 3D secure'
+      tooltip: |
+        3D secure adds a layer of authentication for credit card transactions where the buyer is required to enter a password on their bank's interface. This reduces the risk of charge-backs. Refer the Novalnet Payment Bundle Installation Guide for further details.
+    email_notification:
+      label: 'Enable e-mail notification'
+      tooltip: |
+        Enable this option to notify the given e-mail address when the vendor script is executed successfully. Refer the Novalnet Payment Bundle Installation Guide for further details.
+    callback_testmode:
+      label: 'Allow manual testing of vendor script process'
+      tooltip: |
+        Enable to test Novalnet vendor script manually. Disable before setting your shop live to block unauthorized calls from external parties. Refer the Novalnet Payment Bundle Installation Guide for further details. 
+    email_to:
+      label: 'Send e-mail to'
+      tooltip: |
+        Vendor script execution messages will be sent to this e-mail.
+    email_bcc:
+      label: 'Send e-mail as Bcc to '
+      tooltip: |
+        Additional e-mails to which vendor script execution messages will be sent.
+    transport.label: 'Novalnet Gateway'
+    form:
+      groups:
+        global_configuration.title: 'Novalnet Global Configuration'
+        cc.title: 'Credit Card'
+        sepa.title: 'Direct Debit SEPA'
+        invoice.title: 'Invoice'
+        prepayment.title: 'Prepayment'
+        cashpayment.title: 'Barzahlen'
+        paypal.title: 'PayPal'
+        banktransfer.title: 'Instant Bank Transfer'
+        ideal.title: 'iDEAL'
+        giropay.title: 'giropay'
+        eps.title: 'eps'
+        przelewy.title: 'Przelewy24'
+        merchant_script_management.title: 'Vendor Script Management'
+        other.title: 'Other'
+  channel_type:
+    label: 'Novalnet Gateway'
+  menu:
+    novalnet.label: 'Novalnet Gateway'
+
+  payment_method_message: 'After the successful verification, you will be redirected to Novalnet secure order page to proceed with the payment.Please don’t close the browser after successful payment, until you have been redirected back to the Shop'
+  payment_method_message.credit_card: 'The amount will be debited from your credit card once the order is submitted'
+  payment_method_message.sepa: 'Your account will be debited upon the order submission'
+  payment_method_message.invoice: 'Once you’ve submitted the order, you will receive an e-mail with account details to make payment'
+  payment_method_message.prepayment: 'Once you’ve submitted the order, you will receive an e-mail with account details to make payment'
+  payment_method_message.cashpayment: 'After completing your order you get a payment slip from Barzahlen that you can easily print out or have it sent via SMS to your mobile phone. With the help of that payment slip you can pay your online purchase at one of our retail partners (e.g. supermarket).'
+  payment_method_message.paypal: 'After the successful verification continue to PayPal’s website for payment.'
+  payment_method_message.banktransfer: 'Pay securely directly from your bank account.'
+  payment_method_message.ideal: 'Pay securely directly from your bank account.'
+  payment_method_message.giropay: 'Pay with your usual online banking login data (PIN & TAN required).'
+  payment_method_message.eps: 'Pay securely directly from your bank account.'
+  payment_method_message.przelewy: 'Pay securely directly from your bank account.'
+  payment_method_testmode_message: 'The payment will be processed in the test mode therefore amount for this transaction will not be charged'
+  payment_comment: 'Novalnet transaction details'
+  transaction_id: 'Novalnet transaction ID %s'
+  test_order: 'Test Order'
+  guarantee_payment: 'This is processed as a guarantee payment'
+  invoice_comment: 'Please transfer the amount to the below-mentioned account.'
+  invoice_duedate: 'Due date: %s'
+  invoice_account_holder: 'Account holder: %s'
+  amount: 'Amount: %s'
+  invoice_ref_comment: 'Please use any of the following payment references when transferring the amount. This is necessary to match it with your corresponding order.'
+  payment_ref: 'Payment Reference %s:'
+  slip_expiry_date: 'Slip expiry date: %s'
+  cashpayment_store: 'Store(s) near you'
+  invoice_guarantee_comment: 'Your order is being verified. Once confirmed, we will send you the bank details to transfer the amount. Please note that this may take up to 24 hours.'
+  sepa_guarantee_comment: 'Your order is under verification and we will soon update you with the order status. Please note that this may take upto 24 hours'
+  payment_name_creditcard: 'Credit Card'
+  payment_name_eps: 'eps'
+  payment_name_ideal: 'iDEAL'
+  payment_name_online_transfer: 'Instant Bank Transfer'
+  payment_name_giropay: 'giropay'
+  payment_name_cashpayment: 'Barzahlen'
+  payment_name_direct_debit_sepa: 'Direct Debit SEPA'
+  payment_name_guaranteed_direct_debit_sepa: 'Direct Debit SEPA'
+  payment_name_guaranteed_invoice: 'Invoice'
+  payment_name_przelewy24: 'Przelewy24'
+  payment_name_paypal: 'PayPal'
+  payment_name_prepayment: 'Prepayment'
+  payment_name_invoice: 'Invoice'
+  hash_check_failed: 'While redirecting some data has been changed. The hash check failed.'
+  guarantee_error_msg: 'The payment cannot be processed, because the basic requirements for the payment guarantee haven’t been met'
+  guarantee_error_msg_amount: 'Minimum order amount must be %s EUR'
+  guarantee_error_msg_currency: 'Only EUR currency allowed'
+  guarantee_error_msg_address: 'The shipping address must be the same as the billing address'
+  guarantee_error_msg_country: 'Only Germany, Austria or Switzerland are allowed'
+  guarantee_error_msg_company: 'Organization field is required'
+  home_page_url_creditcard: 'https://www.novalnet.com/credit-card'
+  home_page_url_prepayment: 'https://www.novalnet.com/prepayment'
+  home_page_url_online_instant_transfer: 'https://www.novalnet.com/online-instant-transfer'
+  home_page_url_eps: 'https://www.novalnet.com/eps-online-payment'
+  home_page_url_giropay: 'https://www.novalnet.com/giropay'
+  home_page_url_przelewy24: 'https://www.novalnet.com/przelewy24'
+  home_page_url_sepa: 'https://www.novalnet.com/sepa-direct-debit'
+  home_page_url_invoice: 'https://www.novalnet.com/invoice'
+  home_page_url_ideal: 'https://www.novalnet.com/ideal'
+  home_page_url_cashpayment: 'https://www.novalnet.com/barzahlen'
+  home_page_url_paypal: 'https://www.novalnet.com/paypal'
+  payment:
+    admin:
+      novalnet.label: 'Novalnet Payment'
+
+novalnet_callback:
+  error.message: 'Novalnet %s callback'
+  paid.message: 'Novalnet Callback Script executed successfully for TID: %s with the amount %s on %s & time %s. Please refer to paid transactions in Novalnet Merchant Administration portal with the TID %s.'
+  bookback.message: 'Refund/Bookback executed successfully for the TID: %s with the amount of %s on %s & time %s. The subsequent TID: %s'
+  chargeback.message: 'Chargeback executed successfully for TID: %s with the amount %s on %s & time %s. The subsequent TID: %s'
+  executed.message: 'Novalnet Callback Script executed successfully for the TID: %s with amount %s on %s & %s'
+  payment_not_success.message: 'Payment was not successful. An error occurred.'
+  przelewy24_cancel.message: 'The transaction has been cancelled due to: %s'
+  pending_to_onhold.message: 'The transaction status has been changed from pending to on hold for the TID: %s on %s & %s.'
+  trans_confirm.message: 'The transaction has been confirmed on %s %s'
+  trans_cancelled.message: 'The transaction has been canceled on %s %s'
