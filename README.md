@@ -27,12 +27,6 @@ For detailed documentation and other technical inquiries, please send us an emai
 -	Przelewy24
 -	Direct Debit SEPA with payment guarantee
 -	Invoice with payment guarantee
--	Carrier billing
--	Postfinance
--	Postfinance card
--	Cash on pickup
--	Bancontact
--	Multibanco
 
 
 ## Installation
@@ -42,7 +36,7 @@ Easy installation of Novalnet Payment Plugin for OroCommerce will be done throug
 3. Include Merchant Details in the shop admin panel 
 4. Activate & configure the preferred payment types in your shop admin panel
 ## License  
-See our License Agreement at: <a href="https://www.novalnet.de/payment-plugins/kostenlos/lizenz"> https:www.novalnet.de/payment-plugins/kostenlos/lizenz </a>
+See our License Agreement at: https://www.novalnet.com/payment-plugins/free/license
 ## Documentation & Support
 For more information about the Novalnet Payment Plugin for OroCommerce and pricing, please get in touch with us:  <a href="mailto:sales@novalnet.de"> sales@novalnet.de </a> or +49 89 9230683-20<br>
 
