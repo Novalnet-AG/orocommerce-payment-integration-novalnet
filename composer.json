@@ -15,6 +15,6 @@
     }
   },
   "require": {
-    "oro/commerce": "4.1.*"
+    "oro/commerce": "4.*"
   }
 }
