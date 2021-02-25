@@ -1,19 +1,28 @@
 # NOVALNET PAYMENT INTEGRATION FOR OROCOMMERCE
 Novalnet’s Payment Plugin ensures simple and secure integration of payments and payment services for OroCommerce shops, allowing shop owners to automate the entire payment process from checkout till collection. 
+
 ## Integration requirements 
-Novalnet merchant account is required for using this Novalnet Payment Gateway for OroCommerce. The plugin is available for the 4.1.* version in the following languages: EN & DE. 
-## Advanced functions for payment processing
--	Easy configuration of international and local payment methods
--	One PCI DSS certified payment platform for all payment operations
--	Credit Card with 3D Secure 
--	Comprehensive fraud management solution with more than 60 supported modules 
--	Secure SSL encoded gateways 
--	On-hold transaction configuration for payments that exceed the pre-defined limit
--	Setting a time limit for orders & automatic order cancellation when time limit is exceeded
--	Responsive templates
+Novalnet merchant account is required for using this Novalnet Payment Gateway for OroCommerce. The plugin is available for the 4.2.0 version in the following languages: EN & DE. 
+
+## Advanced functions of OroCommerce payment bundle
+  - Easy configuration for all payment methods
+  - One platform for all relevant payment types and related services
+  - Complete automation of all payment processes
+  - Secure SSL-encoded gateways
+  - More than 50 fraud prevention modules integrated to prevent risk in real-time
+  - Effortless configuration of risk management with fraud prevention
+  - Comprehensive affiliate system with automated split conversion of transaction on revenue sharing
+  - Dynamic subscription and member management for recurring payments
+  - No PCI DSS certification required when using our payment module
+  - Real-time monitoring of the transaction flow from the checkout to the receivables
+  - Multilevel claims management with integrated handover to collection and various export functions for the accounting
+  - Automated e-mail notification function concerning payment status reports
+  - Clear real-time overview and monitoring of payment status
+  - Automated bookkeeping report in XML, SOAP, CSV, MT940
+
 For detailed documentation and other technical inquiries, please send us an email at <a href="mailto:technic@novalnet.de"> technic@novalnet.de </a>
 
-## Integrated payment methods
+## Integrated payment methods for OroCommerce payment bundle
 -	Direct Debit SEPA
 -	Credit Card (3D Secure & non 3D Secure)
 -	Invoice
@@ -35,6 +44,7 @@ Easy installation of Novalnet Payment Plugin for OroCommerce will be done throug
 2. Install plugin to your OroCommerce shop 
 3. Include Merchant Details in the shop admin panel 
 4. Activate & configure the preferred payment types in your shop admin panel
+
 ## License  
 See our License Agreement at: https://www.novalnet.com/payment-plugins/free/license
 ## Documentation & Support
