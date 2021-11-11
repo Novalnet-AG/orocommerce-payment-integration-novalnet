@@ -1,0 +1,246 @@
+{% block _payment_methods_novalnet_credit_card_widget %}
+    {% set pageComponent = views.options.NovalnetComponent|default('novalnet/js/app/components/novalnet-component') %}
+    {% set options = view.options %}
+    <div class="{{ class_prefix }}-form__payment-methods">
+        <ul class="{{ class_prefix }}-form__payment-methods-list">
+            <li class="{{ class_prefix }}-form__payment-methods-item">
+                <a href="{{ 'novalnet.home_page_url_creditcard'|trans }}" target="_blank"><img
+                            src="{{ asset('bundles/novalnet/img/VI.png') }}" alt="visa"></a>
+            </li>
+            <li class="{{ class_prefix }}-form__payment-methods-item">
+                <a href="{{ 'novalnet.home_page_url_creditcard'|trans }}" target="_blank"><img
+                            src="{{ asset('bundles/novalnet/img/MC.png') }}" alt="master card"></a>
+            </li>
+        </ul>
+        <table class="grid">
+            <tr>
+                <td>{{ 'novalnet.payment_method_message.credit_card'|trans }}</td>
+            </tr>
+            {% if view.options.test_mode == 1 %}
+                <tr>
+                    <td style="color:red">{{ 'novalnet.payment_method_testmode_message'|trans }}</td>
+                </tr>
+            {% endif %}
+        </table>
+    </div>
+{% endblock %}
+{% block _payment_methods_novalnet_sepa_widget %}
+    {% set pageComponent = views.options.NovalnetComponent|default('novalnet/js/app/components/novalnet-component') %}
+    {% set options = view.options %}
+    <div class="{{ class_prefix }}-form__payment-methods">
+        <ul class="{{ class_prefix }}-form__payment-methods-list">
+            <li class="{{ class_prefix }}-form__payment-methods-item">
+                <a href="{{ 'novalnet.home_page_url_sepa'|trans }}" target="_blank"><img
+                            src="{{ asset('bundles/novalnet/img/sepa.png') }}" alt="sepa"></a>
+            </li>
+        </ul>
+        <table class="grid">
+            <tr>
+                <td>{{ 'novalnet.payment_method_message.sepa'|trans }}</td>
+            </tr>
+            {% if view.options.test_mode == 1 %}
+                <tr>
+                    <td style="color:red">{{ 'novalnet.payment_method_testmode_message'|trans }}</td>
+                </tr>
+            {% endif %}
+        </table>
+    </div>
+{% endblock %}
+{% block _payment_methods_novalnet_invoice_widget %}
+    {% set pageComponent = views.options.NovalnetComponent|default('novalnet/js/app/components/novalnet-component') %}
+    {% set options = view.options %}
+    <div class="{{ class_prefix }}-form__payment-methods">
+        <ul class="{{ class_prefix }}-form__payment-methods-list">
+            <li class="{{ class_prefix }}-form__payment-methods-item">
+                <a href="{{ 'novalnet.home_page_url_invoice'|trans }}" target="_blank"><img
+                            src="{{ asset('bundles/novalnet/img/invoice.png') }}" alt="invoice"></a>
+            </li>
+        </ul>
+        <table class="grid">
+            <tr>
+                <td>{{ 'novalnet.payment_method_message.invoice'|trans }}</td>
+            </tr>
+            {% if view.options.test_mode == 1 %}
+                <tr>
+                    <td style="color:red">{{ 'novalnet.payment_method_testmode_message'|trans }}</td>
+                </tr>
+            {% endif %}
+        </table>
+    </div>
+{% endblock %}
+{% block _payment_methods_novalnet_prepayment_widget %}
+    {% set pageComponent = views.options.NovalnetComponent|default('novalnet/js/app/components/novalnet-component') %}
+    {% set options = view.options %}
+    <div class="{{ class_prefix }}-form__payment-methods">
+        <ul class="{{ class_prefix }}-form__payment-methods-list">
+            <li class="{{ class_prefix }}-form__payment-methods-item">
+                <a href="{{ 'novalnet.home_page_url_prepayment'|trans }}" target="_blank"><img
+                            src="{{ asset('bundles/novalnet/img/prepayment.png') }}" alt="prepayment"></a>
+            </li>
+        </ul>
+        <table class="grid">
+            <tr>
+                <td>{{ 'novalnet.payment_method_message.prepayment'|trans }}</td>
+            </tr>
+            {% if view.options.test_mode == 1 %}
+                <tr>
+                    <td style="color:red">{{ 'novalnet.payment_method_testmode_message'|trans }}</td>
+                </tr>
+            {% endif %}
+        </table>
+    </div>
+{% endblock %}
+{% block _payment_methods_novalnet_cashpayment_widget %}
+    {% set pageComponent = views.options.NovalnetComponent|default('novalnet/js/app/components/novalnet-component') %}
+    {% set options = view.options %}
+    <div class="{{ class_prefix }}-form__payment-methods">
+        <ul class="{{ class_prefix }}-form__payment-methods-list">
+            <li class="{{ class_prefix }}-form__payment-methods-item">
+                <a href="{{ 'novalnet.home_page_url_cashpayment'|trans }}" target="_blank"><img
+                            src="{{ asset('bundles/novalnet/img/barzahlen.png') }}" alt="barzahlen"></a>
+            </li>
+        </ul>
+        <table class="grid">
+            <tr>
+                <td>{{ 'novalnet.payment_method_message.cashpayment'|trans }}</td>
+            </tr>
+            {% if view.options.test_mode == 1 %}
+                <tr>
+                    <td style="color:red">{{ 'novalnet.payment_method_testmode_message'|trans }}</td>
+                </tr>
+            {% endif %}
+        </table>
+    </div>
+{% endblock %}
+{% block _payment_methods_novalnet_paypal_widget %}
+    {% set pageComponent = views.options.NovalnetComponent|default('novalnet/js/app/components/novalnet-component') %}
+    {% set options = view.options %}
+    <div class="{{ class_prefix }}-form__payment-methods">
+        <ul class="{{ class_prefix }}-form__payment-methods-list">
+            <li class="{{ class_prefix }}-form__payment-methods-item">
+                <a href="{{ 'novalnet.home_page_url_paypal'|trans }}" target="_blank"><img
+                            src="{{ asset('bundles/novalnet/img/paypal.png') }}" alt="paypal"></a>
+            </li>
+        </ul>
+        <table class="grid">
+            <tr>
+                <td>{{ 'novalnet.payment_method_message.paypal'|trans }}</td>
+            </tr>
+            {% if view.options.test_mode == 1 %}
+                <tr>
+                    <td style="color:red">{{ 'novalnet.payment_method_testmode_message'|trans }}</td>
+                </tr>
+            {% endif %}
+        </table>
+    </div>
+{% endblock %}
+{% block _payment_methods_novalnet_banktransfer_widget %}
+    {% set pageComponent = views.options.NovalnetComponent|default('novalnet/js/app/components/novalnet-component') %}
+    {% set options = view.options %}
+    <div class="{{ class_prefix }}-form__payment-methods">
+        <ul class="{{ class_prefix }}-form__payment-methods-list">
+            <li class="{{ class_prefix }}-form__payment-methods-item">
+                <a href="{{ 'novalnet.home_page_url_online_instant_transfer'|trans }}" target="_blank"><img
+                            src="{{ asset('bundles/novalnet/img/banktransfer.png') }}" alt="banktransfer"></a>
+            </li>
+        </ul>
+        <table class="grid">
+            <tr>
+                <td>{{ 'novalnet.payment_method_message.banktransfer'|trans }}</td>
+            </tr>
+            {% if view.options.test_mode == 1 %}
+                <tr>
+                    <td style="color:red">{{ 'novalnet.payment_method_testmode_message'|trans }}</td>
+                </tr>
+            {% endif %}
+        </table>
+    </div>
+{% endblock %}
+{% block _payment_methods_novalnet_ideal_widget %}
+    {% set pageComponent = views.options.NovalnetComponent|default('novalnet/js/app/components/novalnet-component') %}
+    {% set options = view.options %}
+    <div class="{{ class_prefix }}-form__payment-methods">
+        <ul class="{{ class_prefix }}-form__payment-methods-list">
+            <li class="{{ class_prefix }}-form__payment-methods-item">
+                <a href="{{ 'novalnet.home_page_url_ideal'|trans }}" target="_blank"><img
+                            src="{{ asset('bundles/novalnet/img/ideal.png') }}" alt="ideal"></a>
+            </li>
+        </ul>
+        <table class="grid">
+            <tr>
+                <td>{{ 'novalnet.payment_method_message.ideal'|trans }}</td>
+            </tr>
+            {% if view.options.test_mode == 1 %}
+                <tr>
+                    <td style="color:red">{{ 'novalnet.payment_method_testmode_message'|trans }}</td>
+                </tr>
+            {% endif %}
+        </table>
+    </div>
+{% endblock %}
+{% block _payment_methods_novalnet_giropay_widget %}
+    {% set pageComponent = views.options.NovalnetComponent|default('novalnet/js/app/components/novalnet-component') %}
+    {% set options = view.options %}
+    <div class="{{ class_prefix }}-form__payment-methods">
+        <ul class="{{ class_prefix }}-form__payment-methods-list">
+            <li class="{{ class_prefix }}-form__payment-methods-item">
+                <a href="{{ 'novalnet.home_page_url_giropay'|trans }}" target="_blank"><img
+                            src="{{ asset('bundles/novalnet/img/giropay.png') }}" alt="giropay"></a>
+            </li>
+        </ul>
+        <table class="grid">
+            <tr>
+                <td>{{ 'novalnet.payment_method_message.giropay'|trans }}</td>
+            </tr>
+            {% if view.options.test_mode == 1 %}
+                <tr>
+                    <td style="color:red">{{ 'novalnet.payment_method_testmode_message'|trans }}</td>
+                </tr>
+            {% endif %}
+        </table>
+    </div>
+{% endblock %}
+{% block _payment_methods_novalnet_eps_widget %}
+    {% set pageComponent = views.options.NovalnetComponent|default('novalnet/js/app/components/novalnet-component') %}
+    {% set options = view.options %}
+    <div class="{{ class_prefix }}-form__payment-methods">
+        <ul class="{{ class_prefix }}-form__payment-methods-list">
+            <li class="{{ class_prefix }}-form__payment-methods-item">
+                <a href="{{ 'novalnet.home_page_url_eps'|trans }}" target="_blank"><img
+                            src="{{ asset('bundles/novalnet/img/eps.png') }}" alt="eps"></a>
+            </li>
+        </ul>
+        <table class="grid">
+            <tr>
+                <td>{{ 'novalnet.payment_method_message.eps'|trans }}</td>
+            </tr>
+            {% if view.options.test_mode == 1 %}
+                <tr>
+                    <td style="color:red">{{ 'novalnet.payment_method_testmode_message'|trans }}</td>
+                </tr>
+            {% endif %}
+        </table>
+    </div>
+{% endblock %}
+{% block _payment_methods_novalnet_przelewy_widget %}
+    {% set pageComponent = views.options.NovalnetComponent|default('novalnet/js/app/components/novalnet-component') %}
+    {% set options = view.options %}
+    <div class="{{ class_prefix }}-form__payment-methods">
+        <ul class="{{ class_prefix }}-form__payment-methods-list">
+            <li class="{{ class_prefix }}-form__payment-methods-item">
+                <a href="{{ 'novalnet.home_page_url_przelewy24'|trans }}" target="_blank"><img
+                            src="{{ asset('bundles/novalnet/img/przelewy.png') }}" alt="przelewy"></a>
+            </li>
+        </ul>
+        <table class="grid">
+            <tr>
+                <td>{{ 'novalnet.payment_method_message.przelewy'|trans }}</td>
+            </tr>
+            {% if view.options.test_mode == 1 %}
+                <tr>
+                    <td style="color:red">{{ 'novalnet.payment_method_testmode_message'|trans }}</td>
+                </tr>
+            {% endif %}
+        </table>
+    </div>
+{% endblock %}

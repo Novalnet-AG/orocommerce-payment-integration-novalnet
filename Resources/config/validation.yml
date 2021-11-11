@@ -1,0 +1,77 @@
+Novalnet\Bundle\NovalnetBundle\Entity\NovalnetSettings:
+  properties:
+    vendorId:
+      - NotBlank: ~
+      - Regex:
+          pattern: '/^[0-9]*$/'
+      - Length:
+          max: 5
+    authcode:
+      - NotBlank: ~
+      - Regex:
+          pattern: '/^[a-zA-Z0-9]*$/'
+      - Length:
+          max: 32
+    product:
+      - NotBlank: ~
+      - Regex:
+          pattern: '/^[0-9]*$/'
+      - Length:
+          max: 5
+    tariff:
+      - NotBlank: ~
+      - Regex:
+          pattern: '/^[0-9]*$/'
+      - Length:
+          max: 5
+    paymentAccessKey:
+      - NotBlank: ~
+      - Regex:
+          pattern: '/^[a-zA-Z0-9]*$/'
+      - Length:
+          max: 50
+    referrerId:
+      - Regex:
+          pattern: '/^[0-9]*$/'
+      - Length:
+          max: 10
+    gatewayTimeout:
+      - Regex:
+          pattern: '/^[0-9]*$/'
+      - Length:
+          max: 5
+    invoiceDuedate:
+      - Valid: ~
+      - Length:
+          max: 2
+    invoiceGuaranteeMinAmount:
+      - Valid: ~
+      - Length:
+          max: 11
+    sepaDuedate:
+      - Length:
+          max: 2
+    sepaGuaranteeMinAmount:
+      - Valid: ~
+      - Length:
+          max: 11
+    cashpaymentDuedate:
+      - Valid: ~
+      - Length:
+          max: 2
+    onholdAmount:
+      - Regex:
+          pattern: '/^[0-9]*$/'
+      - Length:
+          max: 11
+    emailTo:
+      - Regex:
+          pattern: '/^([\w_\-\.]+)@([\w0-9\-]+\.)+([\w0-9\-\.]+)+([,]([\w0-9_\-\.]+)@([\w0-9\-]+\.)+([\w0-9\-\.]+))*$/'
+      - Length:
+          max: 255
+    emailBcc:
+      - Regex:
+          pattern: '/^([\w_\-\.]+)@([\w0-9\-]+\.)+([\w0-9\-\.]+)+([,]([\w0-9_\-\.]+)@([\w0-9\-]+\.)+([\w0-9\-\.]+))*$/'
+      - Length:
+          max: 255
+        

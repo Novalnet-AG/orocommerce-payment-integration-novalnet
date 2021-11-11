@@ -1,0 +1,7 @@
+services:
+  novalnet.form.type.settings:
+    class: Novalnet\Bundle\NovalnetBundle\Form\Type\NovalnetSettingsType
+    arguments:
+      - '@router'
+    tags:
+      - { name: form.type }

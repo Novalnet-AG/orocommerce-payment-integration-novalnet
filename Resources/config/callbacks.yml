@@ -1,0 +1,209 @@
+services:
+  novalnet.event_listener.callback.novalnet_response.credit_card:
+    class: 'Novalnet\Bundle\NovalnetBundle\EventListener\NovalnetResponseListener'
+    arguments:
+      - '@novalnet.payment_method_provider.novalnet.credit_card'
+      - '@oro_entity.doctrine_helper'
+      - '@doctrine'
+      - '@translator'
+      - '@session'
+      - '@novalnet.payment_method.novalnet_helper'
+      - '@router'
+      - '@novalnet.payment_method.novalnet_callback'
+    calls:
+      - ['setLogger', ['@logger']]
+    tags:
+      - { name: kernel.event_listener, event: oro_payment.callback.error, method: onError }
+      - { name: kernel.event_listener, event: oro_payment.callback.return, method: onReturn }
+      - { name: kernel.event_listener, event: oro_payment.callback.notify, method: onNotify }
+
+  novalnet.event_listener.callback.novalnet_response.sepa:
+    class: 'Novalnet\Bundle\NovalnetBundle\EventListener\NovalnetResponseListener'
+    arguments:
+      - '@novalnet.payment_method_provider.novalnet.sepa'
+      - '@oro_entity.doctrine_helper'
+      - '@doctrine'
+      - '@translator'
+      - '@session'
+      - '@novalnet.payment_method.novalnet_helper'
+      - '@router'
+      - '@novalnet.payment_method.novalnet_callback'
+    calls:
+      - ['setLogger', ['@logger']]
+    tags:
+      - { name: kernel.event_listener, event: oro_payment.callback.error, method: onError }
+      - { name: kernel.event_listener, event: oro_payment.callback.return, method: onReturn }
+      - { name: kernel.event_listener, event: oro_payment.callback.notify, method: onNotify }
+
+  novalnet.event_listener.callback.novalnet_response.invoice:
+    class: 'Novalnet\Bundle\NovalnetBundle\EventListener\NovalnetResponseListener'
+    arguments:
+      - '@novalnet.payment_method_provider.novalnet.invoice'
+      - '@oro_entity.doctrine_helper'
+      - '@doctrine'
+      - '@translator'
+      - '@session'
+      - '@novalnet.payment_method.novalnet_helper'
+      - '@router'
+      - '@novalnet.payment_method.novalnet_callback'
+    calls:
+      - ['setLogger', ['@logger']]
+    tags:
+      - { name: kernel.event_listener, event: oro_payment.callback.error, method: onError }
+      - { name: kernel.event_listener, event: oro_payment.callback.return, method: onReturn }
+      - { name: kernel.event_listener, event: oro_payment.callback.notify, method: onNotify }
+
+  novalnet.event_listener.callback.novalnet_response.prepayment:
+    class: 'Novalnet\Bundle\NovalnetBundle\EventListener\NovalnetResponseListener'
+    arguments:
+      - '@novalnet.payment_method_provider.novalnet.prepayment'
+      - '@oro_entity.doctrine_helper'
+      - '@doctrine'
+      - '@translator'
+      - '@session'
+      - '@novalnet.payment_method.novalnet_helper'
+      - '@router'
+      - '@novalnet.payment_method.novalnet_callback'
+    calls:
+      - ['setLogger', ['@logger']]
+    tags:
+      - { name: kernel.event_listener, event: oro_payment.callback.error, method: onError }
+      - { name: kernel.event_listener, event: oro_payment.callback.return, method: onReturn }
+      - { name: kernel.event_listener, event: oro_payment.callback.notify, method: onNotify }
+
+  novalnet.event_listener.callback.novalnet_response.cashpayment:
+    class: 'Novalnet\Bundle\NovalnetBundle\EventListener\NovalnetResponseListener'
+    arguments:
+      - '@novalnet.payment_method_provider.novalnet.cashpayment'
+      - '@oro_entity.doctrine_helper'
+      - '@doctrine'
+      - '@translator'
+      - '@session'
+      - '@novalnet.payment_method.novalnet_helper'
+      - '@router'
+      - '@novalnet.payment_method.novalnet_callback'
+    calls:
+      - ['setLogger', ['@logger']]
+    tags:
+      - { name: kernel.event_listener, event: oro_payment.callback.error, method: onError }
+      - { name: kernel.event_listener, event: oro_payment.callback.return, method: onReturn }
+      - { name: kernel.event_listener, event: oro_payment.callback.notify, method: onNotify }
+
+  novalnet.event_listener.callback.novalnet_response.paypal:
+    class: 'Novalnet\Bundle\NovalnetBundle\EventListener\NovalnetResponseListener'
+    arguments:
+      - '@novalnet.payment_method_provider.novalnet.paypal'
+      - '@oro_entity.doctrine_helper'
+      - '@doctrine'
+      - '@translator'
+      - '@session'
+      - '@novalnet.payment_method.novalnet_helper'
+      - '@router'
+      - '@novalnet.payment_method.novalnet_callback'
+    calls:
+      - ['setLogger', ['@logger']]
+    tags:
+      - { name: kernel.event_listener, event: oro_payment.callback.error, method: onError }
+      - { name: kernel.event_listener, event: oro_payment.callback.return, method: onReturn }
+      - { name: kernel.event_listener, event: oro_payment.callback.notify, method: onNotify }
+
+  novalnet.event_listener.callback.novalnet_response.banktransfer:
+    class: 'Novalnet\Bundle\NovalnetBundle\EventListener\NovalnetResponseListener'
+    arguments:
+      - '@novalnet.payment_method_provider.novalnet.banktransfer'
+      - '@oro_entity.doctrine_helper'
+      - '@doctrine'
+      - '@translator'
+      - '@session'
+      - '@novalnet.payment_method.novalnet_helper'
+      - '@router'
+      - '@novalnet.payment_method.novalnet_callback'
+    calls:
+      - ['setLogger', ['@logger']]
+    tags:
+      - { name: kernel.event_listener, event: oro_payment.callback.error, method: onError }
+      - { name: kernel.event_listener, event: oro_payment.callback.return, method: onReturn }
+      - { name: kernel.event_listener, event: oro_payment.callback.notify, method: onNotify }
+
+  novalnet.event_listener.callback.novalnet_response.ideal:
+    class: 'Novalnet\Bundle\NovalnetBundle\EventListener\NovalnetResponseListener'
+    arguments:
+      - '@novalnet.payment_method_provider.novalnet.ideal'
+      - '@oro_entity.doctrine_helper'
+      - '@doctrine'
+      - '@translator'
+      - '@session'
+      - '@novalnet.payment_method.novalnet_helper'
+      - '@router'
+      - '@novalnet.payment_method.novalnet_callback'
+    calls:
+      - ['setLogger', ['@logger']]
+    tags:
+      - { name: kernel.event_listener, event: oro_payment.callback.error, method: onError }
+      - { name: kernel.event_listener, event: oro_payment.callback.return, method: onReturn }
+      - { name: kernel.event_listener, event: oro_payment.callback.notify, method: onNotify }
+
+  novalnet.event_listener.callback.novalnet_response.giropay:
+    class: 'Novalnet\Bundle\NovalnetBundle\EventListener\NovalnetResponseListener'
+    arguments:
+      - '@novalnet.payment_method_provider.novalnet.giropay'
+      - '@oro_entity.doctrine_helper'
+      - '@doctrine'
+      - '@translator'
+      - '@session'
+      - '@novalnet.payment_method.novalnet_helper'
+      - '@router'
+      - '@novalnet.payment_method.novalnet_callback'
+    calls:
+      - ['setLogger', ['@logger']]
+    tags:
+      - { name: kernel.event_listener, event: oro_payment.callback.error, method: onError }
+      - { name: kernel.event_listener, event: oro_payment.callback.return, method: onReturn }
+      - { name: kernel.event_listener, event: oro_payment.callback.notify, method: onNotify }
+
+  novalnet.event_listener.callback.novalnet_response.eps:
+    class: 'Novalnet\Bundle\NovalnetBundle\EventListener\NovalnetResponseListener'
+    arguments:
+      - '@novalnet.payment_method_provider.novalnet.eps'
+      - '@oro_entity.doctrine_helper'
+      - '@doctrine'
+      - '@translator'
+      - '@session'
+      - '@novalnet.payment_method.novalnet_helper'
+      - '@router'
+      - '@novalnet.payment_method.novalnet_callback'
+    calls:
+      - ['setLogger', ['@logger']]
+    tags:
+      - { name: kernel.event_listener, event: oro_payment.callback.error, method: onError }
+      - { name: kernel.event_listener, event: oro_payment.callback.return, method: onReturn }
+      - { name: kernel.event_listener, event: oro_payment.callback.notify, method: onNotify }
+
+  novalnet.event_listener.callback.novalnet_response.przelewy:
+    class: 'Novalnet\Bundle\NovalnetBundle\EventListener\NovalnetResponseListener'
+    arguments:
+      - '@novalnet.payment_method_provider.novalnet.przelewy'
+      - '@oro_entity.doctrine_helper'
+      - '@doctrine'
+      - '@translator'
+      - '@session'
+      - '@novalnet.payment_method.novalnet_helper'
+      - '@router'
+      - '@novalnet.payment_method.novalnet_callback'
+    calls:
+      - ['setLogger', ['@logger']]
+    tags:
+      - { name: kernel.event_listener, event: oro_payment.callback.error, method: onError }
+      - { name: kernel.event_listener, event: oro_payment.callback.return, method: onReturn }
+      - { name: kernel.event_listener, event: oro_payment.callback.notify, method: onNotify }
+
+  novalnet.payment_method.novalnet_callback:
+    class: 'Novalnet\Bundle\NovalnetBundle\PaymentMethod\NovalnetCallback'
+    arguments:
+      - '@doctrine'
+      - '@oro_entity.doctrine_helper'
+      - '@translator'
+      - '@novalnet.payment_method.novalnet_helper'
+      - '@oro_config.global'
+      - '@oro_email.mailer.processor'
+      - '@request_stack'

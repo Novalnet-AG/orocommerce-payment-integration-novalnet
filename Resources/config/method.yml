@@ -1,0 +1,598 @@
+parameters:
+  novalnet.payment_method.novalnet: 'novalnet'
+  novalnet.payment_method.identifier_prefix.novalnet.credit_card: 'novalnet_credit_card'
+  novalnet.payment_method.identifier_prefix.novalnet.sepa: 'novalnet_sepa'
+  novalnet.payment_method.identifier_prefix.novalnet.invoice: 'novalnet_invoice'
+  novalnet.payment_method.identifier_prefix.novalnet.prepayment: 'novalnet_prepayment'
+  novalnet.payment_method.identifier_prefix.novalnet.cashpayment: 'novalnet_cashpayment'
+  novalnet.payment_method.identifier_prefix.novalnet.paypal: 'novalnet_paypal'
+  novalnet.payment_method.identifier_prefix.novalnet.banktransfer: 'novalnet_banktransfer'
+  novalnet.payment_method.identifier_prefix.novalnet.ideal: 'novalnet_ideal'
+  novalnet.payment_method.identifier_prefix.novalnet.giropay: 'novalnet_giropay'
+  novalnet.payment_method.identifier_prefix.novalnet.eps: 'novalnet_eps'
+  novalnet.payment_method.identifier_prefix.novalnet.przelewy: 'novalnet_przelewy'
+
+services:
+  novalnet.generator.identifier.novalnet.credit_card:
+    parent: oro_integration.generator.prefixed_identifier_generator
+    public: true
+    arguments:
+      - '%novalnet.payment_method.identifier_prefix.novalnet.credit_card%'
+
+  novalnet.generator.identifier.novalnet.sepa:
+    parent: oro_integration.generator.prefixed_identifier_generator
+    public: true
+    arguments:
+      - '%novalnet.payment_method.identifier_prefix.novalnet.sepa%'
+
+  novalnet.generator.identifier.novalnet.invoice:
+    parent: oro_integration.generator.prefixed_identifier_generator
+    public: true
+    arguments:
+      - '%novalnet.payment_method.identifier_prefix.novalnet.invoice%'
+
+  novalnet.generator.identifier.novalnet.prepayment:
+    parent: oro_integration.generator.prefixed_identifier_generator
+    public: true
+    arguments:
+      - '%novalnet.payment_method.identifier_prefix.novalnet.prepayment%'
+
+  novalnet.generator.identifier.novalnet.cashpayment:
+    parent: oro_integration.generator.prefixed_identifier_generator
+    public: true
+    arguments:
+      - '%novalnet.payment_method.identifier_prefix.novalnet.cashpayment%'
+
+  novalnet.generator.identifier.novalnet.paypal:
+    parent: oro_integration.generator.prefixed_identifier_generator
+    public: true
+    arguments:
+      - '%novalnet.payment_method.identifier_prefix.novalnet.paypal%'
+
+  novalnet.generator.identifier.novalnet.banktransfer:
+    parent: oro_integration.generator.prefixed_identifier_generator
+    public: true
+    arguments:
+      - '%novalnet.payment_method.identifier_prefix.novalnet.banktransfer%'
+
+  novalnet.generator.identifier.novalnet.ideal:
+    parent: oro_integration.generator.prefixed_identifier_generator
+    public: true
+    arguments:
+      - '%novalnet.payment_method.identifier_prefix.novalnet.ideal%'
+
+  novalnet.generator.identifier.novalnet.giropay:
+    parent: oro_integration.generator.prefixed_identifier_generator
+    public: true
+    arguments:
+      - '%novalnet.payment_method.identifier_prefix.novalnet.giropay%'
+
+  novalnet.generator.identifier.novalnet.eps:
+    parent: oro_integration.generator.prefixed_identifier_generator
+    public: true
+    arguments:
+      - '%novalnet.payment_method.identifier_prefix.novalnet.eps%'
+
+  novalnet.generator.identifier.novalnet.przelewy:
+    parent: oro_integration.generator.prefixed_identifier_generator
+    public: true
+    arguments:
+      - '%novalnet.payment_method.identifier_prefix.novalnet.przelewy%'
+
+  novalnet.payment_method.config.factory.novalnet.credit_card:
+    class: 'Novalnet\Bundle\NovalnetBundle\PaymentMethod\Config\Factory\NovalnetCreditCardConfigFactory'
+    public: false
+    arguments:
+      - '@oro_locale.helper.localization'
+      - '@novalnet.generator.identifier.novalnet.credit_card'
+
+  novalnet.payment_method.config.factory.novalnet.sepa:
+    class: 'Novalnet\Bundle\NovalnetBundle\PaymentMethod\Config\Factory\NovalnetSepaConfigFactory'
+    public: false
+    arguments:
+      - '@oro_locale.helper.localization'
+      - '@novalnet.generator.identifier.novalnet.sepa'
+
+  novalnet.payment_method.config.factory.novalnet.invoice:
+    class: 'Novalnet\Bundle\NovalnetBundle\PaymentMethod\Config\Factory\NovalnetInvoiceConfigFactory'
+    public: false
+    arguments:
+      - '@oro_locale.helper.localization'
+      - '@novalnet.generator.identifier.novalnet.invoice'
+
+  novalnet.payment_method.config.factory.novalnet.prepayment:
+    class: 'Novalnet\Bundle\NovalnetBundle\PaymentMethod\Config\Factory\NovalnetPrepaymentConfigFactory'
+    public: false
+    arguments:
+      - '@oro_locale.helper.localization'
+      - '@novalnet.generator.identifier.novalnet.prepayment'
+
+  novalnet.payment_method.config.factory.novalnet.cashpayment:
+    class: 'Novalnet\Bundle\NovalnetBundle\PaymentMethod\Config\Factory\NovalnetCashpaymentConfigFactory'
+    public: false
+    arguments:
+      - '@oro_locale.helper.localization'
+      - '@novalnet.generator.identifier.novalnet.cashpayment'
+
+  novalnet.payment_method.config.factory.novalnet.paypal:
+    class: 'Novalnet\Bundle\NovalnetBundle\PaymentMethod\Config\Factory\NovalnetPaypalConfigFactory'
+    public: false
+    arguments:
+      - '@oro_locale.helper.localization'
+      - '@novalnet.generator.identifier.novalnet.paypal'
+
+  novalnet.payment_method.config.factory.novalnet.banktransfer:
+    class: 'Novalnet\Bundle\NovalnetBundle\PaymentMethod\Config\Factory\NovalnetBanktransferConfigFactory'
+    public: false
+    arguments:
+      - '@oro_locale.helper.localization'
+      - '@novalnet.generator.identifier.novalnet.banktransfer'
+
+  novalnet.payment_method.config.factory.novalnet.ideal:
+    class: 'Novalnet\Bundle\NovalnetBundle\PaymentMethod\Config\Factory\NovalnetIdealConfigFactory'
+    public: false
+    arguments:
+      - '@oro_locale.helper.localization'
+      - '@novalnet.generator.identifier.novalnet.ideal'
+
+  novalnet.payment_method.config.factory.novalnet.giropay:
+    class: 'Novalnet\Bundle\NovalnetBundle\PaymentMethod\Config\Factory\NovalnetGiropayConfigFactory'
+    public: false
+    arguments:
+      - '@oro_locale.helper.localization'
+      - '@novalnet.generator.identifier.novalnet.giropay'
+
+  novalnet.payment_method.config.factory.novalnet.eps:
+    class: 'Novalnet\Bundle\NovalnetBundle\PaymentMethod\Config\Factory\NovalnetEpsConfigFactory'
+    public: false
+    arguments:
+      - '@oro_locale.helper.localization'
+      - '@novalnet.generator.identifier.novalnet.eps'
+
+  novalnet.payment_method.config.factory.novalnet.przelewy:
+    class: 'Novalnet\Bundle\NovalnetBundle\PaymentMethod\Config\Factory\NovalnetPrzelewyConfigFactory'
+    public: false
+    arguments:
+      - '@oro_locale.helper.localization'
+      - '@novalnet.generator.identifier.novalnet.przelewy'
+
+  novalnet.payment_method.config.provider.novalnet.credit_card:
+    class: 'Novalnet\Bundle\NovalnetBundle\PaymentMethod\Config\Provider\NovalnetCreditCardConfigProvider'
+    public: false
+    arguments:
+      - '@doctrine'
+      - '@logger'
+      - '@novalnet.payment_method.config.factory.novalnet.credit_card'
+      - '%novalnet.payment_method.novalnet%'
+
+  novalnet.payment_method.config.provider.novalnet.sepa:
+    class: 'Novalnet\Bundle\NovalnetBundle\PaymentMethod\Config\Provider\NovalnetSepaConfigProvider'
+    public: false
+    arguments:
+      - '@doctrine'
+      - '@logger'
+      - '@novalnet.payment_method.config.factory.novalnet.sepa'
+      - '%novalnet.payment_method.novalnet%'
+
+  novalnet.payment_method.config.provider.novalnet.invoice:
+    class: 'Novalnet\Bundle\NovalnetBundle\PaymentMethod\Config\Provider\NovalnetInvoiceConfigProvider'
+    public: false
+    arguments:
+      - '@doctrine'
+      - '@logger'
+      - '@novalnet.payment_method.config.factory.novalnet.invoice'
+      - '%novalnet.payment_method.novalnet%'
+
+  novalnet.payment_method.config.provider.novalnet.prepayment:
+    class: 'Novalnet\Bundle\NovalnetBundle\PaymentMethod\Config\Provider\NovalnetPrepaymentConfigProvider'
+    public: false
+    arguments:
+      - '@doctrine'
+      - '@logger'
+      - '@novalnet.payment_method.config.factory.novalnet.prepayment'
+      - '%novalnet.payment_method.novalnet%'
+
+  novalnet.payment_method.config.provider.novalnet.cashpayment:
+    class: 'Novalnet\Bundle\NovalnetBundle\PaymentMethod\Config\Provider\NovalnetCashpaymentConfigProvider'
+    public: false
+    arguments:
+      - '@doctrine'
+      - '@logger'
+      - '@novalnet.payment_method.config.factory.novalnet.cashpayment'
+      - '%novalnet.payment_method.novalnet%'
+
+  novalnet.payment_method.config.provider.novalnet.paypal:
+    class: 'Novalnet\Bundle\NovalnetBundle\PaymentMethod\Config\Provider\NovalnetPaypalConfigProvider'
+    public: false
+    arguments:
+      - '@doctrine'
+      - '@logger'
+      - '@novalnet.payment_method.config.factory.novalnet.paypal'
+      - '%novalnet.payment_method.novalnet%'
+
+  novalnet.payment_method.config.provider.novalnet.banktransfer:
+    class: 'Novalnet\Bundle\NovalnetBundle\PaymentMethod\Config\Provider\NovalnetBanktransferConfigProvider'
+    public: false
+    arguments:
+      - '@doctrine'
+      - '@logger'
+      - '@novalnet.payment_method.config.factory.novalnet.banktransfer'
+      - '%novalnet.payment_method.novalnet%'
+
+  novalnet.payment_method.config.provider.novalnet.ideal:
+    class: 'Novalnet\Bundle\NovalnetBundle\PaymentMethod\Config\Provider\NovalnetIdealConfigProvider'
+    public: false
+    arguments:
+      - '@doctrine'
+      - '@logger'
+      - '@novalnet.payment_method.config.factory.novalnet.ideal'
+      - '%novalnet.payment_method.novalnet%'
+
+  novalnet.payment_method.config.provider.novalnet.giropay:
+    class: 'Novalnet\Bundle\NovalnetBundle\PaymentMethod\Config\Provider\NovalnetGiropayConfigProvider'
+    public: false
+    arguments:
+      - '@doctrine'
+      - '@logger'
+      - '@novalnet.payment_method.config.factory.novalnet.giropay'
+      - '%novalnet.payment_method.novalnet%'
+
+  novalnet.payment_method.config.provider.novalnet.eps:
+    class: 'Novalnet\Bundle\NovalnetBundle\PaymentMethod\Config\Provider\NovalnetEpsConfigProvider'
+    public: false
+    arguments:
+      - '@doctrine'
+      - '@logger'
+      - '@novalnet.payment_method.config.factory.novalnet.eps'
+      - '%novalnet.payment_method.novalnet%'
+
+  novalnet.payment_method.config.provider.novalnet.przelewy:
+    class: 'Novalnet\Bundle\NovalnetBundle\PaymentMethod\Config\Provider\NovalnetPrzelewyConfigProvider'
+    public: false
+    arguments:
+      - '@doctrine'
+      - '@logger'
+      - '@novalnet.payment_method.config.factory.novalnet.przelewy'
+      - '%novalnet.payment_method.novalnet%'
+
+  novalnet.payment_method.factory.novalnet:
+    class: 'Novalnet\Bundle\NovalnetBundle\PaymentMethod\Factory\NovalnetPaymentMethodFactory'
+    public: false
+    abstract: true
+    arguments:
+      - '@router'
+      - '@oro_entity.doctrine_helper'
+      - '@novalnet.payment_method.novalnet_helper'
+      - '@request_stack'
+      - '@translator'
+      - '@oro_frontend_localization.manager.user_localization'
+      - '@novalnet.client.gateway'
+
+  novalnet.client.gateway:
+    class: 'Novalnet\Bundle\NovalnetBundle\Client\Gateway'
+    public: false
+    arguments:
+      - '@novalnet.client.http'
+
+  novalnet.client.http:
+    class: 'Guzzle\Http\Client'
+    public: false
+
+  novalnet.payment_method.novalnet_helper:
+    class: 'Novalnet\Bundle\NovalnetBundle\PaymentMethod\NovalnetHelper'
+    public: false
+
+  novalnet.payment_method.factory.novalnet.credit_card:
+    class: 'Novalnet\Bundle\NovalnetBundle\PaymentMethod\Factory\NovalnetCreditCardPaymentMethodFactory'
+    public: false
+    parent: novalnet.payment_method.factory.novalnet
+
+  novalnet.payment_method.factory.novalnet.sepa:
+    class: 'Novalnet\Bundle\NovalnetBundle\PaymentMethod\Factory\NovalnetSepaPaymentMethodFactory'
+    public: false
+    parent: novalnet.payment_method.factory.novalnet
+
+  novalnet.payment_method.factory.novalnet.invoice:
+    class: 'Novalnet\Bundle\NovalnetBundle\PaymentMethod\Factory\NovalnetInvoicePaymentMethodFactory'
+    public: false
+    parent: novalnet.payment_method.factory.novalnet
+
+  novalnet.payment_method.factory.novalnet.prepayment:
+    class: 'Novalnet\Bundle\NovalnetBundle\PaymentMethod\Factory\NovalnetPrepaymentPaymentMethodFactory'
+    public: false
+    parent: novalnet.payment_method.factory.novalnet
+
+  novalnet.payment_method.factory.novalnet.cashpayment:
+    class: 'Novalnet\Bundle\NovalnetBundle\PaymentMethod\Factory\NovalnetCashpaymentPaymentMethodFactory'
+    public: false
+    parent: novalnet.payment_method.factory.novalnet
+
+  novalnet.payment_method.factory.novalnet.paypal:
+    class: 'Novalnet\Bundle\NovalnetBundle\PaymentMethod\Factory\NovalnetPaypalPaymentMethodFactory'
+    public: false
+    parent: novalnet.payment_method.factory.novalnet
+
+  novalnet.payment_method.factory.novalnet.banktransfer:
+    class: 'Novalnet\Bundle\NovalnetBundle\PaymentMethod\Factory\NovalnetBanktransferPaymentMethodFactory'
+    public: false
+    parent: novalnet.payment_method.factory.novalnet
+
+  novalnet.payment_method.factory.novalnet.ideal:
+    class: 'Novalnet\Bundle\NovalnetBundle\PaymentMethod\Factory\NovalnetIdealPaymentMethodFactory'
+    public: false
+    parent: novalnet.payment_method.factory.novalnet
+
+  novalnet.payment_method.factory.novalnet.giropay:
+    class: 'Novalnet\Bundle\NovalnetBundle\PaymentMethod\Factory\NovalnetGiropayPaymentMethodFactory'
+    public: false
+    parent: novalnet.payment_method.factory.novalnet
+
+  novalnet.payment_method.factory.novalnet.eps:
+    class: 'Novalnet\Bundle\NovalnetBundle\PaymentMethod\Factory\NovalnetEpsPaymentMethodFactory'
+    public: false
+    parent: novalnet.payment_method.factory.novalnet
+
+  novalnet.payment_method.factory.novalnet.przelewy:
+    class: 'Novalnet\Bundle\NovalnetBundle\PaymentMethod\Factory\NovalnetPrzelewyPaymentMethodFactory'
+    public: false
+    parent: novalnet.payment_method.factory.novalnet
+
+  novalnet.payment_method.view.factory.novalnet:
+    class: 'Novalnet\Bundle\NovalnetBundle\PaymentMethod\View\Factory\NovalnetViewFactory'
+    arguments:
+      - '@form.factory'
+    public: false
+    abstract: true
+
+  novalnet.payment_method.view.factory.novalnet.credit_card:
+    class: 'Novalnet\Bundle\NovalnetBundle\PaymentMethod\View\Factory\NovalnetCreditCardViewFactory'
+    public: false
+    parent: novalnet.payment_method.view.factory.novalnet
+
+  novalnet.payment_method.view.factory.novalnet.sepa:
+    class: 'Novalnet\Bundle\NovalnetBundle\PaymentMethod\View\Factory\NovalnetSepaViewFactory'
+    public: false
+    parent: novalnet.payment_method.view.factory.novalnet
+
+  novalnet.payment_method.view.factory.novalnet.invoice:
+    class: 'Novalnet\Bundle\NovalnetBundle\PaymentMethod\View\Factory\NovalnetInvoiceViewFactory'
+    public: false
+    parent: novalnet.payment_method.view.factory.novalnet
+
+  novalnet.payment_method.view.factory.novalnet.prepayment:
+    class: 'Novalnet\Bundle\NovalnetBundle\PaymentMethod\View\Factory\NovalnetPrepaymentViewFactory'
+    public: false
+    parent: novalnet.payment_method.view.factory.novalnet
+
+  novalnet.payment_method.view.factory.novalnet.cashpayment:
+    class: 'Novalnet\Bundle\NovalnetBundle\PaymentMethod\View\Factory\NovalnetCashpaymentViewFactory'
+    public: false
+    parent: novalnet.payment_method.view.factory.novalnet
+
+  novalnet.payment_method.view.factory.novalnet.paypal:
+    class: 'Novalnet\Bundle\NovalnetBundle\PaymentMethod\View\Factory\NovalnetPaypalViewFactory'
+    public: false
+    parent: novalnet.payment_method.view.factory.novalnet
+
+  novalnet.payment_method.view.factory.novalnet.banktransfer:
+    class: 'Novalnet\Bundle\NovalnetBundle\PaymentMethod\View\Factory\NovalnetBanktransferViewFactory'
+    public: false
+    parent: novalnet.payment_method.view.factory.novalnet
+
+  novalnet.payment_method.view.factory.novalnet.ideal:
+    class: 'Novalnet\Bundle\NovalnetBundle\PaymentMethod\View\Factory\NovalnetIdealViewFactory'
+    public: false
+    parent: novalnet.payment_method.view.factory.novalnet
+
+  novalnet.payment_method.view.factory.novalnet.giropay:
+    class: 'Novalnet\Bundle\NovalnetBundle\PaymentMethod\View\Factory\NovalnetGiropayViewFactory'
+    public: false
+    parent: novalnet.payment_method.view.factory.novalnet
+
+  novalnet.payment_method.view.factory.novalnet.eps:
+    class: 'Novalnet\Bundle\NovalnetBundle\PaymentMethod\View\Factory\NovalnetEpsViewFactory'
+    public: false
+    parent: novalnet.payment_method.view.factory.novalnet
+
+  novalnet.payment_method.view.factory.novalnet.przelewy:
+    class: 'Novalnet\Bundle\NovalnetBundle\PaymentMethod\View\Factory\NovalnetPrzelewyViewFactory'
+    public: false
+    parent: novalnet.payment_method.view.factory.novalnet
+
+  novalnet.payment_method_provider.novalnet.credit_card:
+    class: Novalnet\Bundle\NovalnetBundle\PaymentMethod\Provider\NovalnetCreditCardMethodProvider
+    public: false
+    arguments:
+      - '@novalnet.payment_method.config.provider.novalnet.credit_card'
+      - '@novalnet.payment_method.factory.novalnet.credit_card'
+    tags:
+      - { name: oro_payment.payment_method_provider }
+
+  novalnet.payment_method_provider.novalnet.sepa:
+    class: Novalnet\Bundle\NovalnetBundle\PaymentMethod\Provider\NovalnetSepaMethodProvider
+    public: false
+    arguments:
+      - '@novalnet.payment_method.config.provider.novalnet.sepa'
+      - '@novalnet.payment_method.factory.novalnet.sepa'
+    tags:
+      - { name: oro_payment.payment_method_provider }
+
+  novalnet.payment_method_provider.novalnet.invoice:
+    class: Novalnet\Bundle\NovalnetBundle\PaymentMethod\Provider\NovalnetInvoiceMethodProvider
+    public: false
+    arguments:
+      - '@novalnet.payment_method.config.provider.novalnet.invoice'
+      - '@novalnet.payment_method.factory.novalnet.invoice'
+    tags:
+      - { name: oro_payment.payment_method_provider }
+
+  novalnet.payment_method_provider.novalnet.prepayment:
+    class: Novalnet\Bundle\NovalnetBundle\PaymentMethod\Provider\NovalnetPrepaymentMethodProvider
+    public: false
+    arguments:
+      - '@novalnet.payment_method.config.provider.novalnet.prepayment'
+      - '@novalnet.payment_method.factory.novalnet.prepayment'
+    tags:
+      - { name: oro_payment.payment_method_provider }
+
+  novalnet.payment_method_provider.novalnet.cashpayment:
+    class: Novalnet\Bundle\NovalnetBundle\PaymentMethod\Provider\NovalnetCashpaymentMethodProvider
+    public: false
+    arguments:
+      - '@novalnet.payment_method.config.provider.novalnet.cashpayment'
+      - '@novalnet.payment_method.factory.novalnet.cashpayment'
+    tags:
+      - { name: oro_payment.payment_method_provider }
+
+  novalnet.payment_method_provider.novalnet.paypal:
+    class: Novalnet\Bundle\NovalnetBundle\PaymentMethod\Provider\NovalnetPaypalMethodProvider
+    public: false
+    arguments:
+      - '@novalnet.payment_method.config.provider.novalnet.paypal'
+      - '@novalnet.payment_method.factory.novalnet.paypal'
+    tags:
+      - { name: oro_payment.payment_method_provider }
+
+  novalnet.payment_method_provider.novalnet.banktransfer:
+    class: Novalnet\Bundle\NovalnetBundle\PaymentMethod\Provider\NovalnetBanktransferMethodProvider
+    public: false
+    arguments:
+      - '@novalnet.payment_method.config.provider.novalnet.banktransfer'
+      - '@novalnet.payment_method.factory.novalnet.banktransfer'
+    tags:
+      - { name: oro_payment.payment_method_provider }
+
+  novalnet.payment_method_provider.novalnet.ideal:
+    class: Novalnet\Bundle\NovalnetBundle\PaymentMethod\Provider\NovalnetIdealMethodProvider
+    public: false
+    arguments:
+      - '@novalnet.payment_method.config.provider.novalnet.ideal'
+      - '@novalnet.payment_method.factory.novalnet.ideal'
+    tags:
+      - { name: oro_payment.payment_method_provider }
+
+  novalnet.payment_method_provider.novalnet.giropay:
+    class: Novalnet\Bundle\NovalnetBundle\PaymentMethod\Provider\NovalnetGiropayMethodProvider
+    public: false
+    arguments:
+      - '@novalnet.payment_method.config.provider.novalnet.giropay'
+      - '@novalnet.payment_method.factory.novalnet.giropay'
+    tags:
+      - { name: oro_payment.payment_method_provider }
+
+  novalnet.payment_method_provider.novalnet.eps:
+    class: Novalnet\Bundle\NovalnetBundle\PaymentMethod\Provider\NovalnetEpsMethodProvider
+    public: false
+    arguments:
+      - '@novalnet.payment_method.config.provider.novalnet.eps'
+      - '@novalnet.payment_method.factory.novalnet.eps'
+    tags:
+      - { name: oro_payment.payment_method_provider }
+
+  novalnet.payment_method_provider.novalnet.przelewy:
+    class: Novalnet\Bundle\NovalnetBundle\PaymentMethod\Provider\NovalnetPrzelewyMethodProvider
+    public: false
+    arguments:
+      - '@novalnet.payment_method.config.provider.novalnet.przelewy'
+      - '@novalnet.payment_method.factory.novalnet.przelewy'
+    tags:
+      - { name: oro_payment.payment_method_provider }
+
+  novalnet.payment_method.view.provider.novalnet.credit_card:
+    class: 'Novalnet\Bundle\NovalnetBundle\PaymentMethod\View\Provider\NovalnetCreditCardViewProvider'
+    public: false
+    arguments:
+      - '@novalnet.payment_method.view.factory.novalnet.credit_card'
+      - '@novalnet.payment_method.config.provider.novalnet.credit_card'
+    tags:
+      - { name: oro_payment.payment_method_view_provider }
+
+  novalnet.payment_method.view.provider.novalnet.sepa:
+    class: 'Novalnet\Bundle\NovalnetBundle\PaymentMethod\View\Provider\NovalnetSepaViewProvider'
+    public: false
+    arguments:
+      - '@novalnet.payment_method.view.factory.novalnet.sepa'
+      - '@novalnet.payment_method.config.provider.novalnet.sepa'
+    tags:
+      - { name: oro_payment.payment_method_view_provider }
+
+  novalnet.payment_method.view.provider.novalnet.invoice:
+    class: 'Novalnet\Bundle\NovalnetBundle\PaymentMethod\View\Provider\NovalnetInvoiceViewProvider'
+    public: false
+    arguments:
+      - '@novalnet.payment_method.view.factory.novalnet.invoice'
+      - '@novalnet.payment_method.config.provider.novalnet.invoice'
+    tags:
+      - { name: oro_payment.payment_method_view_provider }
+
+  novalnet.payment_method.view.provider.novalnet.prepayment:
+    class: 'Novalnet\Bundle\NovalnetBundle\PaymentMethod\View\Provider\NovalnetPrepaymentViewProvider'
+    public: false
+    arguments:
+      - '@novalnet.payment_method.view.factory.novalnet.prepayment'
+      - '@novalnet.payment_method.config.provider.novalnet.prepayment'
+    tags:
+      - { name: oro_payment.payment_method_view_provider }
+
+  novalnet.payment_method.view.provider.novalnet.cashpayment:
+    class: 'Novalnet\Bundle\NovalnetBundle\PaymentMethod\View\Provider\NovalnetCashpaymentViewProvider'
+    public: false
+    arguments:
+      - '@novalnet.payment_method.view.factory.novalnet.cashpayment'
+      - '@novalnet.payment_method.config.provider.novalnet.cashpayment'
+    tags:
+      - { name: oro_payment.payment_method_view_provider }
+
+  novalnet.payment_method.view.provider.novalnet.paypal:
+    class: 'Novalnet\Bundle\NovalnetBundle\PaymentMethod\View\Provider\NovalnetPaypalViewProvider'
+    public: false
+    arguments:
+      - '@novalnet.payment_method.view.factory.novalnet.paypal'
+      - '@novalnet.payment_method.config.provider.novalnet.paypal'
+    tags:
+      - { name: oro_payment.payment_method_view_provider }
+
+  novalnet.payment_method.view.provider.novalnet.banktransfer:
+    class: 'Novalnet\Bundle\NovalnetBundle\PaymentMethod\View\Provider\NovalnetBanktransferViewProvider'
+    public: false
+    arguments:
+      - '@novalnet.payment_method.view.factory.novalnet.banktransfer'
+      - '@novalnet.payment_method.config.provider.novalnet.banktransfer'
+    tags:
+      - { name: oro_payment.payment_method_view_provider }
+
+  novalnet.payment_method.view.provider.novalnet.ideal:
+    class: 'Novalnet\Bundle\NovalnetBundle\PaymentMethod\View\Provider\NovalnetIdealViewProvider'
+    public: false
+    arguments:
+      - '@novalnet.payment_method.view.factory.novalnet.ideal'
+      - '@novalnet.payment_method.config.provider.novalnet.ideal'
+    tags:
+      - { name: oro_payment.payment_method_view_provider }
+
+  novalnet.payment_method.view.provider.novalnet.giropay:
+    class: 'Novalnet\Bundle\NovalnetBundle\PaymentMethod\View\Provider\NovalnetGiropayViewProvider'
+    public: false
+    arguments:
+      - '@novalnet.payment_method.view.factory.novalnet.giropay'
+      - '@novalnet.payment_method.config.provider.novalnet.giropay'
+    tags:
+      - { name: oro_payment.payment_method_view_provider }
+
+  novalnet.payment_method.view.provider.novalnet.eps:
+    class: 'Novalnet\Bundle\NovalnetBundle\PaymentMethod\View\Provider\NovalnetEpsViewProvider'
+    public: false
+    arguments:
+      - '@novalnet.payment_method.view.factory.novalnet.eps'
+      - '@novalnet.payment_method.config.provider.novalnet.eps'
+    tags:
+      - { name: oro_payment.payment_method_view_provider }
+
+  novalnet.payment_method.view.provider.novalnet.przelewy:
+    class: 'Novalnet\Bundle\NovalnetBundle\PaymentMethod\View\Provider\NovalnetPrzelewyViewProvider'
+    public: false
+    arguments:
+      - '@novalnet.payment_method.view.factory.novalnet.przelewy'
+      - '@novalnet.payment_method.config.provider.novalnet.przelewy'
+    tags:
+      - { name: oro_payment.payment_method_view_provider }
