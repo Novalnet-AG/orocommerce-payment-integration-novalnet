@@ -1,0 +1,20 @@
+{
+  "name": "novalnet/commerce-novalnet",
+  "description": "OroCommerce Novalnet Payment Integration",
+  "homepage": "https://github.com/Novalnet-AG/orocommerce-payment-integration-novalnet",
+  "license": "OSL-3.0",
+  "authors": [
+    {
+      "name": "Novalnet AG",
+      "homepage": "http://www.novalnet.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Novalnet\\Bundle\\NovalnetBundle\\": ""
+    }
+  },
+  "require": {
+    "oro/commerce": "4.1.*"
+  }
+}

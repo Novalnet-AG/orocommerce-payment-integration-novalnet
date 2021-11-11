@@ -1,0 +1,484 @@
+{% block novalnet_settings_widget %}
+    {% import 'OroUIBundle::macros.html.twig' as UI %}
+    <fieldset class="form-horizontal">
+        <h5 class="user-fieldset">
+            <span>{{ 'novalnet.settings.form.groups.global_configuration.title'|trans }}</span>
+        </h5>
+        <div class="control-group control-group-choice">
+            <div class="control-label wrap">
+                {{ UI.tooltip('novalnet.settings.vendor_id.tooltip', {}, 'right') }}
+                {{ form_label(form.vendorId) }}
+            </div>
+            <div class="controls">
+                {{ form_widget(form.vendorId) }}
+            </div>
+        </div>
+        <div class="control-group control-group-choice">
+            <div class="control-label wrap">
+                {{ UI.tooltip('novalnet.settings.authcode.tooltip', {}, 'right') }}
+                {{ form_label(form.authcode) }}
+            </div>
+            <div class="controls">
+                {{ form_widget(form.authcode) }}
+            </div>
+        </div>
+        <div class="control-group control-group-choice">
+            <div class="control-label wrap">
+                {{ UI.tooltip('novalnet.settings.product.tooltip', {}, 'right') }}
+                {{ form_label(form.product) }}
+            </div>
+            <div class="controls">
+                {{ form_widget(form.product) }}
+            </div>
+        </div>
+        <div class="control-group control-group-choice">
+            <div class="control-label wrap">
+                {{ UI.tooltip('novalnet.settings.tariff.tooltip', {}, 'right') }}
+                {{ form_label(form.tariff) }}
+            </div>
+            <div class="controls">
+                {{ form_widget(form.tariff) }}
+            </div>
+        </div>
+        <div class="control-group control-group-choice">
+            <div class="control-label wrap">
+                {{ UI.tooltip('novalnet.settings.payment_access_key.tooltip', {}, 'right') }}
+                {{ form_label(form.paymentAccessKey) }}
+            </div>
+            <div class="controls">
+                {{ form_widget(form.paymentAccessKey) }}
+            </div>
+        </div>
+        <div class="control-group control-group-choice">
+            <div class="control-label wrap">
+                {{ UI.tooltip('novalnet.settings.gateway_timeout.tooltip', {}, 'right') }}
+                {{ form_label(form.gatewayTimeout) }}
+            </div>
+            <div class="controls">
+                {{ form_widget(form.gatewayTimeout) }}
+            </div>
+        </div>
+        <div class="control-group control-group-choice">
+            <div class="control-label wrap">
+                {{ UI.tooltip('novalnet.settings.referrer_id.tooltip', {}, 'right') }}
+                {{ form_label(form.referrerId) }}
+            </div>
+            <div class="controls">
+                {{ form_widget(form.referrerId) }}
+            </div>
+        </div>
+        <div class="control-group control-group-choice">
+            <div class="control-label wrap">
+                {{ UI.tooltip('novalnet.settings.test_mode.tooltip', {}, 'right') }}
+                {{ form_label(form.testMode) }}
+            </div>
+            <div class="controls">
+                {{ form_widget(form.testMode) }}
+            </div>
+        </div>
+        <div class="control-group control-group-choice">
+            <div class="control-label wrap">
+                {{ UI.tooltip('novalnet.settings.onhold_amount.tooltip', {}, 'right') }}
+                {{ form_label(form.onholdAmount) }}
+            </div>
+            <div class="controls">
+                {{ form_widget(form.onholdAmount) }}
+            </div>
+        </div>
+    </fieldset>
+    <fieldset class="form-horizontal">
+        <h5 class="user-fieldset">
+            <span>{{ 'novalnet.settings.form.groups.cc.title'|trans }}</span>
+        </h5>
+        <div class="control-group control-group-choice">
+            <div class="control-label wrap">
+                {{ UI.tooltip('novalnet.settings.credit_card_label.tooltip', {}, 'right') }}
+                {{ form_label(form.creditCardLabels) }}
+            </div>
+            <div class="controls">
+                {{ form_widget(form.creditCardLabels) }}
+            </div>
+        </div>
+        <div class="control-group control-group-choice">
+            <div class="control-label wrap">
+                {{ UI.tooltip('novalnet.settings.credit_card_short_label.tooltip', {}, 'right') }}
+                {{ form_label(form.creditCardShortLabels) }}
+            </div>
+            <div class="controls">
+                {{ form_widget(form.creditCardShortLabels) }}
+            </div>
+        </div>
+        <div class="control-group control-group-choice">
+            <div class="control-label wrap">
+                {{ UI.tooltip('novalnet.settings.cc_3d.tooltip', {}, 'right') }}
+                {{ form_label(form.cc3d) }}
+            </div>
+            <div class="controls">
+                {{ form_widget(form.cc3d) }}
+            </div>
+        </div>
+    </fieldset>
+    <fieldset class="form-horizontal">
+        <h5 class="user-fieldset">
+            <span>{{ 'novalnet.settings.form.groups.sepa.title'|trans }}</span>
+        </h5>
+        <div class="control-group control-group-choice">
+            <div class="control-label wrap">
+                {{ UI.tooltip('novalnet.settings.sepa_label.tooltip', {}, 'right') }}
+                {{ form_label(form.sepaLabels) }}
+            </div>
+            <div class="controls">
+                {{ form_widget(form.sepaLabels) }}
+            </div>
+        </div>
+        <div class="control-group control-group-choice">
+            <div class="control-label wrap">
+                {{ UI.tooltip('novalnet.settings.sepa_short_label.tooltip', {}, 'right') }}
+                {{ form_label(form.sepaShortLabels) }}
+            </div>
+            <div class="controls">
+                {{ form_widget(form.sepaShortLabels) }}
+            </div>
+        </div>
+        <div class="control-group control-group-choice">
+            <div class="control-label wrap">
+                {{ UI.tooltip('novalnet.settings.sepa_duedate.tooltip', {}, 'right') }}
+                {{ form_label(form.sepaDuedate) }}
+            </div>
+            <div class="controls">
+                {{ form_widget(form.sepaDuedate) }}
+            </div>
+        </div>
+        <div class="control-group control-group-choice">
+            <div class="control-label wrap">
+                {{ UI.tooltip('novalnet.settings.sepa_payment_guarantee.tooltip', {}, 'right') }}
+                {{ form_label(form.sepaPaymentGuarantee) }}
+            </div>
+            <div class="controls">
+                {{ form_widget(form.sepaPaymentGuarantee) }}
+            </div>
+        </div>
+        <div class="control-group control-group-choice">
+            <div class="control-label wrap">
+                {{ UI.tooltip('novalnet.settings.sepa_guarantee_min_amount.tooltip', {}, 'right') }}
+                {{ form_label(form.sepaGuaranteeMinAmount) }}
+            </div>
+            <div class="controls">
+                {{ form_widget(form.sepaGuaranteeMinAmount) }}
+            </div>
+        </div>
+        <div class="control-group control-group-choice">
+            <div class="control-label wrap">
+                {{ UI.tooltip('novalnet.settings.sepa_force_non_guarantee.tooltip', {}, 'right') }}
+                {{ form_label(form.sepaForceNonGuarantee) }}
+            </div>
+            <div class="controls">
+                {{ form_widget(form.sepaForceNonGuarantee) }}
+            </div>
+        </div>
+    </fieldset>
+    <fieldset class="form-horizontal">
+        <h5 class="user-fieldset">
+            <span>{{ 'novalnet.settings.form.groups.invoice.title'|trans }}</span>
+        </h5>
+        <div class="control-group control-group-choice">
+            <div class="control-label wrap">
+                {{ UI.tooltip('novalnet.settings.invoice_label.tooltip', {}, 'right') }}
+                {{ form_label(form.invoiceLabels) }}
+            </div>
+            <div class="controls">
+                {{ form_widget(form.invoiceLabels) }}
+            </div>
+        </div>
+        <div class="control-group control-group-choice">
+            <div class="control-label wrap">
+                {{ UI.tooltip('novalnet.settings.invoice_short_label.tooltip', {}, 'right') }}
+                {{ form_label(form.invoiceShortLabels) }}
+            </div>
+            <div class="controls">
+                {{ form_widget(form.invoiceShortLabels) }}
+            </div>
+        </div>
+        <div class="control-group control-group-choice">
+            <div class="control-label wrap">
+                {{ UI.tooltip('novalnet.settings.invoice_duedate.tooltip', {}, 'right') }}
+                {{ form_label(form.invoiceDuedate) }}
+            </div>
+            <div class="controls">
+                {{ form_widget(form.invoiceDuedate) }}
+            </div>
+        </div>
+        <div class="control-group control-group-choice">
+            <div class="control-label wrap">
+                {{ UI.tooltip('novalnet.settings.invoice_payment_guarantee.tooltip', {}, 'right') }}
+                {{ form_label(form.invoicePaymentGuarantee) }}
+            </div>
+            <div class="controls">
+                {{ form_widget(form.invoicePaymentGuarantee) }}
+            </div>
+        </div>
+        <div class="control-group control-group-choice">
+            <div class="control-label wrap">
+                {{ UI.tooltip('novalnet.settings.invoice_guarantee_min_amount.tooltip', {}, 'right') }}
+                {{ form_label(form.invoiceGuaranteeMinAmount) }}
+            </div>
+            <div class="controls">
+                {{ form_widget(form.invoiceGuaranteeMinAmount) }}
+            </div>
+        </div>
+        <div class="control-group control-group-choice">
+            <div class="control-label wrap">
+                {{ UI.tooltip('novalnet.settings.invoice_force_non_guarantee.tooltip', {}, 'right') }}
+                {{ form_label(form.invoiceForceNonGuarantee) }}
+            </div>
+            <div class="controls">
+                {{ form_widget(form.invoiceForceNonGuarantee) }}
+            </div>
+        </div>
+    </fieldset>
+    <fieldset class="form-horizontal">
+        <h5 class="user-fieldset">
+            <span>{{ 'novalnet.settings.form.groups.prepayment.title'|trans }}</span>
+        </h5>
+        <div class="control-group control-group-choice">
+            <div class="control-label wrap">
+                {{ UI.tooltip('novalnet.settings.prepayment_label.tooltip', {}, 'right') }}
+                {{ form_label(form.prepaymentLabels) }}
+            </div>
+            <div class="controls">
+                {{ form_widget(form.prepaymentLabels) }}
+            </div>
+        </div>
+        <div class="control-group control-group-choice">
+            <div class="control-label wrap">
+                {{ UI.tooltip('novalnet.settings.prepayment_short_label.tooltip', {}, 'right') }}
+                {{ form_label(form.prepaymentShortLabels) }}
+            </div>
+            <div class="controls">
+                {{ form_widget(form.prepaymentShortLabels) }}
+            </div>
+        </div>
+    </fieldset>
+    <fieldset class="form-horizontal">
+        <h5 class="user-fieldset">
+            <span>{{ 'novalnet.settings.form.groups.cashpayment.title'|trans }}</span>
+        </h5>
+        <div class="control-group control-group-choice">
+            <div class="control-label wrap">
+                {{ UI.tooltip('novalnet.settings.cashpayment_label.tooltip', {}, 'right') }}
+                {{ form_label(form.cashpaymentLabels) }}
+            </div>
+            <div class="controls">
+                {{ form_widget(form.cashpaymentLabels) }}
+            </div>
+        </div>
+        <div class="control-group control-group-choice">
+            <div class="control-label wrap">
+                {{ UI.tooltip('novalnet.settings.cashpayment_short_label.tooltip', {}, 'right') }}
+                {{ form_label(form.cashpaymentShortLabels) }}
+            </div>
+            <div class="controls">
+                {{ form_widget(form.cashpaymentShortLabels) }}
+            </div>
+        </div>
+        <div class="control-group control-group-choice">
+            <div class="control-label wrap">
+                {{ UI.tooltip('novalnet.settings.cashpayment_duedate.tooltip', {}, 'right') }}
+                {{ form_label(form.cashpaymentDuedate) }}
+            </div>
+            <div class="controls">
+                {{ form_widget(form.cashpaymentDuedate) }}
+            </div>
+        </div>
+    </fieldset>
+    <fieldset class="form-horizontal">
+        <h5 class="user-fieldset">
+            <span>{{ 'novalnet.settings.form.groups.paypal.title'|trans }}</span>
+        </h5>
+        <div class="control-group control-group-choice">
+            <div class="control-label wrap">
+                {{ UI.tooltip('novalnet.settings.paypal_label.tooltip', {}, 'right') }}
+                {{ form_label(form.paypalLabels) }}
+            </div>
+            <div class="controls">
+                {{ form_widget(form.paypalLabels) }}
+            </div>
+        </div>
+        <div class="control-group control-group-choice">
+            <div class="control-label wrap">
+                {{ UI.tooltip('novalnet.settings.paypal_short_label.tooltip', {}, 'right') }}
+                {{ form_label(form.paypalShortLabels) }}
+            </div>
+            <div class="controls">
+                {{ form_widget(form.paypalShortLabels) }}
+            </div>
+        </div>
+    </fieldset>
+    <fieldset class="form-horizontal">
+        <h5 class="user-fieldset">
+            <span>{{ 'novalnet.settings.form.groups.banktransfer.title'|trans }}</span>
+        </h5>
+        <div class="control-group control-group-choice">
+            <div class="control-label wrap">
+                {{ UI.tooltip('novalnet.settings.banktransfer_label.tooltip', {}, 'right') }}
+                {{ form_label(form.banktransferLabels) }}
+            </div>
+            <div class="controls">
+                {{ form_widget(form.banktransferLabels) }}
+            </div>
+        </div>
+        <div class="control-group control-group-choice">
+            <div class="control-label wrap">
+                {{ UI.tooltip('novalnet.settings.banktransfer_short_label.tooltip', {}, 'right') }}
+                {{ form_label(form.banktransferShortLabels) }}
+            </div>
+            <div class="controls">
+                {{ form_widget(form.banktransferShortLabels) }}
+            </div>
+        </div>
+    </fieldset>
+    <fieldset class="form-horizontal">
+        <h5 class="user-fieldset">
+            <span>{{ 'novalnet.settings.form.groups.ideal.title'|trans }}</span>
+        </h5>
+        <div class="control-group control-group-choice">
+            <div class="control-label wrap">
+                {{ UI.tooltip('novalnet.settings.ideal_label.tooltip', {}, 'right') }}
+                {{ form_label(form.idealLabels) }}
+            </div>
+            <div class="controls">
+                {{ form_widget(form.idealLabels) }}
+            </div>
+        </div>
+        <div class="control-group control-group-choice">
+            <div class="control-label wrap">
+                {{ UI.tooltip('novalnet.settings.ideal_short_label.tooltip', {}, 'right') }}
+                {{ form_label(form.idealShortLabels) }}
+            </div>
+            <div class="controls">
+                {{ form_widget(form.idealShortLabels) }}
+            </div>
+        </div>
+    </fieldset>
+    <fieldset class="form-horizontal">
+        <h5 class="user-fieldset">
+            <span>{{ 'novalnet.settings.form.groups.giropay.title'|trans }}</span>
+        </h5>
+        <div class="control-group control-group-choice">
+            <div class="control-label wrap">
+                {{ UI.tooltip('novalnet.settings.giropay_label.tooltip', {}, 'right') }}
+                {{ form_label(form.giropayLabels) }}
+            </div>
+            <div class="controls">
+                {{ form_widget(form.giropayLabels) }}
+            </div>
+        </div>
+        <div class="control-group control-group-choice">
+            <div class="control-label wrap">
+                {{ UI.tooltip('novalnet.settings.giropay_short_label.tooltip', {}, 'right') }}
+                {{ form_label(form.giropayShortLabels) }}
+            </div>
+            <div class="controls">
+                {{ form_widget(form.giropayShortLabels) }}
+            </div>
+        </div>
+    </fieldset>
+    <fieldset class="form-horizontal">
+        <h5 class="user-fieldset">
+            <span>{{ 'novalnet.settings.form.groups.eps.title'|trans }}</span>
+        </h5>
+        <div class="control-group control-group-choice">
+            <div class="control-label wrap">
+                {{ UI.tooltip('novalnet.settings.eps_label.tooltip', {}, 'right') }}
+                {{ form_label(form.epsLabels) }}
+            </div>
+            <div class="controls">
+                {{ form_widget(form.epsLabels) }}
+            </div>
+        </div>
+        <div class="control-group control-group-choice">
+            <div class="control-label wrap">
+                {{ UI.tooltip('novalnet.settings.eps_short_label.tooltip', {}, 'right') }}
+                {{ form_label(form.epsShortLabels) }}
+            </div>
+            <div class="controls">
+                {{ form_widget(form.epsShortLabels) }}
+            </div>
+        </div>
+    </fieldset>
+    <fieldset class="form-horizontal">
+        <h5 class="user-fieldset">
+            <span>{{ 'novalnet.settings.form.groups.przelewy.title'|trans }}</span>
+        </h5>
+        <div class="control-group control-group-choice">
+            <div class="control-label wrap">
+                {{ UI.tooltip('novalnet.settings.przelewy_label.tooltip', {}, 'right') }}
+                {{ form_label(form.przelewyLabels) }}
+            </div>
+            <div class="controls">
+                {{ form_widget(form.przelewyLabels) }}
+            </div>
+        </div>
+        <div class="control-group control-group-choice">
+            <div class="control-label wrap">
+                {{ UI.tooltip('novalnet.settings.przelewy_short_label.tooltip', {}, 'right') }}
+                {{ form_label(form.przelewyShortLabels) }}
+            </div>
+            <div class="controls">
+                {{ form_widget(form.przelewyShortLabels) }}
+            </div>
+        </div>
+    </fieldset>
+    <fieldset class="form-horizontal">
+        <h5 class="user-fieldset">
+            <span>{{ 'novalnet.settings.form.groups.merchant_script_management.title'|trans }}</span>
+        </h5>
+        <div class="control-group control-group-choice">
+            <div class="control-label wrap">
+                {{ UI.tooltip('novalnet.settings.callback_testmode.tooltip', {}, 'right') }}
+                {{ form_label(form.callbackTestmode) }}
+            </div>
+            <div class="controls">
+                {{ form_widget(form.callbackTestmode) }}
+            </div>
+            {{ form_widget(form.callbackTestmode) }}
+        </div>
+        <div class="control-group control-group-choice">
+            <div class="control-label wrap">
+                {{ UI.tooltip('novalnet.settings.email_notification.tooltip', {}, 'right') }}
+                {{ form_label(form.emailNotification) }}
+            </div>
+            <div class="controls">
+                {{ form_widget(form.emailNotification) }}
+            </div>
+            {{ form_widget(form.emailNotification) }}
+        </div>
+        <div class="control-group control-group-choice">
+            <div class="control-label wrap">
+                {{ UI.tooltip('novalnet.settings.email_to.tooltip', {}, 'right') }}
+                {{ form_label(form.emailTo) }}
+            </div>
+            <div class="controls">
+                {{ form_widget(form.emailTo) }}
+            </div>
+            {{ form_widget(form.emailTo) }}
+        </div>
+        <div class="control-group control-group-choice">
+            <div class="control-label wrap">
+                {{ UI.tooltip('novalnet.settings.email_bcc.tooltip', {}, 'right') }}
+                {{ form_label(form.emailBcc) }}
+            </div>
+            <div class="controls">
+                {{ form_widget(form.emailBcc) }}
+            </div>
+            {{ form_widget(form.emailBcc) }}
+        </div>
+    </fieldset>
+    <fieldset class="form-horizontal">
+        <h5 class="user-fieldset">
+            <span>{{ 'novalnet.settings.form.groups.other.title'|trans }}</span>
+        </h5>
+        {{ form_rest(form) }}
+    </fieldset>
+{% endblock %}
+

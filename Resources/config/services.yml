@@ -1,0 +1,12 @@
+services:
+  novalnet.integration.channel:
+    class: Novalnet\Bundle\NovalnetBundle\Integration\NovalnetChannelType
+    public: true
+    tags:
+      - { name: oro_integration.channel, type: novalnet }
+
+  novalnet.integration.transport:
+    class: Novalnet\Bundle\NovalnetBundle\Integration\NovalnetTransport
+    public: false
+    tags:
+      - { name: oro_integration.transport, type: novalnet, channel_type: novalnet }

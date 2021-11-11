@@ -1,0 +1,2 @@
+bundles:
+  - NovalnetBundle:Form:fields.html.twig

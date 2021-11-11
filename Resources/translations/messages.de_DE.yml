@@ -1,0 +1,291 @@
+novalnet:
+  settings:
+    label: 'Novalnet Haupteinstellungen'
+    credit_card_label:
+      label: 'Bezeichnung'
+      tooltip: |
+        Diese Bezeichnung wird auf Checkout-Bildschirmen benutzt
+    credit_card_short_label:
+      label: 'Kurzbezeichnung'
+      tooltip: |
+        Diese Bezeichnung wird in Bestellgeschichte verwendet
+    sepa_label:
+      label: 'Bezeichnung'
+      tooltip: |
+        Diese Bezeichnung wird auf Checkout-Bildschirmen benutzt
+    sepa_short_label:
+      label: 'Kurzbezeichnung'
+      tooltip: |
+        Diese Bezeichnung wird in Bestellgeschichte verwendet
+    invoice_label:
+      label: 'Bezeichnung'
+      tooltip: |
+        Diese Bezeichnung wird auf Checkout-Bildschirmen benutzt
+    invoice_short_label:
+      label: 'Kurzbezeichnung'
+      tooltip: |
+        Diese Bezeichnung wird in Bestellgeschichte verwendet
+    prepayment_label:
+      label: 'Bezeichnung'
+      tooltip: |
+        Diese Bezeichnung wird auf Checkout-Bildschirmen benutzt
+    prepayment_short_label:
+      label: 'Kurzbezeichnung'
+      tooltip: |
+        Diese Bezeichnung wird in Bestellgeschichte verwendet
+    cashpayment_label:
+      label: 'Bezeichnung'
+      tooltip: |
+        Diese Bezeichnung wird auf Checkout-Bildschirmen benutzt
+    cashpayment_short_label:
+      label: 'Kurzbezeichnung'
+      tooltip: |
+        Diese Bezeichnung wird in Bestellgeschichte verwendet
+    paypal_label:
+      label: 'Bezeichnung'
+      tooltip: |
+        Diese Bezeichnung wird auf Checkout-Bildschirmen benutzt
+    paypal_short_label:
+      label: 'Kurzbezeichnung'
+      tooltip: |
+        Diese Bezeichnung wird in Bestellgeschichte verwendet
+    banktransfer_label:
+      label: 'Bezeichnung'
+      tooltip: |
+        Diese Bezeichnung wird auf Checkout-Bildschirmen benutzt
+    banktransfer_short_label:
+      label: 'Kurzbezeichnung'
+      tooltip: |
+        Diese Bezeichnung wird in Bestellgeschichte verwendet
+    ideal_label:
+      label: 'Bezeichnung'
+      tooltip: |
+        Diese Bezeichnung wird auf Checkout-Bildschirmen benutzt
+    ideal_short_label:
+      label: 'Kurzbezeichnung'
+      tooltip: |
+        Diese Bezeichnung wird in Bestellgeschichte verwendet
+    giropay_label:
+      label: 'Bezeichnung'
+      tooltip: |
+        Diese Bezeichnung wird auf Checkout-Bildschirmen benutzt
+    giropay_short_label:
+      label: 'Kurzbezeichnung'
+      tooltip: |
+        Diese Bezeichnung wird in Bestellgeschichte verwendet
+    eps_label:
+      label: 'Bezeichnung'
+      tooltip: |
+        Diese Bezeichnung wird auf Checkout-Bildschirmen benutzt
+    eps_short_label:
+      label: 'Kurzbezeichnung'
+      tooltip: |
+        Diese Bezeichnung wird in Bestellgeschichte verwendet
+    przelewy_label:
+      label: 'Bezeichnung'
+      tooltip: |
+        Diese Bezeichnung wird auf Checkout-Bildschirmen benutzt
+    przelewy_short_label:
+      label: 'Kurzbezeichnung'
+      tooltip: |
+        Diese Bezeichnung wird in Bestellgeschichte verwendet
+    vendor_id:
+      label: 'Händler-ID'
+      tooltip: |
+        Geben Sie Ihre Novalnet-Händler-ID ein.
+    authcode:
+      label: 'Authentifizierungscode'
+      tooltip: |
+        Geben Sie Ihren Novalnet-Authentifizierungscode ein.
+    product:
+      label: 'Projekt-ID'
+      tooltip: |
+        Geben Sie Ihre Novalnet-Projekt-ID ein
+    tariff:
+      label: 'Tarif-ID'
+      tooltip: |
+        Wählen Sie eine Tarif-ID, die dem bevorzugten Tarifplan entspricht, den Sie im Novalnet-Händleradminportal für dieses Projekt erstellt haben. In der Installationsbeschreibung des Novalnet-Payment-Plugins finden Sie hierzu weitere Hinweise.
+    payment_access_key:
+      label: 'Zahlungs-Zugriffsschlüssel'
+      tooltip: |
+        Geben Sie den Novalnet-Zahlungs-Zugriffsschlüssel ein
+    invoice_payment_guarantee:
+      label: 'Zahlungsgarantie aktivieren'
+      tooltip: |
+        Voraussetzungen für die Zahlungsgarantie<br>
+        Zugelassene Länder: AT, DE, CH<br>
+        Zugelassene Währung: EUR<br>
+        Mindestbetrag der Bestellung: 9,99 EUR<br>
+        Mindestalter: 18 Jahre<br>
+        Rechnungsadresse und Lieferadresse müssen übereinstimmen<br>
+        Geschenkgutscheine / Coupons sind nicht erlaubt
+    invoice_guarantee_min_amount:
+      label: 'Mindestbestellbetrag für Zahlungsgarantie'
+      tooltip: |
+        Geben Sie den Mindestbetrag (in Cent) für die zu bearbeitende Transaktion mit Zahlungsgarantie ein. Geben Sie z.B. 100 ein, was 1,00 entspricht. Der Standbetrag ist 9,99 EUR.
+    invoice_force_non_guarantee:
+      label: 'Zahlung ohne Zahlungsgarantie erzwingen'
+      tooltip: |
+        Falls die Zahlungsgarantie zwar aktiviert ist, jedoch die Voraussetzungen für Zahlungsgarantie nicht erfüllt sind, wird die Zahlung ohne Zahlungsgarantie verarbeitet. Die Voraussetzungen finden Sie in der Installationsanleitung unter "Zahlungsgarantie aktivieren". 
+    sepa_payment_guarantee:
+      label: 'Zahlungsgarantie aktivieren'
+      tooltip: |
+        Voraussetzungen für die Zahlungsgarantie<br>
+        Zugelassene Länder: AT, DE, CH<br>
+        Zugelassene Währung: EUR<br>
+        Mindestbetrag der Bestellung: 9,99 EUR<br>
+        Mindestalter: 18 Jahre<br>
+        Rechnungsadresse und Lieferadresse müssen übereinstimmen<br>
+        Geschenkgutscheine / Coupons sind nicht erlaubt
+    sepa_guarantee_min_amount:
+      label: 'Mindestbestellbetrag für Zahlungsgarantie'
+      tooltip: |
+        Geben Sie den Mindestbetrag (in Cent) für die zu bearbeitende Transaktion mit Zahlungsgarantie ein. Geben Sie z.B. 100 ein, was 1,00 entspricht. Der Standbetrag ist 9,99 EUR.
+    sepa_force_non_guarantee:
+      label: 'Zahlung ohne Zahlungsgarantie erzwingen'
+      tooltip: |
+        Falls die Zahlungsgarantie zwar aktiviert ist, jedoch die Voraussetzungen für Zahlungsgarantie nicht erfüllt sind, wird die Zahlung ohne Zahlungsgarantie verarbeitet. Die Voraussetzungen finden Sie in der Installationsanleitung unter "Zahlungsgarantie aktivieren". 
+    referrer_id:
+      label: 'Partner-ID'
+      tooltip: |
+        Partner-ID der Person/Firma, die Ihnen Novalnet empfohlen hat.
+    test_mode:
+      label: 'Testmodus aktivieren'
+      tooltip: |
+        Aktivieren Sie diese Option, um das Bezahlen auf Ihrer Checkout-Seite zu testen. Im Testmodus werden Zahlungen nicht von Novalnet ausgeführt. Vergessen Sie nicht, den Testmodus nach dem Testen wieder zu deaktivieren, um sicherzustellen, dass die echten Bestellungen ordnungsgemäß abgerechnet werden.
+    gateway_timeout:
+      label: 'Zeitlimit der Schnittstelle (in Sekunden)'
+      tooltip: |
+        Legen Sie das Zeitlimit für eine Bestätigung der Transaktion durch das Novalnet-System fest. Wenn Ihr Server keine rechtzeitige Antwort erhält, wird die Bestellung nicht freigegeben. Das empfohlene Zeitlimit beträgt 240 Sekunden.
+    invoice_duedate:
+      label: 'Fälligkeit der Rechnung (in Tagen)'
+      tooltip: |
+        Geben Sie die Anzahl der Tage ein, binnen derer die Zahlung bei Novalnet eingehen soll (muss größer als 7 Tage sein). Falls dieses Feld leer ist, werden 14 Tage als Standard-Zahlungsfrist gesetzt
+    sepa_duedate:
+      label: 'Fälligkeit der Rechnung (in Tagen)'
+      tooltip: |
+        Geben Sie die Anzahl der Tage ein, nach denen der Zahlungsbetrag eingezogen werden soll (muss zwischen 2 und 14 Tagen liegen).
+    onhold_amount:
+      label: 'Mindesttransaktionsbetrag für die Autorisierung'
+      tooltip: |
+        Übersteigt der Bestellbetrag das genannte Limit, wird die Zahlung erst dann ausgeführt, wenn Sie die Transaktion bestätigen. Wenn Sie das Feld leer lassen, werden automatisch alle Transaktionen sofort abgerechnet.
+    cashpayment_duedate:
+      label: 'Ablauffrist des Zahlscheins (in Tagen)'
+      tooltip: |
+        Geben Sie die Anzahl der Tage ein, binnen derer der Betrag in einer Barzahlen-Partnerfiliale bezahlt werden muss. Wenn das Feld leer ist, werden standardmäßig 14 Tage als Fälligkeitsdatum gesetzt, danach verfällt der Zahlschein.
+    cc_3d:
+      label: '3D-Secure aktivieren'
+      tooltip: |
+        3D-Secure ist eine zusätzliche Authentifizierungsstufe für Kreditkartenzahlungen. Der Kunde muss auf der Webseite seiner Bank ein Passwort eingeben. Dies reduziert das Risiko von Rückbelastungen. In der Installationsbeschreibung des Novalnet-Payment-Plugins finden Sie hierzu weitere Hinweise.
+    callback_testmode:
+      label: 'Händlerskript-Prozess manuell testen zulassen'
+      tooltip: |
+        Aktivieren Sie diese Option, um das Novalnet-Händlerskript manuell zu testen. Deaktivieren Sie diese Option, bevor Sie Ihren Shop in den LIVE-Modus schalten, um unberechtigte Aufrufe von extern (außer von Novalnet) zu vermeiden. In der Installationsbeschreibung des Novalnet-Payment-Plugins finden Sie hierzu weitere Hinweise.
+    email_notification:
+      label: 'E-Mail-Benachrichtigungen einschalten'
+      tooltip: |
+        Aktivieren Sie diese Option, um eine Benachrichtigung an die angegebene E-Mail-Adresse zu senden, sobald das Händlerskript erfolgreich ausgeführt wurde. In der Installationsbeschreibung des Novalnet-Payment-Plugins finden Sie hierzu weitere Hinweise.
+    email_to:
+      label: 'E-Mails senden an'
+      tooltip: |
+        An diese E-Mail-Adresse werden die Bestätigungen über die erfolgreiche Ausführung des Händlerskripts gesendet.
+    email_bcc:
+      label: 'E-Mails in Blindkopie (BCC) senden an'
+      tooltip: |
+        Wenn Sie die Händlerskript-Bestätigungen in Blindkopie (BCC) an weitere Adressen senden möchten, geben Sie diese hier ein.  
+    transport.label: 'Novalnet Gateway'
+    form:
+      groups:
+        global_configuration.title: 'Allgemeine Novalnet-Einstellungen'
+        cc.title: 'Kreditkarte'
+        sepa.title: 'Lastschrift SEPA'
+        invoice.title: 'Kauf auf Rechnung'
+        prepayment.title: 'Vorauskasse'
+        cashpayment.title: 'Barzahlen'
+        paypal.title: 'PayPal'
+        banktransfer.title: 'Sofortüberweisung'
+        ideal.title: 'iDEAL'
+        giropay.title: 'giropay'
+        eps.title: 'eps'
+        przelewy.title: 'Przelewy24'
+        merchant_script_management.title: 'Verwaltung des Händlerskripts'
+        other.title: 'Other'
+  channel_type:
+    label: 'Novalnet Gateway'
+  menu:
+    novalnet.label: 'Novalnet Gateway'
+
+  payment_method_message: 'Nach der erfolgreichen Überprüfung werden Sie auf die abgesicherte Novalnet-Bestellseite umgeleitet, um die Zahlung fortzusetzen.Bitte schließen Sie den Browser nach der erfolgreichen Zahlung nicht, bis Sie zum Shop zurückgeleitet wurden.'
+  payment_method_message.credit_card: 'Der Betrag wird von Ihrer Kreditkarte abgebucht, sobald die Bestellung abgeschickt wird.'
+  payment_method_message.sepa: 'Ihr Konto wird nach Abschicken der Bestellung belastet.'
+  payment_method_message.invoice: 'Zahlen Sie sicher und bequem nach Erhalt der Ware.'
+  payment_method_message.prepayment: 'Bezahlen Sie im Voraus auf das Bankkonto, sobald die Bestellung bestätigt ist.'
+  payment_method_message.cashpayment: 'Mit Abschluss der Bestellung bekommen Sie einen Zahlschein angezeigt, den Sie sich ausdrucken oder auf Ihr Handy schicken lassen können. Bezahlen Sie den Online-Einkauf mit Hilfe des Zahlscheins an der Kasse einer Barzahlen-Partnerfiliale.'
+  payment_method_message.paypal: 'Sie werden auf die abgesicherte PayPal Seite weitergeleitet, um die Zahlung abzuschließen.'
+  payment_method_message.banktransfer: 'Bezahlen Sie einfach, schnell und sicher per Sofortüberweisung.'
+  payment_method_message.ideal: 'Bezahlen Sie einfach, schnell und sicher per Online-Überweisung.'
+  payment_method_message.giropay: 'Bezahlen Sie einfach, schnell und sicher per Online-Überweisung (PIN & TAN erforderlich).'
+  payment_method_message.eps: 'Bezahlen Sie einfach, schnell und sicher per Online-Überweisung.'
+  payment_method_message.przelewy: 'Bezahlen Sie einfach, schnell und sicher per Online-Überweisung.'
+  payment_method_testmode_message: 'Die Zahlung wird im Testmodus durchgeführt, daher wird der Betrag für diese Transaktion nicht eingezogen.'
+  payment_comment: 'Novalnet-Transaktionsdetails'
+  transaction_id: 'Novalnet-Transaktions-ID: %s'
+  test_order: 'Testbestellung'
+  guarantee_payment: 'Diese Transaktion wird mit Zahlungsgarantie verarbeitet'
+  invoice_comment: 'Bitte überweisen Sie den Betrag auf das unten stehende Konto.'
+  invoice_duedate: 'Fälligkeitsdatum: %s'
+  invoice_account_holder: 'Kontoinhaber: %s'
+  amount: 'Betrag: %s'
+  invoice_ref_comment: 'Bitte verwenden Sie einen der unten angegebenen Verwendungszwecke für die Überweisung. Nur so kann Ihr Geldeingang Ihrer Bestellung zugeordnet werden:'
+  payment_ref: 'Verwendungszweck %s:'
+  slip_expiry_date: 'Verfallsdatum des Zahlscheins: %s'
+  cashpayment_store: 'Barzahlen-Partnerfiliale in Ihrer Nähe'
+  invoice_guarantee_comment: 'Ihre Bestellung ist in Bearbeitung. Sobald diese bestätigt wurde, erhalten Sie alle notwendigen Zahlungsinformationen, um den Betrag zu überweisen. Dies kann bis zu 24 Stunden dauern.'
+  sepa_guarantee_comment: 'Ihre Bestellung wird derzeit überprüft. Wir werden Sie in Kürze über den Bestellstatus informieren. Bitte beachten Sie, dass dies bis zu 24 Stunden dauern kann.'
+  payment_name_creditcard: 'Kreditkarte'
+  payment_name_eps: 'eps'
+  payment_name_ideal: 'iDEAL'
+  payment_name_online_transfer: 'Instant Bank Transfer'
+  payment_name_giropay: 'giropay'
+  payment_name_cashpayment: 'Barzahlen'
+  payment_name_direct_debit_sepa: 'Lastschrift SEPA'
+  payment_name_guaranteed_direct_debit_sepa: 'Lastschrift SEPA'
+  payment_name_guaranteed_invoice: 'Kauf auf Rechnung'
+  payment_name_przelewy24: 'Przelewy24'
+  payment_name_paypal: 'PayPal'
+  payment_name_prepayment: 'Vorauskasse'
+  payment_name_invoice: 'Kauf auf Rechnung'
+  hash_check_failed: 'Während der Umleitung wurden einige Daten geändert. Die Überprüfung des Hashes schlug fehl'
+  guarantee_error_msg: 'Die Zahlung kann nicht verarbeitet werden, da die grundlegenden Anforderungen für die Zahlungsgarantie nicht erfüllt wurden'
+  guarantee_error_msg_amount: 'Der Mindestbestellwert beträgt %s EUR'
+  guarantee_error_msg_currency: 'Als Währung ist nur EUR erlaubt'
+  guarantee_error_msg_address: 'Die Lieferadresse muss mit der Rechnungsadresse übereinstimmen'
+  guarantee_error_msg_country: 'Als Land ist nur Deutschland, Österreich oder Schweiz erlaubt'
+  guarantee_error_msg_company: 'Das Feld Organisation ist erforderlich'
+  home_page_url_creditcard: 'https://www.novalnet.de/zahlungsart-kreditkarte'
+  home_page_url_prepayment: 'https://www.novalnet.de/vorkasse-internet-payment'
+  home_page_url_online_instant_transfer: 'https://www.novalnet.de/online-ueberweisung-sofortueberweisung'
+  home_page_url_eps: 'https://www.novalnet.de/eps-online-ueberweisung'
+  home_page_url_giropay: 'https://www.novalnet.de/giropay'
+  home_page_url_przelewy24: 'https://www.novalnet.de/przelewy24'
+  home_page_url_sepa: 'https://www.novalnet.de/sepa-lastschrift'
+  home_page_url_invoice: 'https://www.novalnet.de/kauf-auf-rechnung-online-payment'
+  home_page_url_ideal: 'https://www.novalnet.de/ideal-online-ueberweisung'
+  home_page_url_cashpayment: 'https://www.novalnet.de/barzahlen'
+  home_page_url_paypal: 'https://www.novalnet.de/mit-paypal-weltweit-sicher-verkaufen'
+
+  payment:
+    admin:
+      novalnet.label: 'Novalnet Payment'
+
+novalnet_callback:
+  error.message: 'Novalnet-Callback-Meldung %s erhalten'
+  paid.message: 'Novalnet-Callback-Skript erfolgreich ausgeführt für die TID: %s mit dem Betrag %s am , um %s Uhr. Bitte suchen Sie nach der bezahlten Transaktion in unserer Novalnet-Händleradministration mit der TID: %s.'
+  bookback.message: 'Novalnet-Callback-Meldung erhalten: Rückerstattung / Bookback erfolgreich ausgeführt für die TID: %s: Betrag: %s am %s. TID der Folgebuchung: %s'
+  chargeback.message: 'Rückbuchung erfolgreich ausgeführt für TID: %s Betrag: %s am %s um %s Uhr. TID der Folgebuchung: %s.'
+  executed.message: 'Novalnet-Callback-Skript erfolgreich ausgeführt für die TID: %s mit dem Betrag %s am , um %s Uhr'
+  przelewy24_cancel.message: 'Die Transaktion wurde storniert. Grund: %s'
+  pending_to_onhold.message: 'Der Status der Transaktion mit der TID %s wurde am %s um %s ausstehende Zahlung auf on hold geändert'
+  trans_confirm.message: 'Die Transaktion wurde am %s um %s Uhr bestätigt.'
+  trans_cancelled.message: 'Die Transaktion wurde am %s um %s Uhr storniert.'
+  payment_not_success.message: 'Die Zahlung war nicht erfolgreich. Ein Fehler trat auf.'
