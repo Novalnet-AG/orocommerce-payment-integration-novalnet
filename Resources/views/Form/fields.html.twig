@@ -1,0 +1,178 @@
+{% block oro_novalnet_payment_settings_widget %}
+    {% import 'OroUIBundle::macros.html.twig' as UI %}
+    <fieldset class="form-horizontal">
+        <div class="control-group control-group-choice">
+            <div class="control-label wrap">
+                {{ UI.tooltip('oro.novalnet_payment.settings.labels.tooltip', {}, 'right') }}
+                {{ form_label(form.labels) }}
+            </div>
+            <div class="controls">
+                {{ form_widget(form.labels) }}
+            </div>
+        </div>
+        <div class="control-group control-group-choice">
+            <div class="control-label wrap">
+                {{ UI.tooltip('oro.novalnet_payment.settings.short_labels.tooltip', {}, 'right') }}
+                {{ form_label(form.shortLabels) }}
+            </div>
+            <div class="controls">
+                {{ form_widget(form.shortLabels) }}
+            </div>
+        </div>
+    </fieldset>
+    <fieldset class="form-horizontal">
+        <h5 class="user-fieldset">
+            <span>{{ 'oro.novalnet_payment.settings.form.groups.global_configuration.title'|trans }}</span>
+        </h5>
+        {{ form_row(form.vendorId) }}
+        {{ form_row(form.authcode) }}
+        {{ form_row(form.product) }}
+        {{ form_row(form.tariff) }}
+        {{ form_row(form.paymentAccessKey) }}
+        <div class="control-group control-group-choice">
+            <div class="control-label wrap">
+                {{ UI.tooltip('oro.novalnet_payment.settings.gateway_timeout.tooltip', {}, 'right') }}
+                {{ form_label(form.gatewayTimeout) }}
+            </div>
+            <div class="controls">
+                {{ form_widget(form.gatewayTimeout) }}
+            </div>
+        </div>
+         <div class="control-group control-group-choice">
+            <div class="control-label wrap">
+                {{ UI.tooltip('oro.novalnet_payment.settings.referrer_id.tooltip', {}, 'right') }}
+                {{ form_label(form.referrerId) }}
+            </div>
+            <div class="controls">
+                {{ form_widget(form.referrerId) }}
+            </div>
+        </div>
+        <div class="control-group control-group-choice">
+            <div class="control-label wrap">
+                {{ UI.tooltip('oro.novalnet_payment.settings.test_mode.tooltip', {}, 'right') }}
+                {{ form_label(form.testMode) }}
+            </div>
+            <div class="controls">
+                {{ form_widget(form.testMode) }}
+            </div>
+        </div>
+        <div class="control-group control-group-choice">
+            <div class="control-label wrap">
+                {{ UI.tooltip('oro.novalnet_payment.settings.onhold_amount.tooltip', {}, 'right') }}
+                {{ form_label(form.onholdAmount) }}
+            </div>
+            <div class="controls">
+                {{ form_widget(form.onholdAmount) }}
+            </div>
+        </div>
+    </fieldset>
+    <fieldset class="form-horizontal">
+        <h5 class="user-fieldset">
+            <span>{{ 'oro.novalnet_payment.settings.form.groups.cc.title'|trans }}</span>
+        </h5>
+        <div class="control-group control-group-choice">
+            <div class="control-label wrap">
+                {{ UI.tooltip('oro.novalnet_payment.settings.cc_3d.tooltip', {}, 'right') }}
+                {{ form_label(form.cc3d) }}
+            </div>
+            <div class="controls">
+                {{ form_widget(form.cc3d) }}
+            </div>
+        </div>
+    </fieldset>
+    <fieldset class="form-horizontal">
+        <h5 class="user-fieldset">
+            <span>{{ 'oro.novalnet_payment.settings.form.groups.sepa.title'|trans }}</span>
+        </h5>
+        <div class="control-group control-group-choice">
+            <div class="control-label wrap">
+                {{ UI.tooltip('oro.novalnet_payment.settings.sepa_duedate.tooltip', {}, 'right') }}
+                {{ form_label(form.sepaDuedate) }}
+            </div>
+            <div class="controls">
+                {{ form_widget(form.sepaDuedate) }}
+            </div>
+        </div>
+    </fieldset>
+    <fieldset class="form-horizontal">
+        <h5 class="user-fieldset">
+            <span>{{ 'oro.novalnet_payment.settings.form.groups.invoice.title'|trans }}</span>
+        </h5>
+        <div class="control-group control-group-choice">
+            <div class="control-label wrap">
+                {{ UI.tooltip('oro.novalnet_payment.settings.invoice_duedate.tooltip', {}, 'right') }}
+                {{ form_label(form.invoiceDuedate) }}
+            </div>
+            <div class="controls">
+                {{ form_widget(form.invoiceDuedate) }}
+            </div>
+        </div>
+    </fieldset>
+    <fieldset class="form-horizontal">
+        <h5 class="user-fieldset">
+            <span>{{ 'oro.novalnet_payment.settings.form.groups.cashpayment.title'|trans }}</span>
+        </h5>
+        <div class="control-group control-group-choice">
+            <div class="control-label wrap">
+                {{ UI.tooltip('oro.novalnet_payment.settings.cashpayment_duedate.tooltip', {}, 'right') }}
+                {{ form_label(form.cashpaymentDuedate) }}
+            </div>
+            <div class="controls">
+                {{ form_widget(form.cashpaymentDuedate) }}
+            </div>
+        </div>
+    </fieldset>
+
+        <fieldset class="form-horizontal">
+        <h5 class="user-fieldset">
+            <span>{{ 'oro.novalnet_payment.settings.form.groups.merchant_script_management.title'|trans }}</span>
+        </h5>
+        <div class="control-group control-group-choice">
+            <div class="control-label wrap">
+                {{ UI.tooltip('oro.novalnet_payment.settings.callback_testmode.tooltip', {}, 'right') }}
+                {{ form_label(form.callbackTestmode) }}
+            </div>
+            <div class="controls">
+                {{ form_widget(form.callbackTestmode) }}
+            </div>
+            {{ form_widget(form.callbackTestmode) }}
+        </div>
+        {{ form_row(form.emailNotification) }}
+        <div class="control-group control-group-choice">
+            <div class="control-label wrap">
+                {{ UI.tooltip('oro.novalnet_payment.settings.email_to.tooltip', {}, 'right') }}
+                {{ form_label(form.emailTo) }}
+            </div>
+            <div class="controls">
+                {{ form_widget(form.emailTo) }}
+            </div>
+            {{ form_widget(form.emailTo) }}
+        </div>
+        <div class="control-group control-group-choice">
+            <div class="control-label wrap">
+                {{ UI.tooltip('oro.novalnet_payment.settings.email_bcc.tooltip', {}, 'right') }}
+                {{ form_label(form.emailBcc) }}
+            </div>
+            <div class="controls">
+                {{ form_widget(form.emailBcc) }}
+            </div>
+            {{ form_widget(form.emailBcc) }}
+        </div>
+        <div class="control-group control-group-choice">
+            <div class="control-label wrap">
+                {{ UI.tooltip('oro.novalnet_payment.settings.notify_url.tooltip', {}, 'right') }}
+                {{ form_label(form.notifyUrl) }}
+            </div>
+            <div class="controls">
+                {{ form_widget(form.notifyUrl) }}
+            </div>
+            {{ form_widget(form.notifyUrl) }}
+        </div>
+    </fieldset>
+    <fieldset class="form-horizontal">
+        <h5 class="user-fieldset">
+            <span>{{ 'oro.novalnet_payment.settings.form.groups.other.title'|trans }}</span>
+        </h5>
+        {{ form_rest(form) }}
+    </fieldset>
+{% endblock %}

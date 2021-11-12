@@ -1,0 +1,128 @@
+oro:
+    novalnet_payment:
+        settings:
+            label: 'Novalnet Global Configuration'
+            vendor_id.label: 'Merchant ID'
+            authcode.label: 'Authentication Code'
+            product.label: 'Project ID'
+            tariff.label: 'Tariff ID'
+            payment_access_key.label: 'Payment access key'
+            referrer_id:
+                label: 'Referrer ID'
+                tooltip: |
+                   Enter the referrer ID of the person/company who recommended you Novalnet
+            test_mode:
+                label: 'Enable test mode'
+                tooltip: |
+                   The payment will be processed in the test mode therefore amount for this transaction will not be charged
+            gateway_timeout:
+                label: 'Gateway timeout (in seconds)'
+                tooltip: |
+                   In case the order processing time exceeds the gateway timeout, the order will not be placed.
+            invoice_duedate:
+                label: 'Payment due date (in days)'
+                tooltip: |
+                    Enter the number of days to transfer the payment amount to Novalnet (must be greater than 7 days). In case if the field is empty, 14 days will be set as due date by default.
+            sepa_duedate:
+                label: 'SEPA payment duration (in days)'
+                tooltip: |
+                    Enter the number of days after which the payment should be processed (must be between 2 and 14 days).
+            onhold_amount:
+                label: 'Set a limit for on-hold transaction (in minimum unit of currency. E.g. enter 100 which is equal to 1.00)'
+                tooltip: |
+                    In case the order amount exceeds mentioned limit, the transaction will be set on hold till your confirmation of transaction.
+            cashpayment_duedate:
+                label: 'Slip expiry date (in days)'
+                tooltip: |
+                    Enter the number of days to pay the amount at store near you. If the field is empty, 14 days will be set as default.
+            cc_3d:
+                label: 'Enable 3D secure'
+                tooltip: |
+                    The 3D-Secure will be activated for credit cards. The issuing bank prompts the buyer for a password what, in turn, help to prevent a fraudulent payment. It can be used by the issuing bank as evidence that the buyer is indeed their card holder. This is intended to help decrease a risk of charge-back.
+            email_notification.label: 'Enable E-mail notification for callback'
+            callback_testmode:
+                label: 'Deactivate IP address control (for test purpose only)'
+                tooltip: |
+                    This option will allow performing a manual execution. Please disable this option before setting your shop to LIVE mode, to avoid unauthorized calls from external parties (excl. Novalnet).
+            email_notification.label: 'Enable E-mail notification for callback'
+            email_to:
+              label: 'E-mail address (To)'
+              tooltip: |
+                    E-Mail address of the recipient
+            email_bcc:
+              label: 'E-mail address (Bcc)'
+              tooltip: |
+                    E-Mail address of the recipient for BCC
+            notify_url:
+               label: 'Notification URL'
+               tooltip: |
+                    The notification URL is used to keep your database/system actual and synchronizes with the Novalnet transaction status
+            labels:
+               label: 'Label'
+               tooltip: |
+                    This label is used on the checkout screens            
+            short_labels:
+               label: 'Short Label'
+               tooltip: |
+                    This label is used in order history
+            transport.label: 'Novalnet Payment'
+            form:
+                groups:
+                    global_configuration.title: 'Novalnet Global Configuration'
+                    invoice.title: 'Invoice'
+                    sepa.title: 'Direct Debit SEPA'
+                    cashpayment.title: 'Barzahlen'
+                    cc.title: 'Credit Card'
+                    merchant_script_management.title: 'Merchant Script Management'
+                    other.title: 'Other'
+        channel_type:
+            label: 'Novalnet Payment'            
+        menu:
+            novalnet_payment.label: 'Novalnet Payment'
+            
+        payment_method_message: 'After the successful verification, you will be redirected to Novalnet secure order page to proceed with the payment.Please don’t close the browser after successful payment, until you have been redirected back to the Shop'    
+        payment_method_testmode_message: 'The payment will be processed in the test mode therefore amount for this transaction will not be charged'
+        payment_comment: 'Novalnet transaction details'
+        transaction_id: 'Novalnet transaction ID %s'
+        test_order: 'Test Order'
+        guarantee_payment: 'This is processed as a guarantee payment'
+        invoice_comment: 'Please transfer the amount to the below mentioned account details of our payment processor Novalnet'
+        invoice_duedate: 'Due date: %s'
+        invoice_account_holder: 'Account holder: %s'        
+        amount: 'Amount: %s'        
+        invoice_ref_comment: 'Please use the following payment reference for your money transfer, as only through this way your payment is matched and assigned to the order:'   
+        payment_ref: 'Payment Reference %s:'     
+        slip_expiry_date: 'Slip expiry date %s:'     
+        cashpayment_store: 'Store(s) near you'     
+        invoice_guarantee_comment: 'Your order is under verification and once confirmed, we will send you our bank details to where the order amount should be transferred. Please note that this may take upto 24 hours'     
+        sepa_guarantee_comment: 'Your order is under verification and we will soon update you with the order status. Please note that this may take upto 24 hours'     
+        payment_name_creditcard: 'Credit Card'   
+        payment_name_eps: 'eps'     
+        payment_name_ideal: 'iDEAL'     
+        payment_name_online_transfer: 'Instant Bank Transfer'     
+        payment_name_giropay: 'giropay'     
+        payment_name_cashpayment: 'Barzahlen'     
+        payment_name_direct_debit_sepa: 'Direct Debit SEPA'     
+        payment_name_guaranteed_direct_debit_sepa: 'Direct Debit SEPA'     
+        payment_name_guaranteed_invoice: 'Invoice'             
+        payment_name_przelewy24: 'Przelewy24'     
+        payment_name_paypal: 'PayPal'    
+        payment_name_prepayment: 'Prepayment'     
+        payment_name_invoice: 'Invoice'     
+        hash_check_failed: 'While redirecting some data has been changed. The hash check failed.'     
+    payment:
+        admin:
+            novalnet_payment.label: 'Novalnet Payment'
+    
+    novalnet_callback:
+        error.message: 'Novalnet %s callback'
+        paid.message: 'Novalnet Callback Script executed successfully for the TID: %s with amount %s on %s & %s. Please refer PAID transaction in our Novalnet Merchant Administration with the TID: %s.'
+        bookback.message: 'Novalnet callback received. Refund/Bookback executed successfully for the TID: %s amount: %s on %s. The subsequent TID: %s'
+        chargeback.message: 'Novalnet callback received. Chargeback executed successfully for the TID: %s amount: %s on %s. The subsequent TID: %s'
+        executed.message: 'Novalnet Callback Script executed successfully for the TID: %s with amount %s on %s & %s'
+        payment_not_success.message: 'Payment was not successful. An error occurred.'
+        przelewy24_cancel.message: 'The transaction has been canceled due to: %s'
+        pending_to_onhold.message: 'Novalnet callback received. The transaction status has been changed from pending to on hold for the TID: %s on %s & %s.'
+        trans_confirm.message: 'The transaction has been confirmed on %s'
+        trans_cancelled.message: 'Novalnet callback received. The transaction has been canceled on %s'
+        communication_failure.message: 'Novalnet Callback Script executed successfully'

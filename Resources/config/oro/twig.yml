@@ -1,0 +1,2 @@
+bundles:
+    - OroNovalnetPaymentBundle:Form:fields.html.twig

@@ -1,0 +1,128 @@
+oro:
+    novalnet_payment:
+        settings:
+            label: 'Novalnet Haupteinstellungen'
+            vendor_id.label: 'Händler-ID'
+            authcode.label: 'Authentifizierungscode'
+            product.label: 'Projekt-ID'
+            tariff.label: 'Tarif-ID'
+            payment_access_key.label: 'Zahlungs-Zugriffsschlüssel'
+            referrer_id:
+                label: 'Partner-ID'
+                tooltip: |
+                   Geben Sie die Partner-ID der Person / des Unternehmens ein, welche / welches Ihnen Novalnet empfohlen hat
+            test_mode:
+                label: 'Testmodus aktivieren'
+                tooltip: |
+                   Die Zahlung wird im Testmodus durchgeführt, daher wird der Betrag für diese Transaktion nicht eingezogen.
+            gateway_timeout:
+                label: 'Zeitlimit der Schnittstelle (in Sekunden)'
+                tooltip: |
+                   Falls die Verarbeitungszeit der Bestellung das Zeitlimit der Schnittstelle überschreitet, wird die Bestellung nicht ausgeführt.
+            invoice_duedate:
+                label: 'Fälligkeitsdatum (in Tagen)'
+                tooltip: |
+                    Geben Sie die Anzahl der Tage ein, binnen derer die Zahlung bei Novalnet eingehen soll (muss größer als 7 Tage sein). Falls dieses Feld leer ist, werden 14 Tage als Standard-Zahlungsfrist gesetzt.
+            sepa_duedate:
+                label: 'Abstand (in Tagen) bis zum SEPA-Einzugsdatum'
+                tooltip: |
+                    Geben Sie die Anzahl der Tage ein, nach denen die Zahlung vorgenommen werden soll (muss zwischen 2 und 14 Tagen liegen).
+            onhold_amount:
+                label: 'Limit für onhold-Buchungen setzen (in der kleinsten Währungseinheit, z.B. 100 Cent = entsprechen 1.00 EUR)'
+                tooltip: |
+                    Falls der Bestellbetrag das angegebene Limit übersteigt, wird die Transaktion ausgesetzt, bis Sie diese selbst bestätigen.
+            cashpayment_duedate:
+                label: 'Verfallsdatum des Zahlscheins (in Tagen)'
+                tooltip: |
+                    Geben Sie die Anzahl der Tage ein, um den Betrag in einer Barzahlen-Partnerfiliale in Ihrer Nähe zu bezahlen. Wenn das Feld leer ist, werden standardmäßig 14 Tage als Fälligkeitsdatum gesetzt.
+            cc_3d:
+                label: '3D-Secure aktivieren'
+                tooltip: |
+                    3D-Secure wird für Kreditkarten aktiviert. Die kartenausgebende Bank fragt vom Käufer ein Passwort ab, welches helfen soll, betrügerische Zahlungen zu verhindern. Dies kann von der kartenausgebenden Bank als Beweis verwendet werden, dass der Käufer tatsächlich der Inhaber der Kreditkarte ist. Damit soll das Risiko von Chargebacks verringert werden
+            callback_testmode:
+                label: 'Deaktivieren Sie die IP-Adresskontrolle (nur zu Testzwecken)'
+                tooltip: |
+                    Diese Option ermöglicht eine manuelle Ausführung. Bitte deaktivieren Sie diese Option, bevor Sie Ihren Shop in den LIVE-Modus schalten, um nicht autorisierte Zugriffe von externen Parteien (außer von Novalnet) zu vermeiden.
+            email_notification.label: 'Email-Benachrichtigung für Callback aktivieren'
+            email_to:
+              label: 'Emailadresse (An)'
+              tooltip: |
+                    Emailadresse des Empfängers
+            email_bcc:
+              label: 'Emailadresse (Bcc)'
+              tooltip: |
+                    Emailadresse des Empfängers für Bcc
+            notify_url:
+               label: 'URL für Benachrichtigungen'
+               tooltip: |
+                    Der URL für Benachrichtigungen dient dazu, Ihre Datenbank / Ihr System auf einem aktuellen Stand zu halten und den Novalnet-Transaktionsstatus abzugleichen
+            labels:
+               label: 'Bezeichnung'
+               tooltip: |
+                    Diese Bezeichnung wird auf Checkout-Bildschirmen benutzt            
+            short_labels:
+               label: 'Kurzbezeichnung'
+               tooltip: |
+                    Diese Bezeichnung wird in Bestellgeschichte verwendet
+            transport.label: 'Novalnet Payment'
+            form:
+                groups:
+                    global_configuration.title: 'Novalnet Haupteinstellungen'
+                    invoice.title: 'Kauf auf Rechnung'
+                    sepa.title: 'Lastschrift SEPA'
+                    cashpayment.title: 'Barzahlen'
+                    cc.title: 'Kreditkarte'
+                    merchant_script_management.title: 'Verwaltung des Händlerskripts'
+                    other.title: 'Other'
+        channel_type:
+            label: 'Novalnet Payment'            
+        menu:
+            novalnet_payment.label: 'Novalnet Payment'
+            
+        payment_method_message: 'Nach der erfolgreichen Überprüfung werden Sie auf die abgesicherte Novalnet-Bestellseite umgeleitet, um die Zahlung fortzusetzen.Bitte schließen Sie den Browser nach der erfolgreichen Zahlung nicht, bis Sie zum Shop zurückgeleitet wurden.'    
+        payment_method_testmode_message: 'Die Zahlung wird im Testmodus durchgeführt, daher wird der Betrag für diese Transaktion nicht eingezogen.'
+        payment_comment: 'Novalnet-Transaktionsdetails'
+        transaction_id: 'Novalnet Transaktions-ID %s'
+        test_order: 'Testbestellung'
+        guarantee_payment: 'Diese Transaktion wird mit Zahlungsgarantie verarbeitet'
+        invoice_comment: 'Überweisen Sie bitte den Betrag an die unten aufgeführte Bankverbindung unseres Zahlungsdienstleisters Novalnet'
+        invoice_duedate: 'Fälligkeitsdatum: %s'
+        invoice_account_holder: 'Kontoinhaber: %s'
+        amount: 'Betrag: %s'
+        invoice_ref_comment: 'Bitte verwenden Sie nur den unten angegebenen Verwendungszweck für die Überweisung, da nur so Ihr Geldeingang zugeordnet werden kann:'
+        payment_ref: 'Verwendungszweck %s:'
+        slip_expiry_date: 'Verfallsdatum des Zahlscheins %s:'
+        cashpayment_store: 'Barzahlen-Partnerfiliale in Ihrer Nähe'     
+        invoice_guarantee_comment: 'Ihre Bestellung ist unter Bearbeitung. Sobald diese bestätigt wurde, erhalten Sie alle notwendigen Informationen zum Ausgleich der Rechnung. Wir bitten Sie zu beachten, dass dieser Vorgang bis zu 24 Stunden andauern kann.'     
+        sepa_guarantee_comment: 'Ihre Bestellung wird derzeit überprüft. Wir werden Sie in Kürze über den Bestellstatus informieren. Bitte beachten Sie, dass dies bis zu 24 Stunden dauern kann.'
+        payment_name_creditcard: 'Kreditkarte'   
+        payment_name_eps: 'eps'     
+        payment_name_ideal: 'iDEAL'     
+        payment_name_online_transfer: 'Instant Bank Transfer'     
+        payment_name_giropay: 'giropay'     
+        payment_name_cashpayment: 'Barzahlen'     
+        payment_name_direct_debit_sepa: 'Lastschrift SEPA'     
+        payment_name_guaranteed_direct_debit_sepa: 'Lastschrift SEPA'     
+        payment_name_guaranteed_invoice: 'Kauf auf Rechnung'             
+        payment_name_przelewy24: 'Przelewy24'     
+        payment_name_paypal: 'PayPal'     
+        payment_name_prepayment: 'Vorauskasse'     
+        payment_name_invoice: 'Kauf auf Rechnung'
+        hash_check_failed: 'Während der Umleitung wurden einige Daten geändert. Die Überprüfung des Hashes schlug fehl'
+
+    payment:
+        admin:
+            novalnet_payment.label: 'Novalnet Payment'
+    
+    novalnet_callback:
+        callback_error.message: 'Novalnet-Callback-Meldung %s erhalten'
+        callback_paid.message: 'Novalnet-Callback-Skript erfolgreich ausgeführt für die TID: %s mit dem Betrag %s am , um %s Uhr. Bitte suchen Sie nach der bezahlten Transaktion in unserer Novalnet-Händleradministration mit der TID: %s.'
+        callback_bookback.message: 'Novalnet-Callback-Meldung erhalten: Rückerstattung / Bookback erfolgreich ausgeführt für die TID: %s: Betrag: %s am %s. TID der Folgebuchung: %s'
+        callback_chargeback.message: 'Novalnet-Callback-Nachricht erhalten: Chargeback erfolgreich importiert für die TID: %s Betrag: %s am %s um %s Uhr. TID der Folgebuchung: %s.'
+        callback_executed.message: 'Novalnet-Callback-Skript erfolgreich ausgeführt für die TID: %s mit dem Betrag %s am , um %s Uhr'
+        przelewy24_cancel.message: 'Die Transaktion wurde storniert. Grund: %s'
+        pending_to_onhold.message: 'Novalnet-Callback-Nachricht erhalten: Der Status der Transaktion mit der TID: %s wurde am %s um %s Uhr von ausstehend auf ausgesetzt geändert.'
+        trans_confirm.message: 'Die Buchung wurde am %s Uhr bestätigt'
+        trans_cancelled.message: 'Novalnet-Callback-Nachricht erhalten: Die Transaktion wurde am %s Uhr storniert'
+        communication_failure.message: 'Novalnet-Callback-Skript erfolgreich ausgeführt'
+        payment_not_success.message: 'Die Zahlung war nicht erfolgreich. Ein Fehler trat auf.'

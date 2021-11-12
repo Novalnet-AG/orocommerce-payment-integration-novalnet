@@ -1,0 +1,68 @@
+parameters:
+    oro_novalnet_payment.method.identifier_prefix.novalnet_payment: 'novalnet_payment'
+
+services:
+    oro_novalnet_payment.generator.novalnet_payment_config_identifier:
+        parent: oro_integration.generator.prefixed_identifier_generator
+        public: true
+        arguments:
+            - '%oro_novalnet_payment.method.identifier_prefix.novalnet_payment%'
+
+    oro_novalnet_payment.integration.channel:
+        class: Oro\Bundle\NovalnetPaymentBundle\Integration\NovalnetPaymentChannelType
+        public: true
+        tags:
+            - { name: oro_integration.channel, type: novalnet_payment }
+
+    oro_novalnet_payment.integration.transport:
+        class: Oro\Bundle\NovalnetPaymentBundle\Integration\NovalnetPaymentTransport
+        public: false
+        tags:
+            - { name: oro_integration.transport, type: novalnet_payment, channel_type: novalnet_payment }
+    
+    oro_novalnet_payment.factory.novalnet_payment_config:
+        class: Oro\Bundle\NovalnetPaymentBundle\PaymentMethod\Config\Factory\NovalnetPaymentConfigFactory
+        public: false
+        arguments:
+            - '@oro_locale.helper.localization'
+            - '@oro_novalnet_payment.generator.novalnet_payment_config_identifier'
+
+    oro_novalnet_payment.payment_method.config.provider:
+        class: Oro\Bundle\NovalnetPaymentBundle\PaymentMethod\Config\Provider\NovalnetPaymentConfigProvider
+        arguments:
+            - '@doctrine'
+            - '@logger'
+            - '@oro_novalnet_payment.factory.novalnet_payment_config'
+
+    oro_novalnet_payment.payment_method_view_provider.novalnet_payment:
+        class: Oro\Bundle\NovalnetPaymentBundle\PaymentMethod\View\Provider\NovalnetPaymentViewProvider
+        public: false
+        arguments:
+            - '@oro_novalnet_payment.payment_method.config.provider'
+            - '@oro_novalnet_payment.factory.method_view.novalnet_payment'
+        tags:
+            - { name: oro_payment.payment_method_view_provider }
+
+    oro_novalnet_payment.factory.method.novalnet_payment:
+        class: Oro\Bundle\NovalnetPaymentBundle\PaymentMethod\Factory\NovalnetPaymentPaymentMethodFactory
+        public: false
+        arguments:       
+            - '@router'
+            - '@oro_entity.doctrine_helper'
+
+    oro_novalnet_payment.payment_method_provider.novalnet_payment:
+        class: Oro\Bundle\NovalnetPaymentBundle\PaymentMethod\Provider\NovalnetPaymentMethodProvider
+        public: false
+        arguments:
+            - '@oro_novalnet_payment.payment_method.config.provider'
+            - '@oro_novalnet_payment.factory.method.novalnet_payment'
+        tags:
+            - { name: oro_payment.payment_method_provider } 
+            
+    oro_novalnet_payment.factory.method_view.novalnet_payment:
+        class: 'Oro\Bundle\NovalnetPaymentBundle\PaymentMethod\View\Factory\NovalnetPaymentPaymentMethodViewFactory'
+        public: false
+    
+    Oro\Bundle\NovalnetPaymentBundle\Controller\Frontend\NovalnetRedirectController:
+        tags: ['controller.service_arguments']
+    

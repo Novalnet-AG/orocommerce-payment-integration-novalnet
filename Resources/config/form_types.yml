@@ -1,0 +1,7 @@
+services:
+    oro_novalnet_payment.form.type.settings:
+        class: Oro\Bundle\NovalnetPaymentBundle\Form\Type\NovalnetPaymentSettingsType
+        arguments:
+            - '@router'
+        tags:
+            - { name: form.type }

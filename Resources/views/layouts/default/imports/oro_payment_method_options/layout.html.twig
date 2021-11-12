@@ -1,0 +1,14 @@
+{% block _payment_methods_novalnet_payment_widget %}
+    <div class="{{ class_prefix }}-form__payment-methods">
+        <table class="grid">
+            <tr>
+                <td>{{ 'oro.novalnet_payment.payment_method_message'|trans }}</td>
+            </tr>
+            {% if view.options.test_mode == 1 %}
+            <tr>
+                <td style="color:red">{{ 'oro.novalnet_payment.payment_method_testmode_message'|trans }}</td>
+            </tr>
+            {% endif %}
+        </table>
+    </div>
+{% endblock %}

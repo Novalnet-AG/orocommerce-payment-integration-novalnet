@@ -1,0 +1,6 @@
+oro_novalnet_payment_frontend_novalnet_redirect:
+    resource:     "@OroNovalnetPaymentBundle/Controller/Frontend/NovalnetRedirectController.php"
+    type:         annotation
+    prefix:       /novalnet-payment
+    options:
+        frontend: true
