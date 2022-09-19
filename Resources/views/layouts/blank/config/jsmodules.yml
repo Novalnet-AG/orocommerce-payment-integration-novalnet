@@ -1,0 +1,10 @@
+dynamic-imports:
+  novalnet:
+    - novalnet/js/app/components/instalment-sepa-additional-fields-component
+    - novalnet/js/app/components/instalment-invoice-additional-fields-component
+    - novalnet/js/app/components/guaranteed-sepa-additional-fields-component
+    - novalnet/js/app/components/guaranteed-invoice-additional-fields-component
+    - novalnet/js/app/components/sepa-additional-fields-component
+    - novalnet/js/app/components/paypal-additional-fields-component
+    - novalnet/js/app/components/creditcard-additional-fields-component
+    - novalnet/js/app/components/novalnet-payment-order-submit-component

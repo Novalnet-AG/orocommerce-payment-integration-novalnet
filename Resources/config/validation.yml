@@ -1,0 +1,27 @@
+Novalnet\Bundle\NovalnetBundle\Entity\NovalnetSettings:
+  properties:
+    paymentAccessKey:
+      - NotBlank: ~
+    productActivationKey:
+      - NotBlank: ~
+    invoiceDuedate:
+      - Valid: ~
+      - Length:
+          max: 2
+    sepaDuedate:
+      - Length:
+          max: 2
+    cashpaymentDuedate:
+      - Valid: ~
+      - Length:
+          max: 2
+    prepaymentDuedate:
+      - Valid: ~
+      - Length:
+          max: 2
+    callbackEmailTo:
+      - Regex:
+          pattern: '/^([\w_\-\.]+)@([\w0-9\-]+\.)+([\w0-9\-\.]+)+([,]([\w0-9_\-\.]+)@([\w0-9\-]+\.)+([\w0-9\-\.]+))*$/'
+      - Length:
+          max: 255
+        

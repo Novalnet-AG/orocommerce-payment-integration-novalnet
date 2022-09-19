@@ -1,0 +1,30 @@
+{% block _novalnet_transaction_details_container_widget %}
+	{% if transactionDetails.paymentType in ['INSTALMENT_INVOICE', 'INSTALMENT_DIRECT_DEBIT_SEPA'] and  transactionDetails.instalmentDetails %}
+	<div>
+		<br>
+		<span class="customer-info-grid__element-label">{{ 'novalnet.instalment_summary'|trans }}</span>
+		<br><br>
+		<table id="novalnet_instalment_table">
+			<tr>
+				<th>{{ 'novalnet.sno'|trans }}</th>
+				<th>{{ 'novalnet.date'|trans }}</th>
+				<th>{{ 'novalnet.transaction_id'|trans }}</th>
+				<th>{{ 'novalnet.status'|trans }}</th>
+				<th>{{ 'novalnet.amount'|trans }}</th>
+			</tr>
+			{% for key, value in transactionDetails.instalmentDetails['cycle_dates'] %}
+			{% set tid  = transactionDetails.instalmentDetails[key].tid ? transactionDetails.instalmentDetails[key].tid : '' %}
+			{% set cycleStatus  = transactionDetails.status == 'DEACTIVATED' ?  CANCELLED : (tid != '' ? 'COMPLETED' : 'PENDING') %}
+			<tr>
+				<td>{{ key }}</td>
+				<td>{{ value }}</td>
+				<td>{{ tid }}</td>
+				<td>{{ cycleStatus }}</td>
+				<td>{{ transactionDetails.instalmentDetails['formatted_cycle_amount']|oro_format_currency({'currency': transactionDetails.instalmentDetails['currency']}) }}</td>
+			</tr>
+			{% endfor %}
+		</table>
+	</div>
+	<br>
+	{% endif %}
+{% endblock %}

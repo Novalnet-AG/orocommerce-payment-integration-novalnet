@@ -1,0 +1,32 @@
+datagrids:
+    order-payment-transactions-grid:
+        properties:
+            novalnet_payment_transaction_refund_link:
+                type: url
+                route: novalnet_transaction_show_refund
+                params: { paymentTransactionId: id }
+            novalnet_payment_manage_transaction_link:
+                type: url
+                route: novalnet_transaction_show_manage_transaction
+                params: { paymentTransactionId: id }
+        actions:
+            refund:
+                type: dialog
+                label: novalnet.order.action.payment_refund.label
+                link:  novalnet_payment_transaction_refund_link
+                icon: money
+                widgetOptions:
+                    options:
+                        dialogOptions:
+                            title: "@translator->trans(novalnet.order.action.payment_refund.label)"
+                            width: auto
+            manage_transaction:
+                type: dialog
+                label: novalnet.order.action.manage_transaction.label
+                link:  novalnet_payment_manage_transaction_link
+                icon: pencil
+                widgetOptions:
+                    options:
+                        dialogOptions:
+                            title: "@translator->trans(novalnet.order.action.manage_transaction.label)"
+        action_configuration: ['@novalnet.datagrid.order_payment_transactions.action_permission_provider', "getActionPermissions"]
