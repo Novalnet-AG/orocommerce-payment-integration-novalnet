@@ -1,5 +1,8 @@
 *** Changelog ***
 
+= 12.0.0 - 2022.09.20
+* Major version release: Entire restructure & optimization of the older version with usability, additional features, and customizations.
+
 = 1.2.1 - 2021.11.26 =
 * Fix - Chrome Samesite Cookies
 * Fix - Compatibility for OroCommerce 4.1.9
