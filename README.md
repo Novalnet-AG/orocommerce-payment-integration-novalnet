@@ -2,7 +2,7 @@
 Novalnet’s free payment bunlde for <a href="https://www.novalnet.com/integration/orocommerce/">OroCommerce</a> ensures simple and secure integration of payments and payment services for OroCommerce shops, allowing shop owners to automate the entire payment process from checkout till collection. 
 
 ## Integration requirements 
-Novalnet merchant account is required for using this Novalnet Payment Gateway for OroCommerce. The Bundle is available for the 4.1.11 version in the following languages: EN & DE. 
+Novalnet merchant account is required for using this Novalnet Payment Gateway for OroCommerce. The Bundle is available for the 4.1.11 - 5.0.5 version in the following languages: EN & DE. 
 
 ## Advanced functions of OroCommerce payment bundle
 - Easy configuration for all payment methods
@@ -44,16 +44,16 @@ For detailed documentation and other technical inquiries, please send us an emai
 -	giropay
 -	Barzahlen/viacash
 -	Przelewy24
--   eps
+- eps
 -	PayPal
 -	PostFinance Card
-- 	PostFinance E-Finance
-- 	Bancontact
-- 	Multibanco
--   Online bank transfer
-- 	Alipay
-- 	WeChat pay
-- 	Trustly
+- PostFinance E-Finance
+- Bancontact
+- Multibanco
+- Online bank transfer
+- Alipay
+- WeChat pay
+- Trustly
 
 ## Installation
 Easy installation of Novalnet Payment Bunlde for OroCommerce will be done through the following steps: 
