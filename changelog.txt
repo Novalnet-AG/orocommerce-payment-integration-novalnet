@@ -1,0 +1,17 @@
+*** Changelog ***
+
+= 12.0.1 - 2023.10.27
+* Fix - Compatibility for OroCommerce 5.1.0
+
+= 12.0.0 - 2022.09.21
+* Major version release: Entire restructure & optimization of the older version with usability, additional features, and customizations.
+
+= 1.2.1 - 2021.11.26 =
+* Fix - Chrome Samesite Cookies
+* Fix - Compatibility for OroCommerce 4.1.9
+
+= 1.2.0 - 2022.03.31 =
+* Fix   - Compatibility for SAP commerce cloud 2105
+
+= 1.0.0 - 2019.10.15 =
+* New release

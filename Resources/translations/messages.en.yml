@@ -1,0 +1,275 @@
+novalnet:
+  settings:
+    label: 'Novalnet Global Configuration'
+    payment_label:
+      label: 'Label'
+      tooltip: |
+        This label is used on the checkout screens
+    payment_short_label:
+      label: 'Short label'
+      tooltip: |
+        This label is used in order history
+    tariff:
+      label: 'Select Tariff ID'
+      tooltip: |
+        Select a Tariff ID to match the preferred tariff plan you created at the Novalnet Admin Portal for this project. Refer Novalnet Payment Bundle Installation Guide for further details.
+    payment_access_key:
+      label: 'Payment access key'
+    product_activation_key:
+      label: 'Product Activation Key'
+    payment_action:
+      label: 'Payment Action'
+      tooltip: |
+        Choose whether or not the payment should be charged immediately. Capture completes the transaction by transferring the funds from buyer account to merchant account. Authorize verifies payment details and reserves funds to capture it later, giving time for the merchant to decide on the order
+    buyer_notification:
+      label: 'Notification for the buyer'
+      tooltip: |
+        The entered text will be displayed on the checkout page 
+    test_mode:
+      label: 'Enable test mode'
+      tooltip: |
+        Enable this option to test payments at your checkout page. In the test mode the amount will not actually be charged by Novalnet. Remember to disable the test mode again after testing to ensure that actual purchased are properly charged.
+    invoice_duedate:
+      label: 'Payment due date (in days)'
+      tooltip: |
+        Number of days given to the buyer to transfer the amount to Novalnet (must be greater than 7 days). If this field is left blank, 14 days will be set as due date by default.
+    instalment_invoice_duedate:
+      label: 'Payment due date (in days)'
+      tooltip: |
+        Number of days given to the buyer to transfer the amount to Novalnet (must be greater than 7 days). If this field is left blank, 14 days will be set as due date by default.
+    prepayment_duedate:
+      label: 'Payment due date (in days)'
+      tooltip: |
+        Number of days given to the buyer to transfer the amount to Novalnet (must be between 7 and 28 days). If this field is left blank, 14 days will be set as due date by default
+    instalment_cycle:
+      label: 'Instalment cycles'
+      tooltip: |
+        Select the available instalment cycles.
+    sepa_duedate:
+      label: 'Payment due date (in days)'
+      tooltip: |
+        Number of days after which the payment is debited (must be between 2 and 14 days).
+    instalment_sepa_duedate:
+      label: 'Payment due date (in days)'
+      tooltip: |
+        Number of days after which the payment is debited (must be between 2 and 14 days).
+    onhold_amount:
+      label: 'Minimum transaction amount for authorization'
+      tooltip: |
+        In case the order amount exceeds the mentioned limit, the transaction will be set on-hold till your confirmation of the transaction. You can leave the field empty if you wish to process all the transactions as on-hold.
+    min_amount:
+      label: 'Minimum order amount (in minimum unit of currency. E.g. enter 100 which is equal to 1.00)'
+      tooltip: |
+        This setting will override the default setting made in the minimum order amount. Note: Minimum amount should be greater than or equal to 9,99 EUR.
+    instalment_min_amount:
+      label: 'Minimum order amount (in minimum unit of currency. E.g. enter 100 which is equal to 1.00)'
+      tooltip: |
+        This setting will override the default setting made in the minimum order amount. Note: Minimum amount should be greater than or equal to 19,98 EUR.
+    cashpayment_duedate:
+      label: 'Slip expiry date (in days)'
+      tooltip: |
+        Number of days given to the buyer to pay at a store. In case this field is empty, 14 days will be set as slip expiry date by default.
+    credit_card_enforce_3d:
+      label: 'Enforce 3D secure payment outside EU'
+      tooltip: |
+        By enabling this option, all payments from cards issued outside the EU will be authenticated via 3DS 2.0 SCA.
+    credit_card_inline_form:
+      label: 'Display inline credit card form'
+      tooltip: |
+        The following fields will be shown in the checkout in two lines: card holder & credit card number / expiry date / CVC.
+    oneclick:
+      label: 'One-click shopping'
+    display_payment_logo:
+      label: 'Display payment logo'
+      tooltip: |
+         The payment method logo(s) will be displayed on the checkout page
+    credit_card_form_appearance: 'Form appearance'
+    credit_card_logo:
+      label: 'Payment logo'
+      tooltip: |
+         The selected card logos will be displayed on the checkout page
+    credit_card_css_settings: 'Custom CSS settings'
+    credit_card_input_style:
+      label: 'Input'
+    credit_card_label_style:
+      label: 'Label'
+    credit_card_container_style:
+      label: 'CSS Text'
+    visa: 'Visa'
+    mastercard: 'Mastercard'
+    maestro: 'Maestro'
+    amex: 'American Express'
+    unionpay: 'Union Pay'
+    discover: 'Discover'
+    diners: 'Diners'
+    carte_bleue: 'Carte Bleue'
+    cartasi: 'Cartasi'
+    jcb: 'Jcb'
+    transport.label: 'Novalnet Gateway'
+    authorize: 'Authorize'
+    capture: 'Capture'
+    cycle: 'cycles'
+    callback_test_mode: 
+       label: 'Allow manual testing of the Notification / Webhook URL'
+       tooltip: |
+          Enable this to test the Novalnet Notification / Webhook URL manually. Disable this before setting your shop live to block unauthorized calls from external parties
+    callback_email_to: 
+       label: 'Send e-mail to'
+       tooltip: |
+          Notification / Webhook URL execution messages will be sent to this e-mail
+    backend_testmode_notification_message: 'Your project is in test mode'
+    form:
+      groups:
+        global_configuration.title: 'Novalnet API Configuration'
+        cc.title: 'Credit/Debit Cards'
+        sepa.title: 'Direct Debit SEPA'
+        invoice.title: 'Invoice'
+        prepayment.title: 'Prepayment'
+        cashpayment.title: 'Barzahlen/viacash'
+        paypal.title: 'PayPal'
+        banktransfer.title: 'Sofort'
+        ideal.title: 'iDEAL'
+        alipay.title: 'Alipay'
+        wechatpay.title: 'Wechat Pay'
+        trustly.title: 'Trustly'
+        onlinebanktransfer.title: 'Online bank transfer'
+        giropay.title: 'giropay'
+        eps.title: 'eps'
+        przelewy.title: 'Przelewy24'
+        postfinance_card.title: 'Postfinance Card'
+        postfinance.title: 'Postfinance E-Finance'
+        bancontact.title: 'Bancontact'
+        multibanco.title: 'Multibanco'
+        instalment_invoice.title: 'Instalment by Invoice'
+        instalment_sepa.title: 'Instalment by Direct Debit SEPA'
+        guaranteed_sepa.title: 'Direct Debit SEPA with payment guarantee'
+        guaranteed_invoice.title: 'Invoice with payment guarantee'
+        merchant_script_management.title: 'Notification / Webhook URL Setup'
+        other.title: 'Other'
+  channel_type:
+    label: 'Novalnet Gateway'
+  menu:
+    novalnet.label: 'Novalnet Gateway'
+  add_new_account_details: 'Add new account details'
+  add_new_card_details: 'Add new credit card'
+  callback_instalment_cycle_executed: 'The new instalment has been received for the Transaction ID: %s with amount %s on %s. The new transaction ID for the instalment is Transaction ID: %s'
+  callback_online_transfer_credit_executed: 'The amount of %s for the order %s has been paid. Please verify received amount and TID details, and update the order status accordingly.'
+  callback_credit_executed: 'Credit has been successfully received for the TID: %s with amount %s on %s. Please refer PAID order details in our Novalnet Admin Portal for the TID: %s'
+  callback_pending_to_onhold: 'The transaction status has been changed from pending to on hold for the TID: %s on %s & %s.'
+  transaction_update_amount_due_date: 'The transaction has been updated with amount %s and due date with %s'
+  transaction_update_amount_expiry_date: 'The transaction has been updated with amount %s and slip expiry date %s'
+  transaction_update: 'Transaction updated successfully for the TID: %s with amount %s'
+  transaction_chargeback: 'Chargeback executed successfully for the TID: %s amount: %s on %s. The subsequent TID: %s.'
+  transaction_confirmed: 'The transaction has been confirmed on %s %s'
+  transaction_cancelled: 'The transaction has been canceled on %s %s'
+  refund_with_child_tid: 'Refund has been initiated for the TID: %s with the amount %s %s. New TID:%s for the refunded amount'
+  refund_with_parent_tid: 'Refund has been initiated for the TID: %s with the amount %s %s'
+  credit_card.save_card_details: 'I want to save my card details for later purchases'
+  save_account_details: 'Save for future purchase'
+  credit_card.additional_info: 'More security with the new Payment Policy (PSD2) Info'
+  sepa.holder.form.label: 'Account holder'
+  sepa.iban.form.label: 'IBAN'
+  checkout.instalment_amount: 'Instalment amount'
+  checkout.instalment_number: 'Instalment Cycles'
+  checkout.instalment_detail: '%s x %s (per month)'
+  instalment_cycle.form.label: 'Choose your instalment plan Net loan amount %s '
+  payment_method_testmode: 'TESTMODE'
+  payment_method_message.credit_card: 'Once you send the order, the amount will be debited from your credit card'
+  payment_method_message.sepa: 'Once you send the order, the amount will be debited from your account.'
+  payment_method_message.guaranteed_sepa: 'Once you send the order, you will receive an e-mail with the account details to complete the payment.'
+  payment_method_message.sepa_mandate_text: 'I hereby grant the mandate for the SEPA direct debit (electronic transmission) and confirm that the given bank details are correct'
+  payment_method_message.sepa_mandate_authorise: 'I authorise (A) Novalnet AG to send instructions to my bank to debit my account and (B) my bank to debit my account in accordance with the instructions from Novalnet AG.'
+  payment_method_message.sepa_mandate_creditor: 'Creditor identifier: DE53ZZZ00000004253'
+  payment_method_message.sepa_mandate_note: 'Note:'
+  payment_method_message.sepa_mandate_note_desc: 'You are entitled to a refund from your bank under the terms and conditions of your agreement with bank. A refund must be claimed within 8 weeks starting from the date on which your account was debited.'
+  payment_method_message.invoice: 'Once you send the order, you will receive an e-mail with the account details to complete the payment.'
+  payment_method_message.guaranteed_invoice: 'Once you send the order, you will receive an e-mail with the account details to complete the payment.'
+  payment_method_message.prepayment: 'Once you send the order, you will receive an e-mail with the account details to complete the payment.'
+  payment_method_message.cashpayment: 'Once you send the order, you will get a payment slip from Barzahlen (print/SMS) to pay your online purchase at one of our retail partners (e.g. supermarket).'
+  payment_method_message.paypal: 'You will be redirected to the Novalnet secure payment page to complete the payment. Please don’t close or refresh the browser until the transaction is complete. You will be redirected back to the Shop afterwards.'
+  payment_method_message.banktransfer: 'You will be redirected to the Novalnet secure payment page to complete the payment. Please don’t close or refresh the browser until the transaction is complete. You will be redirected back to the Shop afterwards.'
+  payment_method_message.ideal: 'You will be redirected to the Novalnet secure payment page to complete the payment. Please don’t close or refresh the browser until the transaction is complete. You will be redirected back to the Shop afterwards.'
+  payment_method_message.alipay: 'You will be redirected to the Novalnet secure payment page to complete the payment. Please don’t close or refresh the browser until the transaction is complete. You will be redirected back to the Shop afterwards.'
+  payment_method_message.wechatpay: 'You will be redirected to the Novalnet secure payment page to complete the payment. Please don’t close or refresh the browser until the transaction is complete. You will be redirected back to the Shop afterwards.'
+  payment_method_message.trustly: 'You will be redirected to the Novalnet secure payment page to complete the payment. Please don’t close or refresh the browser until the transaction is complete. You will be redirected back to the Shop afterwards.'
+  payment_method_message.onlinebanktransfer: 'You will be redirected to the Novalnet secure payment page to complete the payment. Please don’t close or refresh the browser until the transaction is complete. You will be redirected back to the Shop afterwards.'
+  payment_method_message.giropay: 'You will be redirected to the Novalnet secure payment page to complete the payment. Please don’t close or refresh the browser until the transaction is complete. You will be redirected back to the Shop afterwards.'
+  payment_method_message.eps: 'You will be redirected to the Novalnet secure payment page to complete the payment. Please don’t close or refresh the browser until the transaction is complete. You will be redirected back to the Shop afterwards.'
+  payment_method_message.przelewy: 'You will be redirected to the Novalnet secure payment page to complete the payment. Please don’t close or refresh the browser until the transaction is complete. You will be redirected back to the Shop afterwards.'
+  payment_method_message.postfinance_card: 'Paying with your PostFinance Card or via e-finance from PostFinance is a secure, reliable payment method for your online purchases.'
+  payment_method_message.postfinance: 'Paying with your PostFinance Card or via e-finance from PostFinance is a secure, reliable payment method for your online purchases.'
+  payment_method_message.multibanco: 'Once you’ve submitted the order, you will receive an e-mail with account details to make payment'
+  payment_method_message.bancontact: 'After the successful verification, you will be redirected to Novalnet secure order page to proceed with the payment'
+  payment_method_message.instalment_invoice: 'Once you send the order, you will receive an e-mail with the account details to complete the payment.'
+  payment_method_message.instalment_sepa: 'Once you send the order, the amount will be debited from your account.'
+  payment_comment: 'Novalnet transaction details'
+  transaction_id: 'Novalnet transaction ID '
+  test_order: 'Test Order'
+  guarantee_payment: 'This is processed as a guarantee payment'
+  amount_transfer: 'Please transfer the amount of %s to the following account'
+  amount_transfer_duedate: 'Please transfer the amount of %s to the following account on or before %s'
+  invoice_duedate: 'Due date: %s'
+  invoice_account_holder: 'Account holder: %s'
+  amount: 'Amount'
+  invoice_ref_comment: 'Please use any of the following payment references when transferring the amount. This is necessary to match it with your corresponding order.'
+  payment_ref: 'Payment Reference %s:'
+  slip_expiry_date: 'Slip expiry date %s:'
+  cashpayment_store: 'Store(s) near you'
+  invoice_guarantee_comment: 'Your order is being verified. Once confirmed, we will send you our bank details to which the order amount should be transferred. Please note that this may take up to 24 hours.'
+  sepa_guarantee_comment: 'Your order is under verification and we will soon update you with the order status. 
+  Please note that this may take upto 24 hours'
+  multibanco_comment: 'Please use this payment reference details to pay in the Multibanco ATM or through your Internet bank. In your online account or ATM machine choose "Payment and other services" and then "Payments of services/shopping".'
+  multibanco_reference: 'Reference: %s'
+  multibanco_reference_entity: 'Entity: %s'
+  payment_name_creditcard: 'Credit/Debit Cards'
+  payment_name_eps: 'eps'
+  payment_name_ideal: 'iDEAL'
+  payment_name_alipay: 'Alipay'
+  payment_name_wechatpay: 'Wechat Pay'
+  payment_name_trustly: 'Trustly'
+  payment_name_online_bank_transfer: 'Online bank transfer'
+  payment_name_online_transfer: 'Sofort'
+  payment_name_giropay: 'giropay'
+  payment_name_cashpayment: 'Barzahlen/viacash'
+  payment_name_direct_debit_sepa: 'Direct Debit SEPA'
+  payment_name_guaranteed_invoice: 'Invoice with payment guarantee'
+  payment_name_przelewy24: 'Przelewy24'
+  payment_name_paypal: 'PayPal'
+  payment_name_prepayment: 'Prepayment'
+  payment_name_invoice: 'Invoice'
+  payment_name_postfinance_card: 'Postfinance Card'
+  payment_name_postfinance: 'Postfinance E-Finance'
+  payment_name_bancontact: 'Bancontact'
+  payment_name_multibanco: 'Multibanco'
+  payment_name_instalment_invoice: 'Instalment by Invoice'
+  payment_name_guaranteed_direct_debit_sepa: 'Direct Debit SEPA with payment guarantee'
+  payment_name_instalment_direct_debit_sepa: 'Instalment by Direct Debit SEPA'
+  hash_check_failed: 'While redirecting some data has been changed. The hash check failed.'
+  guarantee_error_msg: 'The payment cannot be processed, because the basic requirements for the payment guarantee haven’t been met'
+  guarantee_error_msg_amount: 'Minimum order amount must be %s EUR'
+  guarantee_error_msg_currency: 'Only EUR currency allowed'
+  guarantee_error_msg_address: 'The shipping address must be the same as the billing address'
+  guarantee_error_msg_country: 'Only Germany, Austria or Switzerland are allowed'
+  instalment_cancel_text: 'Instalment has been cancelled for the TID: %s'
+  payment_remainder_text: 'Payment Reminder %s has been sent to the customer.'
+  collection_submitted_text: 'The transaction has been submitted to the collection agency. Collection Reference: %s'
+  refund_label: 'Refund'
+  sno: 'S.no'
+  date: 'Date'
+  status: 'Status'
+  instalment_refund: 'Instalment refund'
+  refund_reason: 'Reason for refund (optional):'
+  submit: 'Submit'
+  cancel: 'Cancel'
+  confirm: 'Confirm'
+  manage_transaction: 'Manage transaction'
+  instalment_summary: 'Instalment Summary'
+  instalment_cancel: 'Instalment Cancel'
+  credit_card_saved_details_label: '%s ending in %s (expires %s/%s)'
+  payment:
+    admin:
+      novalnet.label: 'Novalnet Payment'
+  order:
+    action:
+      payment_refund.label: 'Transaction Refund'
+      manage_transaction.label: 'Manage Transaction'

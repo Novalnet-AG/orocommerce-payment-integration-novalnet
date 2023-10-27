@@ -1,0 +1,81 @@
+{% import '@OroUI/macros.html.twig' as UI %}
+
+<div class="widget-content" id="novalnet-amount-update-widget">
+    <div class="row-fluid form-horizontal">
+        <div class="responsive-block">
+        
+			<div class="alert alert-error" id="nn-error-msg" role="alert" style="display:none"></div>
+			<div class="control-group control-group-choice">
+				<div class="control-label wrap">
+					<label for="nn-transaction-action" class="required" aria-required="true"> {{ 'novalnet.manage_transaction'|trans }}: </label>
+				</div>
+				<div class="controls">
+					<select id="nn-transaction-action" name="nn-transaction-action">
+						<option value="capture">{{ 'novalnet.settings.capture'|trans}}</option>
+						<option value="cancel">{{ 'novalnet.cancel'|trans}}</option>
+					</select>
+				</div>
+			</div>
+			<div class="control-group control-group-choice">
+				<div class="controls">
+					<input type="hidden" id="nn-tid" value="{{ transactionDetails.tid }}">
+				</div>
+			</div>
+			<div class="control-group control-group-choice">
+				<div class="controls">
+					<input type="hidden" id="nn-payment-access-key" value="{{ transactionDetails.paymentAccessKey }}">
+				</div>
+			</div>
+			<div class="control-group control-group-choice">
+				<div class="controls">
+					<input type="hidden" id="nn-payment-transaction-id" value="{{ transactionDetails.paymentTransactionID }}">
+				</div>
+			</div>
+        </div>
+    </div>
+    <div class="form-actions widget-actions">
+        <button id="nn-submit-button" class="btn btn-primary">{{ 'novalnet.submit'|trans }}</button>
+    </div>
+
+<script>    
+loadModules(['jquery', 'routing', 'oroui/js/mediator', 'orotranslation/js/translator'], function ($, routing, mediator, __) {
+$('#nn-submit-button').on('click', function(event) {
+var tid = $('#nn-tid').val();
+var paymentAccessKey = $('#nn-payment-access-key').val();
+var action = $('#nn-transaction-action').val();
+var paymentTransactionID = $('#nn-payment-transaction-id').val();
+
+$('#nn-error-msg').hide();
+$('#nn-submit-button').attr('disabled', 'disabled');
+
+					$.ajax({
+						url: routing.generate("novalnet_transaction_execute_manage_transaction", { tid:  tid, transactionAction: action, paymentAccessKey: paymentAccessKey, paymentTransactionID: paymentTransactionID}),
+						type: 'POST',
+					}).done(function(data) {
+
+						if(data.result.status_code == 100)
+						{
+							location.reload();
+							mediator.execute(
+							'showFlashMessage',
+							'success',
+							 data.result.status_text
+							);
+						}
+						else
+						{
+							$('#nn-error-msg').show();
+							$('#nn-error-msg').html(data.result.status_text);
+						}
+					}).fail(function(jqXHR, textStatus, errorThrown) {
+							$('#nn-error-msg').html(errorThrown);
+						});
+						
+						
+});
+});
+</script>    
+  
+</div>
+
+

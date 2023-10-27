@@ -1,0 +1,14 @@
+novalnet:
+  remove_account_details_success_msg: 'Account details successfully removed'
+  remove_account_details_failure_msg: 'Account details not found'
+  remove_account_details_confirmation_text: 'Are you sure you want to remove these account details?'
+  remove_card_details_success_msg: 'Credit Card details successfully removed'
+  remove_card_details_failure_msg: 'Credit Card details not found'
+  remove_card_details_confirmation_text: 'Are you sure you want to remove these Credit Card details?'
+  card_holder_label: "Card holder name"
+  card_holder_placeholder: 'Card holder name'
+  card_number_label: 'Card number'
+  expiry_date_label: 'Expiry date'
+  expiry_date_placeholder: 'MM/YY'
+  cvc_label: 'CVC/CVV/CID'
+  cc_error_msg: 'Your credit card details are invalid'

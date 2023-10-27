@@ -1,0 +1,988 @@
+{% block _payment_methods_novalnet_credit_card_widget %}
+    <div class="{{ class_prefix }}-form__payment-methods" 
+    data-page-component-module="novalnet/js/app/components/creditcard-additional-fields-component"
+    data-page-component-options="{{ {paymentMethod: view.options.paymentMethod}|json_encode }}">
+    
+    <script type="text/javascript" src={{ view.options.novalnetCheckoutJs }}></script>
+    {% if view.options.displayLogo == 1 %}
+        {% if view.options.enabledLogos %}
+        <ul class="{{ class_prefix }}-form__payment-methods-list">
+            {% for key, value in view.options.enabledLogos%}
+                <li class="{{ class_prefix }}-form__payment-methods-item">
+                {% set logoPath = 'bundles/novalnet/img/'~ value  ~'.png' %}
+                    <img src="{{ asset(logoPath) }}" alt="{{ value }}">
+                </li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    {% endif %}
+        
+        
+        {% if view.options.testMode == 1 %}
+            <div class="nn-test-mode"><span>{{ 'novalnet.payment_method_testmode'|trans}}</span></div>
+        {% endif %}
+        
+        <div class="{{ class_prefix }}-form__payment-methods-form novalnet-credit-card-additional-fields">
+            {% if view.options.maskedData %}
+            {% set count  = 0 %}
+            {% for key, value in view.options.maskedData %}
+            {% set count  = (key + 1) %}
+            <div id="credit_card_saved_card_details_{{ value.id }}">
+            {{ form_row(view.options.formView.creditCardSavedCardDetails.paymentData[key]) }} &nbsp; <span class="fa-trash-o credit-card-remove-saved-card-details" data-token-id = "{{ value.id }}"></span>
+            </div>
+            <br>
+            {% endfor %}
+            
+            {{ form_row(view.options.formView.creditCardSavedCardDetails.paymentData[count]) }}
+            
+            <br><br>
+            {% endif %}
+            
+            <div id ="novalnet-credit-card-payment-form">
+                <iframe frameBorder="0" id="novalnet_cc_iframe" width="100%" scrolling="no">
+                </iframe>
+                <br>
+                {% if view.options.saveCardDetails %}
+                {{ form_row(view.options.formView.saveCardDetails) }}
+                <br>
+                {% endif %}
+                
+                {{ form_row(view.options.formView.panhash) }}
+                {{ form_row(view.options.formView.uniqueId) }}
+                {{ form_row(view.options.formView.clientKey) }}
+                {{ form_row(view.options.formView.doRedirect) }}
+                {{ form_row(view.options.formView.customerDetails) }}
+                {{ form_row(view.options.formView.labelStyle) }}
+                {{ form_row(view.options.formView.inputStyle) }}
+                {{ form_row(view.options.formView.containerStyle) }}
+                {{ form_row(view.options.formView.inlineForm) }}
+                {{ form_row(view.options.formView.enforce3d) }}
+            </div>
+        </div>
+        <div class="nn-info-box">
+           <ul>
+               <li>
+                    <p>
+                        {{ 'novalnet.payment_method_message.credit_card'|trans }}
+                    </p>
+                    {% if view.options.notification %}
+                        <p>{{ view.options.notification }}</p>
+                    {% endif %}
+                </li>
+            </ul>
+        </div>
+    </div>
+{% endblock %}
+
+{% block _payment_methods_novalnet_sepa_widget %}
+     <div class="{{ class_prefix }}-form__payment-methods"
+    data-page-component-module="novalnet/js/app/components/sepa-additional-fields-component"
+    data-page-component-options="{{ {paymentMethod: view.options.paymentMethod}|json_encode }}">
+       {% if view.options.displayLogo %}
+            <ul class="{{ class_prefix }}-form__payment-methods-list">
+                <li class="{{ class_prefix }}-form__payment-methods-item">
+                   <img src="{{ asset('bundles/novalnet/img/sepa.png') }}" alt="sepa">
+                </li>
+            </ul>
+        {% endif %}
+        
+        {% if view.options.testMode == 1 %}
+        
+            <div class="nn-test-mode"><span>{{ 'novalnet.payment_method_testmode'|trans}}</span></div>
+        
+        {% endif %}
+        
+        <div class="{{ class_prefix }}-form__payment-methods-form novalnet-sepa-additional-fields">
+             
+            {% if view.options.maskedData %}
+            {% set count  = 0 %}
+            {% for key, value in view.options.maskedData %}
+            {% set count  = (key + 1) %}
+            <div id="sepa_saved_account_details_{{ value.id }}">
+            {{ form_row(view.options.formView.sepaSavedAccountDetails.paymentData[key]) }} &nbsp; <span class="fa-trash-o sepa-remove-saved-account-details" data-token-id = "{{ value.id }}"></span>
+            </div> 
+            <br>
+            {% endfor %}
+            
+            {{ form_row(view.options.formView.sepaSavedAccountDetails.paymentData[count]) }}
+            <br><br>
+            {% endif %}
+            
+            
+            <div id ="novalnet-sepa-payment-form">
+            {{ form_row(view.options.formView.sepaiban) }}
+                {% if view.options.saveAccountDetails %}
+                {{ form_row(view.options.formView.sepaSaveAccountDetails) }}
+                <br>
+                {% endif %}
+            </div>
+        </div>
+        
+        <div class="nn-info-box">
+           <ul>
+               <li>
+                    <p>
+                        {{ 'novalnet.payment_method_message.sepa'|trans }}
+                    </p>
+                    {% if view.options.notification %}
+                        <p>{{ view.options.notification }}</p>
+                    {% endif %}
+                </li>
+                <li>
+                    <a id="nn-sepa-mandate" style="cursor:pointer;">
+                        <p class="nn-bold">
+                            {{ 'novalnet.payment_method_message.sepa_mandate_text'|trans }}
+                        </p>
+                    </a>
+                    <div id="nn-sepa-mandate-details" style="display:none; padding:8px; border:1px solid; border-color:#ddd;">
+                      <p>{{ 'novalnet.payment_method_message.sepa_mandate_authorise'|trans }}</p>
+                      <br>
+                      <p class="nn-bold">
+                        {{ 'novalnet.payment_method_message.sepa_mandate_creditor'|trans }}</span>
+                      </p>
+                      <br>
+                        <p><span class="nn-bold">{{ 'novalnet.payment_method_message.sepa_mandate_note'|trans }}</span> {{ 'novalnet.payment_method_message.sepa_mandate_note_desc'|trans }}<p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+{% endblock %}
+
+
+{% block _payment_methods_novalnet_invoice_widget %}
+     <div class="{{ class_prefix }}-form__payment-methods" 
+    data-page-component-options="{{ {paymentMethod: view.options.paymentMethod}|json_encode }}">
+        {% if view.options.displayLogo %}
+            <ul class="{{ class_prefix }}-form__payment-methods-list">
+                <li class="{{ class_prefix }}-form__payment-methods-item">
+                   <img src="{{ asset('bundles/novalnet/img/invoice.png') }}" alt="invoice">
+                </li>
+            </ul>
+        {% endif %}
+        
+        {% if view.options.testMode == 1 %}
+        
+            <div class="nn-test-mode"><span>{{ 'novalnet.payment_method_testmode'|trans}}</span></div>
+        
+        {% endif %}
+        <div class="nn-info-box">
+               <ul>
+                   <li>
+                        <p>
+                            {{ 'novalnet.payment_method_message.invoice'|trans }}
+                        </p>
+                        {% if view.options.notification %}
+                            <p>{{ view.options.notification }}</p>
+                        {% endif %}
+                    </li>
+               </ul>
+        </div>
+    </div>
+{% endblock %}
+{% block _payment_methods_novalnet_prepayment_widget %}
+     <div class="{{ class_prefix }}-form__payment-methods" 
+    data-page-component-options="{{ {paymentMethod: view.options.paymentMethod}|json_encode }}">
+        {% if view.options.displayLogo %}
+            <ul class="{{ class_prefix }}-form__payment-methods-list">
+                <li class="{{ class_prefix }}-form__payment-methods-item">
+                   <img src="{{ asset('bundles/novalnet/img/prepayment.png') }}" alt="prepayment">
+                </li>
+            </ul>
+        {% endif %}
+        
+        {% if view.options.testMode == 1 %}
+        
+            <div class="nn-test-mode"><span>{{ 'novalnet.payment_method_testmode'|trans}}</span></div>
+        
+        {% endif %}
+        <div class="nn-info-box">
+               <ul>
+                   <li>
+                        <p>
+                            {{ 'novalnet.payment_method_message.prepayment'|trans }}
+                        </p>
+                        {% if view.options.notification %}
+                            <p>{{ view.options.notification }}</p>
+                        {% endif %}
+                    </li>
+               </ul>
+        </div>
+    </div>
+{% endblock %}
+{% block _payment_methods_novalnet_cashpayment_widget %}
+     <div class="{{ class_prefix }}-form__payment-methods"
+    data-page-component-options="{{ {paymentMethod: view.options.paymentMethod}|json_encode }}">
+
+        {% if view.options.displayLogo %}
+            <ul class="{{ class_prefix }}-form__payment-methods-list">
+                <li class="{{ class_prefix }}-form__payment-methods-item">
+                    <img src="{{ asset('bundles/novalnet/img/barzahlen.png') }}" alt="barzahlen">
+                </li>
+            </ul>
+        {% endif %}
+
+        {% if view.options.testMode == 1 %}
+        
+            <div class="nn-test-mode"><span>{{ 'novalnet.payment_method_testmode'|trans}}</span></div>
+        
+        {% endif %}
+        <div class="nn-info-box">
+               <ul>
+                   <li>
+                        <p>
+                            {{ 'novalnet.payment_method_message.prepayment'|trans }}
+                        </p>
+                        {% if view.options.notification %}
+                            <p>{{ view.options.notification }}</p>
+                        {% endif %}
+                    </li>
+               </ul>
+        </div>
+    </div>
+{% endblock %}
+{% block _payment_methods_novalnet_paypal_widget %}
+    <div class="{{ class_prefix }}-form__payment-methods"
+    data-page-component-module="novalnet/js/app/components/paypal-additional-fields-component"
+    data-page-component-options="{{ {paymentMethod: view.options.paymentMethod}|json_encode }}">
+            
+        {% if view.options.displayLogo %}
+            <ul class="{{ class_prefix }}-form__payment-methods-list">
+                <li class="{{ class_prefix }}-form__payment-methods-item">
+                   <img src="{{ asset('bundles/novalnet/img/paypal.png') }}" alt="paypal">
+                </li>
+            </ul>
+        {% endif %}
+        
+        {% if view.options.testMode == 1 %}
+        
+            <div class="nn-test-mode"><span>{{ 'novalnet.payment_method_testmode'|trans}}</span></div>
+        
+        {% endif %}
+        
+        <div class="{{ class_prefix }}-form__payment-methods-form novalnet-paypal-additional-fields">
+            {% if view.options.maskedData %}
+                {% set count  = 0 %}
+                    {% for key, value in view.options.maskedData %}
+                    {% set count  = (key + 1) %}
+                    <div id="paypal_saved_account_details_{{ value.id }}">
+                    {{ form_row(view.options.formView.paymentData[key]) }} &nbsp; <span class="fa-trash-o paypal-remove-saved-account-details" data-token-id = "{{ value.id }}"></span>
+                    </div> 
+                    <br>
+                    {% endfor %}
+                {{ form_row(view.options.formView.paymentData[count]) }}
+                <br><br>
+            {% endif %}
+            
+            <div id ="novalnet-paypal-payment-form">
+                {% if view.options.saveAccountDetails %}
+                    {{ form_row(view.options.formView.paypalSaveAccountDetails) }}
+                <br>
+                {% endif %}
+            </div>
+            
+            <div class="nn-info-box">
+               <ul>
+                   <li>
+                        <p>
+                            {{ 'novalnet.payment_method_message.paypal'|trans }}
+                        </p>
+                        {% if view.options.notification %}
+                            <p>{{ view.options.notification }}</p>
+                        {% endif %}
+                    </li>
+               </ul>
+           </div>
+        </div>
+    </div>
+{% endblock %}
+{% block _payment_methods_novalnet_banktransfer_widget %}
+     <div class="{{ class_prefix }}-form__payment-methods"
+    data-page-component-options="{{ {paymentMethod: view.options.paymentMethod}|json_encode }}">
+        
+        {% if view.options.displayLogo %}
+            <ul class="{{ class_prefix }}-form__payment-methods-list">
+                <li class="{{ class_prefix }}-form__payment-methods-item">
+                    <img src="{{ asset('bundles/novalnet/img/banktransfer.png') }}" alt="banktransfer">
+                </li>
+            </ul>
+        {% endif %}
+        
+        {% if view.options.testMode == 1 %}
+        
+            <div class="nn-test-mode"><span>{{ 'novalnet.payment_method_testmode'|trans}}</span></div>
+        
+        {% endif %}
+        <div class="nn-info-box">
+               <ul>
+                   <li>
+                        <p>
+                            {{ 'novalnet.payment_method_message.banktransfer'|trans }}
+                        </p>
+                        {% if view.options.notification %}
+                            <p>{{ view.options.notification }}</p>
+                        {% endif %}
+                    </li>
+               </ul>
+        </div>
+    </div>
+{% endblock %}
+{% block _payment_methods_novalnet_ideal_widget %}
+    <div class="{{ class_prefix }}-form__payment-methods"
+    data-page-component-options="{{ {paymentMethod: view.options.paymentMethod}|json_encode }}">
+        
+        {% if view.options.displayLogo %}
+            <ul class="{{ class_prefix }}-form__payment-methods-list">
+                <li class="{{ class_prefix }}-form__payment-methods-item">
+                    <img src="{{ asset('bundles/novalnet/img/ideal.png') }}" alt="ideal">
+                </li>
+            </ul>
+        {% endif %}
+            
+        {% if view.options.testMode == 1 %}
+        
+            <div class="nn-test-mode"><span>{{ 'novalnet.payment_method_testmode'|trans}}</span></div>
+        
+        {% endif %}
+        <div class="nn-info-box">
+               <ul>
+                   <li>
+                        <p>
+                            {{ 'novalnet.payment_method_message.ideal'|trans }}
+                        </p>
+                        {% if view.options.notification %}
+                            <p>{{ view.options.notification }}</p>
+                        {% endif %}
+                    </li>
+               </ul>
+        </div>
+    </div>
+{% endblock %}
+{% block _payment_methods_novalnet_trustly_widget %}
+    <div class="{{ class_prefix }}-form__payment-methods"
+    data-page-component-options="{{ {paymentMethod: view.options.paymentMethod}|json_encode }}">
+        
+        {% if view.options.displayLogo %}
+            <ul class="{{ class_prefix }}-form__payment-methods-list">
+                <li class="{{ class_prefix }}-form__payment-methods-item">
+                    <img src="{{ asset('bundles/novalnet/img/trustly.png') }}" alt="trustly">
+                </li>
+            </ul>
+        {% endif %}
+            
+        {% if view.options.testMode == 1 %}
+        
+            <div class="nn-test-mode"><span>{{ 'novalnet.payment_method_testmode'|trans}}</span></div>
+        
+        {% endif %}
+        <div class="nn-info-box">
+               <ul>
+                   <li>
+                        <p>
+                            {{ 'novalnet.payment_method_message.trustly'|trans }}
+                        </p>
+                        {% if view.options.notification %}
+                            <p>{{ view.options.notification }}</p>
+                        {% endif %}
+                    </li>
+               </ul>
+        </div>
+    </div>
+{% endblock %}
+{% block _payment_methods_novalnet_alipay_widget %}
+    <div class="{{ class_prefix }}-form__payment-methods"
+    data-page-component-options="{{ {paymentMethod: view.options.paymentMethod}|json_encode }}">
+        
+        {% if view.options.displayLogo %}
+            <ul class="{{ class_prefix }}-form__payment-methods-list">
+                <li class="{{ class_prefix }}-form__payment-methods-item">
+                    <img src="{{ asset('bundles/novalnet/img/alipay.png') }}" alt="alipay">
+                </li>
+            </ul>
+        {% endif %}
+            
+        {% if view.options.testMode == 1 %}
+        
+            <div class="nn-test-mode"><span>{{ 'novalnet.payment_method_testmode'|trans}}</span></div>
+        
+        {% endif %}
+        <div class="nn-info-box">
+               <ul>
+                   <li>
+                        <p>
+                            {{ 'novalnet.payment_method_message.alipay'|trans }}
+                        </p>
+                        {% if view.options.notification %}
+                            <p>{{ view.options.notification }}</p>
+                        {% endif %}
+                    </li>
+               </ul>
+        </div>
+    </div>
+{% endblock %}
+{% block _payment_methods_novalnet_wechatpay_widget %}
+    <div class="{{ class_prefix }}-form__payment-methods"
+    data-page-component-options="{{ {paymentMethod: view.options.paymentMethod}|json_encode }}">
+        
+        {% if view.options.displayLogo %}
+            <ul class="{{ class_prefix }}-form__payment-methods-list">
+                <li class="{{ class_prefix }}-form__payment-methods-item">
+                    <img src="{{ asset('bundles/novalnet/img/wechatpay.png') }}" alt="wechatpay">
+                </li>
+            </ul>
+        {% endif %}
+            
+        {% if view.options.testMode == 1 %}
+        
+            <div class="nn-test-mode"><span>{{ 'novalnet.payment_method_testmode'|trans}}</span></div>
+        
+        {% endif %}
+        <div class="nn-info-box">
+               <ul>
+                   <li>
+                        <p>
+                            {{ 'novalnet.payment_method_message.wechatpay'|trans }}
+                        </p>
+                        {% if view.options.notification %}
+                            <p>{{ view.options.notification }}</p>
+                        {% endif %}
+                    </li>
+               </ul>
+        </div>
+    </div>
+{% endblock %}
+{% block _payment_methods_novalnet_onlinebanktransfer_widget %}
+    <div class="{{ class_prefix }}-form__payment-methods"
+    data-page-component-options="{{ {paymentMethod: view.options.paymentMethod}|json_encode }}">
+        
+        {% if view.options.displayLogo %}
+            <ul class="{{ class_prefix }}-form__payment-methods-list">
+                <li class="{{ class_prefix }}-form__payment-methods-item">
+                    <img src="{{ asset('bundles/novalnet/img/onlinebanktransfer.png') }}" alt="onlinebanktransfer">
+                </li>
+            </ul>
+        {% endif %}
+            
+        {% if view.options.testMode == 1 %}
+        
+            <div class="nn-test-mode"><span>{{ 'novalnet.payment_method_testmode'|trans}}</span></div>
+        
+        {% endif %}
+        <div class="nn-info-box">
+               <ul>
+                   <li>
+                        <p>
+                            {{ 'novalnet.payment_method_message.onlinebanktransfer'|trans }}
+                        </p>
+                        {% if view.options.notification %}
+                            <p>{{ view.options.notification }}</p>
+                        {% endif %}
+                    </li>
+               </ul>
+        </div>
+    </div>
+{% endblock %}
+{% block _payment_methods_novalnet_guaranteed_sepa_widget %}
+    <div class="{{ class_prefix }}-form__payment-methods"
+    data-page-component-module="novalnet/js/app/components/guaranteed-sepa-additional-fields-component"
+    data-page-component-options="{{ {paymentMethod: view.options.paymentMethod}|json_encode }}">
+
+        {% if view.options.displayLogo %}
+            <ul class="{{ class_prefix }}-form__payment-methods-list">
+                <li class="{{ class_prefix }}-form__payment-methods-item">
+                    <img src="{{ asset('bundles/novalnet/img/guaranteed_sepa.png') }}" alt="guaranteed_sepa">
+                </li>
+            </ul>
+        {% endif %}
+        
+        {% if view.options.testMode == 1 %}
+        
+            <div class="nn-test-mode"><span>{{ 'novalnet.payment_method_testmode'|trans}}</span></div>
+        
+        {% endif %}
+        
+        
+        <div class="{{ class_prefix }}-form__payment-methods-form novalnet-guaranteed-sepa-additional-fields">
+            {% if view.options.maskedData %}
+            {% set count  = 0 %}
+                {% for key, value in view.options.maskedData %}
+                {% set count  = (key + 1) %}
+                <div id="guaranteed_sepa_saved_account_details_{{ value.id }}">
+                {{ form_row(view.options.formView.guaranteedSepaSavedAccountDetails.paymentData[key]) }} &nbsp; <span class="fa-trash-o guaranteed-sepa-remove-saved-account-details" data-token-id = "{{ value.id }}"></span>
+                </div> 
+                <br>
+                {% endfor %}
+            {{ form_row(view.options.formView.guaranteedSepaSavedAccountDetails.paymentData[count]) }}
+            <br><br>
+            {% endif %}
+            
+            <div id ="novalnet-guaranteed-sepa-payment-form">
+            {{ form_row(view.options.formView.guaranteedSepaiban) }}
+            {{ form_row(view.options.formView.guaranteedSepaErrorMsg) }}
+            {% if view.options.saveAccountDetails %}
+                {{ form_row(view.options.formView.guaranteedSepaSaveAccountDetails) }}
+                <br>
+            {% endif %}
+            
+            </div>
+            <div class="nn-info-box">
+               <ul>
+                   <li>
+                        <p>
+                            {{ 'novalnet.payment_method_message.sepa'|trans }}
+                        </p>
+                        {% if view.options.notification %}
+                            <p>{{ view.options.notification }}</p>
+                        {% endif %}
+                    </li>
+                    <li>
+                        <a id="nn-guaranteed-sepa-mandate" style="cursor:pointer;">
+                            <p class="nn-bold">
+                                {{ 'novalnet.payment_method_message.sepa_mandate_text'|trans }}
+                            </p>
+                        </a>
+                        <div id="nn-guaranteed-sepa-mandate-details" style="display:none; padding:8px; border:1px solid; border-color:#ddd;">
+                          <p>{{ 'novalnet.payment_method_message.sepa_mandate_authorise'|trans }}</p>
+                          <br>
+                          <p class="nn-bold">
+                            {{ 'novalnet.payment_method_message.sepa_mandate_creditor'|trans }}</span>
+                          </p>
+                          <br>
+                            <p><span class="nn-bold">{{ 'novalnet.payment_method_message.sepa_mandate_note'|trans }}</span> {{ 'novalnet.payment_method_message.sepa_mandate_note_desc'|trans }}<p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+{% endblock %}
+{% block _payment_methods_novalnet_guaranteed_invoice_widget %}
+    <div class="{{ class_prefix }}-form__payment-methods"
+    data-page-component-module="novalnet/js/app/components/guaranteed-invoice-additional-fields-component"
+    data-page-component-options="{{ {paymentMethod: view.options.paymentMethod}|json_encode }}">
+        
+        {% if view.options.displayLogo %}
+            <ul class="{{ class_prefix }}-form__payment-methods-list">
+                <li class="{{ class_prefix }}-form__payment-methods-item">
+                    <img src="{{ asset('bundles/novalnet/img/guaranteed_invoice.png') }}" alt="guaranteed_invoice">
+                </li>
+            </ul>
+        {% endif %}
+        
+        {% if view.options.testMode == 1 %}
+        
+            <div class="nn-test-mode"><span>{{ 'novalnet.payment_method_testmode'|trans}}</span></div>
+        
+        {% endif %}
+        <div class="nn-info-box">
+           <ul>
+               <li>
+                    <p>
+                        {{ 'novalnet.payment_method_message.guaranteed_invoice'|trans }}
+                    </p>
+                    {% if view.options.notification %}
+                        <p>{{ view.options.notification }}</p>
+                    {% endif %}
+                </li>
+           </ul>
+        </div>
+        <input type="hidden" value="{{ view.options.errorMsg }}" id="guaranteed_invoice_error_msg">
+        
+    </div>
+{% endblock %}
+{% block _payment_methods_novalnet_giropay_widget %}
+    <div class="{{ class_prefix }}-form__payment-methods"
+    data-page-component-options="{{ {paymentMethod: view.options.paymentMethod}|json_encode }}">
+        {% if view.options.displayLogo %}
+            <ul class="{{ class_prefix }}-form__payment-methods-list">
+                <li class="{{ class_prefix }}-form__payment-methods-item">
+                    <img src="{{ asset('bundles/novalnet/img/giropay.png') }}" alt="giropay">
+                </li>
+            </ul>
+        {% endif %}
+        {% if view.options.testMode == 1 %}
+        
+            <div class="nn-test-mode"><span>{{ 'novalnet.payment_method_testmode'|trans}}</span></div>
+        
+        {% endif %}
+        <div class="nn-info-box">
+               <ul>
+                   <li>
+                        <p>
+                            {{ 'novalnet.payment_method_message.giropay'|trans }}
+                        </p>
+                        {% if view.options.notification %}
+                            <p>{{ view.options.notification }}</p>
+                        {% endif %}
+                    </li>
+               </ul>
+        </div>
+    </div>
+{% endblock %}
+{% block _payment_methods_novalnet_eps_widget %}
+    <div class="{{ class_prefix }}-form__payment-methods"
+    data-page-component-options="{{ {paymentMethod: view.options.paymentMethod}|json_encode }}">
+        
+        {% if view.options.displayLogo %}
+            <ul class="{{ class_prefix }}-form__payment-methods-list">
+                <li class="{{ class_prefix }}-form__payment-methods-item">
+                    <img src="{{ asset('bundles/novalnet/img/eps.png') }}" alt="eps">
+                </li>
+            </ul>
+        {% endif %}
+        
+        {% if view.options.testMode == 1 %}
+        
+            <div class="nn-test-mode"><span>{{ 'novalnet.payment_method_testmode'|trans}}</span></div>
+        
+        {% endif %}
+        <div class="nn-info-box">
+               <ul>
+                   <li>
+                        <p>
+                            {{ 'novalnet.payment_method_message.eps'|trans }}
+                        </p>
+                        {% if view.options.notification %}
+                            <p>{{ view.options.notification }}</p>
+                        {% endif %}
+                    </li>
+               </ul>
+        </div>
+    </div>
+{% endblock %}
+{% block _payment_methods_novalnet_przelewy_widget %}
+    <div class="{{ class_prefix }}-form__payment-methods"
+    data-page-component-options="{{ {paymentMethod: view.options.paymentMethod}|json_encode }}">
+        
+        {% if view.options.displayLogo %}
+            <ul class="{{ class_prefix }}-form__payment-methods-list">
+                <li class="{{ class_prefix }}-form__payment-methods-item">
+                    <img src="{{ asset('bundles/novalnet/img/przelewy.png') }}" alt="przelewy">
+                </li>
+            </ul>
+        {% endif %}
+
+        {% if view.options.testMode == 1 %}
+        
+            <div class="nn-test-mode"><span>{{ 'novalnet.payment_method_testmode'|trans}}</span></div>
+        
+        {% endif %}
+        <div class="nn-info-box">
+               <ul>
+                   <li>
+                        <p>
+                            {{ 'novalnet.payment_method_message.przelewy'|trans }}
+                        </p>
+                        {% if view.options.notification %}
+                            <p>{{ view.options.notification }}</p>
+                        {% endif %}
+                    </li>
+               </ul>
+        </div>
+    </div>
+{% endblock %}
+{% block _payment_methods_novalnet_postfinance_card_widget %}
+    <div class="{{ class_prefix }}-form__payment-methods"
+    data-page-component-options="{{ {paymentMethod: view.options.paymentMethod}|json_encode }}">
+        
+        
+        {% if view.options.displayLogo %}
+            <ul class="{{ class_prefix }}-form__payment-methods-list">
+                <li class="{{ class_prefix }}-form__payment-methods-item">
+                    <img src="{{ asset('bundles/novalnet/img/postfinance_card.png') }}" alt="postfinance_card">
+                </li>
+            </ul>
+        {% endif %}
+        {% if view.options.testMode == 1 %}
+        
+            <div class="nn-test-mode"><span>{{ 'novalnet.payment_method_testmode'|trans}}</span></div>
+        
+        {% endif %}
+        <div class="nn-info-box">
+               <ul>
+                   <li>
+                        <p>
+                            {{ 'novalnet.payment_method_message.postfinance_card'|trans }}
+                        </p>
+                        {% if view.options.notification %}
+                            <p>{{ view.options.notification }}</p>
+                        {% endif %}
+                    </li>
+               </ul>
+        </div>
+    </div>
+{% endblock %}
+
+{% block _payment_methods_novalnet_postfinance_widget %}
+    <div class="{{ class_prefix }}-form__payment-methods"
+    data-page-component-options="{{ {paymentMethod: view.options.paymentMethod}|json_encode }}">
+        
+        
+        {% if view.options.displayLogo %}
+            <ul class="{{ class_prefix }}-form__payment-methods-list">
+                <li class="{{ class_prefix }}-form__payment-methods-item">
+                    <img src="{{ asset('bundles/novalnet/img/postfinance.png') }}" alt="postfinance">
+                </li>
+            </ul>
+        {% endif %}
+        
+        {% if view.options.testMode == 1 %}
+        
+            <div class="nn-test-mode"><span>{{ 'novalnet.payment_method_testmode'|trans}}</span></div>
+        
+        {% endif %}
+        <div class="nn-info-box">
+               <ul>
+                   <li>
+                        <p>
+                            {{ 'novalnet.payment_method_message.postfinance'|trans }}
+                        </p>
+                        {% if view.options.notification %}
+                            <p>{{ view.options.notification }}</p>
+                        {% endif %}
+                    </li>
+               </ul>
+        </div>
+    </div>
+{% endblock %}
+
+{% block _payment_methods_novalnet_bancontact_widget %}
+    <div class="{{ class_prefix }}-form__payment-methods"
+    data-page-component-options="{{ {paymentMethod: view.options.paymentMethod}|json_encode }}">
+        
+        {% if view.options.displayLogo %}
+            <ul class="{{ class_prefix }}-form__payment-methods-list">
+                <li class="{{ class_prefix }}-form__payment-methods-item">
+                    <img src="{{ asset('bundles/novalnet/img/bancontact.png') }}" alt="bancontact">
+                </li>
+            </ul>
+        {% endif %}
+        
+        {% if view.options.testMode == 1 %}
+        
+            <div class="nn-test-mode"><span>{{ 'novalnet.payment_method_testmode'|trans}}</span></div>
+        
+        {% endif %}
+        <div class="nn-info-box">
+               <ul>
+                   <li>
+                        <p>
+                            {{ 'novalnet.payment_method_message.bancontact'|trans }}
+                        </p>
+                        {% if view.options.notification %}
+                            <p>{{ view.options.notification }}</p>
+                        {% endif %}
+                    </li>
+               </ul>
+        </div>
+    </div>
+{% endblock %}
+
+{% block _payment_methods_novalnet_multibanco_widget %}
+    <div class="{{ class_prefix }}-form__payment-methods"
+    data-page-component-options="{{ {paymentMethod: view.options.paymentMethod}|json_encode }}">
+        
+        {% if view.options.displayLogo %}
+            <ul class="{{ class_prefix }}-form__payment-methods-list">
+                <li class="{{ class_prefix }}-form__payment-methods-item">
+                    <img src="{{ asset('bundles/novalnet/img/multibanco.png') }}" alt="multibanco">
+                </li>
+            </ul>
+        {% endif %}
+        
+        {% if view.options.testMode == 1 %}
+        
+            <div class="nn-test-mode"><span>{{ 'novalnet.payment_method_testmode'|trans}}</span></div>
+        
+        {% endif %}
+        <div class="nn-info-box">
+               <ul>
+                   <li>
+                        <p>
+                            {{ 'novalnet.payment_method_message.multibanco'|trans }}
+                        </p>
+                        {% if view.options.notification %}
+                            <p>{{ view.options.notification }}</p>
+                        {% endif %}
+                    </li>
+               </ul>
+        </div>
+    </div>
+{% endblock %}
+
+{% block _payment_methods_novalnet_instalment_invoice_widget %}
+    <div class="{{ class_prefix }}-form__payment-methods" 
+    data-page-component-module="novalnet/js/app/components/instalment-invoice-additional-fields-component"
+    data-page-component-options="{{ {paymentMethod: view.options.paymentMethod}|json_encode }}">
+        
+        {% if view.options.displayLogo %}
+            <ul class="{{ class_prefix }}-form__payment-methods-list">
+                <li class="{{ class_prefix }}-form__payment-methods-item">
+                    <img src="{{ asset('bundles/novalnet/img/instalment_invoice.png') }}" alt="instalment_invoice">
+                </li>
+            </ul>
+        {% endif %}
+        
+         {% if view.options.testMode == 1 %}
+            <div class="nn-test-mode"><span>{{ 'novalnet.payment_method_testmode'|trans}}</span></div>
+        {% endif %}
+        
+        <div class="{{ class_prefix }}-form__payment-methods-form novalnet-instalment-invoice-additional-fields">
+            {{ form_row(view.options.formView.instalmentInvoiceCycle) }}
+        </div>
+            
+        {% for cycleDetail in view.options.cycleDetails %}
+            <table id="nn-invoice-instalment-table{{ cycleDetail.cycles }}" class="table table-bordered nn-instalment-invoice-table" style="display:none">
+                <thead>
+                    <tr>
+                        <th>{{ 'novalnet.checkout.instalment_number'|trans }}</th>
+                        <th>{{ 'novalnet.checkout.instalment_amount'|trans }}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for i in 1..cycleDetail.cycles %}
+                    <tr>
+                        <td>{{ i }}</td>
+                        {% set cycleAmount = cycleDetail.amount %}
+                        
+                        {% if i == cycleDetail.cycles %}
+                            {% set cycleAmount = cycleDetail.lastCycleAmount %}
+                        {% endif %}
+                        
+                        <td>{{ cycleAmount }} {{ cycleDetail.currency }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% endfor %}
+        
+        <div class="nn-info-box">
+            <ul>
+               <li>
+                    <p>{{ 'novalnet.payment_method_message.instalment_invoice'|trans }}</p>
+                    {% if view.options.notification %}
+                        <p>{{ view.options.notification }}</p>
+                    {% endif %}
+                </li>
+            </ul>
+        </div>
+        
+    </div>
+{% endblock %}
+
+{% block _payment_methods_novalnet_instalment_sepa_widget %}
+    <div class="{{ class_prefix }}-form__payment-methods" 
+    data-page-component-module="novalnet/js/app/components/instalment-sepa-additional-fields-component"
+    data-page-component-options="{{ {paymentMethod: view.options.paymentMethod}|json_encode }}">
+        
+        {% if view.options.displayLogo %}
+            <ul class="{{ class_prefix }}-form__payment-methods-list">
+                <li class="{{ class_prefix }}-form__payment-methods-item">
+                    <img src="{{ asset('bundles/novalnet/img/instalment_sepa.png') }}" alt="instalment_sepa">
+                </li>
+            </ul>
+        {% endif %}
+        
+        
+        {% if view.options.testMode == 1 %}
+        
+            <div class="nn-test-mode"><span>{{ 'novalnet.payment_method_testmode'|trans}}</span></div>
+        
+        {% endif %}
+        
+        <div class="{{ class_prefix }}-form__payment-methods-form novalnet-instalment-sepa-additional-fields">
+        
+            {% if view.options.maskedData %}
+            {% set count  = 0 %}
+            {% for key, value in view.options.maskedData %}
+            {% set count  = (key + 1) %}
+            
+            
+            <div id="instalment_sepa_saved_account_details_{{ value.id }}">
+            {{ form_row(view.options.formView.instalmentSepaSavedAccountDetails.paymentData[key]) }} &nbsp; <span class="fa-trash-o instalment-sepa-remove-saved-account-details" data-token-id = "{{ value.id }}"></span>
+            </div> 
+            <br>
+            
+            {% endfor %}
+            
+            {{ form_row(view.options.formView.instalmentSepaSavedAccountDetails.paymentData[count]) }}
+            <br><br>
+            {% endif %}
+        
+        
+            <div id ="novalnet-instalment-sepa-payment-form">
+            {{ form_row(view.options.formView.instalmentSepaiban) }}
+            {% if view.options.saveAccountDetails %}
+            <p class="save-account-details">
+                {{ form_row(view.options.formView.instlSepaSaveAccountDetails) }}
+            </p>
+            <br>
+            {% endif %}
+            
+            </div>
+            
+            {{ form_row(view.options.formView.instalmentSepaCycle) }}
+        
+        
+        </div>
+            
+            
+        {% for cycleDetail in view.options.cycleDetails %}
+            <table id="nn-sepa-instalment-table{{ cycleDetail.cycles }}" class="table table-bordered nn-instalment-sepa-table" style="display:none">
+                <thead>
+                    <tr>
+                        <th>{{ 'novalnet.checkout.instalment_number'|trans }}</th>
+                        <th>{{ 'novalnet.checkout.instalment_amount'|trans }}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for i in 1..cycleDetail.cycles %}
+                    <tr>
+                        <td>{{ i }}</td>
+                        {% set cycleAmount = cycleDetail.amount %}
+                        
+                        {% if i == cycleDetail.cycles %}
+                            {% set cycleAmount = cycleDetail.lastCycleAmount %}
+                        {% endif %}
+                        
+                        <td>{{ cycleAmount }} {{ cycleDetail.currency }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% endfor %}
+        
+        <div class="nn-info-box">
+           <ul>
+               <li>
+                    <p>
+                        {{ 'novalnet.payment_method_message.sepa'|trans }}
+                    </p>
+                    {% if view.options.notification %}
+                        <p>{{ view.options.notification }}</p>
+                    {% endif %}
+                </li>
+                <li>
+                    <a id="nn-instalment-sepa-mandate" style="cursor:pointer;">
+                        <p class="nn-bold">
+                            {{ 'novalnet.payment_method_message.sepa_mandate_text'|trans }}
+                        </p>
+                    </a>
+                    <div id="nn-instalment-sepa-mandate-details" style="display:none; padding:8px; border:1px solid; border-color:#ddd;">
+                      <p>{{ 'novalnet.payment_method_message.sepa_mandate_authorise'|trans }}</p>
+                      <br>
+                      <p class="nn-bold">
+                        {{ 'novalnet.payment_method_message.sepa_mandate_creditor'|trans }}</span>
+                      </p>
+                      <br>
+                        <p><span class="nn-bold">{{ 'novalnet.payment_method_message.sepa_mandate_note'|trans }}</span> {{ 'novalnet.payment_method_message.sepa_mandate_note_desc'|trans }}<p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+{% endblock %}
+
+

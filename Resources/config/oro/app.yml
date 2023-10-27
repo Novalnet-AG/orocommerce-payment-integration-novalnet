@@ -1,0 +1,7 @@
+monolog:
+    handlers:
+        novalnet:
+            level: debug
+            type: stream
+            path: '%kernel.logs_dir%/novalnet.log'
+            channels: novalnet

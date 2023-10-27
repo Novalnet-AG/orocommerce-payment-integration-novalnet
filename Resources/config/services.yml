@@ -1,0 +1,30 @@
+services:
+  novalnet.integration.channel:
+    class: Novalnet\Bundle\NovalnetBundle\Integration\NovalnetChannelType
+    public: true
+    tags:
+      - { name: oro_integration.channel, type: novalnet }
+
+  novalnet.integration.transport:
+    class: Novalnet\Bundle\NovalnetBundle\Integration\NovalnetTransport
+    public: false
+    tags:
+      - { name: oro_integration.transport, type: novalnet, channel_type: novalnet }
+
+  novalnet.settings.novalnet_settings_data.provider:
+        class: 'Novalnet\Bundle\NovalnetBundle\Settings\DataProvider\BasicNovalnetSettingsDataProvider'
+    
+  novalnet.datagrid.order_payment_transactions.action_permission_provider:
+        class: Novalnet\Bundle\NovalnetBundle\Datagrid\ActionPermissionProvider
+        public: true
+        arguments:
+            - '@doctrine.orm.entity_manager'
+            - '@oro_entity.doctrine_helper'
+            
+  novalnet.layout.provider.novalnet_transaction_data_provider:
+        class: 'Novalnet\Bundle\NovalnetBundle\Layout\DataProvider\NovalentTransactionDataProvider'
+        arguments:
+            - '@doctrine'
+        tags:
+            - { name: layout.data_provider, alias: novalnet_transaction_data_provider }
+            

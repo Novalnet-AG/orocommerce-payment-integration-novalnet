@@ -1,0 +1,68 @@
+services:
+  novalnet.form.type.settings:
+    class: Novalnet\Bundle\NovalnetBundle\Form\Type\NovalnetSettingsType
+    arguments:
+      - '@translator'
+      - '@novalnet.settings.novalnet_settings_data.provider'
+    tags:
+      - { name: form.type }
+  novalnet.form.type.instalment_invoice_form_type:
+        class: 'Novalnet\Bundle\NovalnetBundle\Form\Type\InstalmentInvoiceCycleType'
+        arguments:
+          - '@translator'
+        tags:
+            - { name: form.type, alias: novalnet_instalment_invoice_form_type }
+  novalnet.form.type.instalment_sepa_form_type:
+        class: 'Novalnet\Bundle\NovalnetBundle\Form\Type\InstalmentSepaCycleType'
+        arguments:
+          - '@translator'
+        tags:
+            - { name: form.type, alias: novalnet_instalment_sepa_form_type }
+  novalnet.form.type.instalment_sepa_saved_account_details_type:
+        class: 'Novalnet\Bundle\NovalnetBundle\Form\Type\InstalmentSepaSavedAccountDetailsType'
+        arguments:
+          - '@translator'
+        tags:
+            - { name: form.type, alias: novalnet_instalment_sepa_form_type }
+  novalnet.form.type.guaranteed_sepa_form_type:
+        class: 'Novalnet\Bundle\NovalnetBundle\Form\Type\GuaranteedSepaFormType'
+        arguments:
+          - '@translator'
+        tags:
+            - { name: form.type, alias: novalnet_instalment_sepa_saved_account_details_type }
+  novalnet.form.type.guaranteed_sepa_saved_account_details_type:
+        class: 'Novalnet\Bundle\NovalnetBundle\Form\Type\GuaranteedSepaSavedAccountDetailsType'
+        arguments:
+          - '@translator'
+        tags:
+            - { name: form.type, alias: novalnet_guaranteed_sepa_saved_account_details_type }
+  novalnet.form.type.sepa_form_type:
+        class: 'Novalnet\Bundle\NovalnetBundle\Form\Type\SepaFormType'
+        arguments:
+          - '@translator'
+        tags:
+            - { name: form.type, alias: novalnet_sepa_form_type }
+  novalnet.form.type.sepa_saved_account_details_type:
+        class: 'Novalnet\Bundle\NovalnetBundle\Form\Type\SepaSavedAccountDetailsType'
+        arguments:
+          - '@translator'
+        tags:
+            - { name: form.type, alias: novalnet_sepa_saved_account_details_type }
+  novalnet.form.type.paypal_form_type:
+        class: 'Novalnet\Bundle\NovalnetBundle\Form\Type\PaypalFormType'
+        arguments:
+          - '@translator'
+        tags:
+            - { name: form.type, alias: novalnet_paypal_form_type }
+  novalnet.form.type.credit_card_form_type:
+        class: 'Novalnet\Bundle\NovalnetBundle\Form\Type\CreditCardFormType'
+        arguments:
+          - '@translator'
+        tags:
+            - { name: form.type, alias: novalnet_credit_card_form_type }
+  novalnet.form.type.credit_card_saved_card_details_type:
+        class: 'Novalnet\Bundle\NovalnetBundle\Form\Type\CreditCardSavedCardDetailsType'
+        arguments:
+          - '@translator'
+        tags:
+            - { name: form.type, alias: novalnet_credit_card_saved_card_details_type }

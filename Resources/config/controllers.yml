@@ -1,0 +1,50 @@
+services:
+    _defaults:
+        public: true
+
+    Novalnet\Bundle\NovalnetBundle\Controller\NovalnetExtensionController:
+        calls:
+            - [setContainer, ['@Psr\Container\ContainerInterface']]
+        tags:
+            - { name: container.service_subscriber }
+            - { name: container.service_subscriber, id: novalnet.client.gateway, key: Novalnet\Bundle\NovalnetBundle\Client\Gateway }
+            - { name: container.service_subscriber, id: novalnet.payment_method.novalnet_helper, key: Novalnet\Bundle\NovalnetBundle\PaymentMethod\NovalnetHelper }
+            - { name: container.service_subscriber, id: oro_entity.doctrine_helper, key: Oro\Bundle\EntityBundle\ORM\DoctrineHelper }
+            - { name: container.service_subscriber, id: translator, key: Symfony\Contracts\Translation\TranslatorInterface }
+            - { name: container.service_subscriber, id: oro_payment.provider.payment_transaction, key: Oro\Bundle\PaymentBundle\Provider\PaymentTransactionProvider }
+            - { name: container.service_subscriber, id: novalnet.payment_method_provider.novalnet_credit_card, key: Novalnet\Bundle\NovalnetBundle\PaymentMethod\Provider\NovalnetCreditCardMethodProvider }
+            - { name: container.service_subscriber, id: novalnet.payment_method_provider.novalnet_bancontact, key: Novalnet\Bundle\NovalnetBundle\PaymentMethod\Provider\NovalnetBancontactMethodProvider }
+            - { name: container.service_subscriber, id: novalnet.payment_method_provider.novalnet_banktransfer, key: Novalnet\Bundle\NovalnetBundle\PaymentMethod\Provider\NovalnetBanktransferMethodProvider }
+            - { name: container.service_subscriber, id: novalnet.payment_method_provider.novalnet_cashpayment, key: Novalnet\Bundle\NovalnetBundle\PaymentMethod\Provider\NovalnetCashpaymentMethodProvider }
+            - { name: container.service_subscriber, id: novalnet.payment_method_provider.novalnet_eps, key: Novalnet\Bundle\NovalnetBundle\PaymentMethod\Provider\NovalnetEpsMethodProvider }
+            - { name: container.service_subscriber, id: novalnet.payment_method_provider.novalnet_giropay, key: Novalnet\Bundle\NovalnetBundle\PaymentMethod\Provider\NovalnetGiropayMethodProvider }
+            - { name: container.service_subscriber, id: novalnet.payment_method_provider.novalnet_guaranteed_invoice, key: Novalnet\Bundle\NovalnetBundle\PaymentMethod\Provider\NovalnetGuaranteedInvoiceMethodProvider }
+            - { name: container.service_subscriber, id: novalnet.payment_method_provider.novalnet_guaranteed_sepa, key: Novalnet\Bundle\NovalnetBundle\PaymentMethod\Provider\NovalnetGuaranteedSepaMethodProvider }
+            - { name: container.service_subscriber, id: novalnet.payment_method_provider.novalnet_ideal, key: Novalnet\Bundle\NovalnetBundle\PaymentMethod\Provider\NovalnetIdealMethodProvider }
+            - { name: container.service_subscriber, id: novalnet.payment_method_provider.novalnet_instalment_invoice, key: Novalnet\Bundle\NovalnetBundle\PaymentMethod\Provider\NovalnetInstalmentInvoiceMethodProvider }
+            - { name: container.service_subscriber, id: novalnet.payment_method_provider.novalnet_instalment_sepa, key: Novalnet\Bundle\NovalnetBundle\PaymentMethod\Provider\NovalnetInstalmentSepaMethodProvider }
+            - { name: container.service_subscriber, id: novalnet.payment_method_provider.novalnet_invoice, key: Novalnet\Bundle\NovalnetBundle\PaymentMethod\Provider\NovalnetInvoiceMethodProvider }
+            - { name: container.service_subscriber, id: novalnet.payment_method_provider.novalnet_multibanco, key: Novalnet\Bundle\NovalnetBundle\PaymentMethod\Provider\NovalnetMultibancoMethodProvider }
+            - { name: container.service_subscriber, id: novalnet.payment_method_provider.novalnet_paypal, key: Novalnet\Bundle\NovalnetBundle\PaymentMethod\Provider\NovalnetPaypalMethodProvider }
+            - { name: container.service_subscriber, id: novalnet.payment_method_provider.novalnet_postfinance_card, key: Novalnet\Bundle\NovalnetBundle\PaymentMethod\Provider\NovalnetPostfinanceCardMethodProvider }
+            - { name: container.service_subscriber, id: novalnet.payment_method_provider.novalnet_postfinance, key: Novalnet\Bundle\NovalnetBundle\PaymentMethod\Provider\NovalnetPostfinanceMethodProvider }
+            - { name: container.service_subscriber, id: novalnet.payment_method_provider.novalnet_prepayment, key: Novalnet\Bundle\NovalnetBundle\PaymentMethod\Provider\NovalnetPrepaymentMethodProvider }
+            - { name: container.service_subscriber, id: novalnet.payment_method_provider.novalnet_przelewy, key: Novalnet\Bundle\NovalnetBundle\PaymentMethod\Provider\NovalnetPrzelewyMethodProvider }
+            - { name: container.service_subscriber, id: novalnet.payment_method_provider.novalnet_sepa, key: Novalnet\Bundle\NovalnetBundle\PaymentMethod\Provider\NovalnetSepaMethodProvider }
+            - { name: container.service_subscriber, id: novalnet.payment_method_provider.novalnet_alipay, key: Novalnet\Bundle\NovalnetBundle\PaymentMethod\Provider\NovalnetAlipayMethodProvider }
+            - { name: container.service_subscriber, id: novalnet.payment_method_provider.novalnet_wechatpay, key: Novalnet\Bundle\NovalnetBundle\PaymentMethod\Provider\NovalnetWechatpayMethodProvider }
+            - { name: container.service_subscriber, id: novalnet.payment_method_provider.novalnet_onlinebanktransfer, key: Novalnet\Bundle\NovalnetBundle\PaymentMethod\Provider\NovalnetOnlinebanktransferMethodProvider }
+            - { name: container.service_subscriber, id: novalnet.payment_method_provider.novalnet_trustly, key: Novalnet\Bundle\NovalnetBundle\PaymentMethod\Provider\NovalnetTrustlyMethodProvider }
+
+    Novalnet\Bundle\NovalnetBundle\Controller\NovalnetSettingsController:
+        calls:
+            - [setContainer, ['@Psr\Container\ContainerInterface']]
+        tags:
+            - { name: container.service_subscriber }
+            - { name: container.service_subscriber, id: novalnet.client.gateway, key: Novalnet\Bundle\NovalnetBundle\Client\Gateway }
+
+    Novalnet\Bundle\NovalnetBundle\Controller\Frontend\AjaxNovalnetController:
+        calls:
+            - [setContainer, ['@Psr\Container\ContainerInterface']]
+        tags:
+            - { name: container.service_subscriber }
