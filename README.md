@@ -67,7 +67,7 @@ Download of Novalnet Payment Bundle for OroCommerce will be done through the fol
 Easy installation of Novalnet Payment Bundle for OroCommerce will be done through the following steps:
 
 ### Installation via Composer
-#### Follow the below steps and run each command in your terminal from the shop root directory
+Follow the below steps and run each command in your terminal from the shop root directory
  ##### 1. Start with upgrading Composer to the latest version to make sure that the composer.json file will support all the latest versions.
  ```
  composer self-update
