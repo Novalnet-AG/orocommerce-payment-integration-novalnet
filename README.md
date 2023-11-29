@@ -31,6 +31,7 @@ Novalnet merchant account is required for using this Novalnet Payment Gateway fo
 For detailed documentation and other technical inquiries, please send us an email at <a href="mailto:technic@novalnet.de"> technic@novalnet.de </a>
 
 ## Integrated payment methods for OroCommerce payment bundle
+
 -	Direct Debit SEPA
 -	Credit/Debit Cards
 -	Invoice
@@ -44,24 +45,70 @@ For detailed documentation and other technical inquiries, please send us an emai
 -	giropay
 -	Barzahlen/viacash
 -	Przelewy24
-- eps
+- 	eps
 -	PayPal
 -	PostFinance Card
-- PostFinance E-Finance
-- Bancontact
-- Multibanco
-- Online bank transfer
-- Alipay
-- WeChat pay
-- Trustly
+- 	PostFinance E-Finance
+- 	Bancontact
+- 	Multibanco
+- 	Online bank transfer
+- 	Alipay
+- 	WeChat pay
+- 	Trustly
 
-## Installation
-Easy installation of Novalnet Payment Bundle for OroCommerce will be done through the following steps: 
-1. Get the payment bundle & detailed documentation by <a href="https://www.novalnet.de/kontakt"> contacting us </a>
-2. Install the Bundle to your OroCommerce shop 
+## Downloads
+Download of Novalnet Payment Bundle for OroCommerce will be done through the following steps:
+1. **Download** the payment bundle from <a href="https://extensions.oroinc.com/orocommerce/extension/novalnet-payment-extension/"> here</a> or <a href="https://www.novalnet.de/kontakt/sales"> contacting us</a>.
+2. Install the Novalnet Payment Bundle to your OroCommerce shop via composer
 3. Include Merchant Details in the shop admin panel 
 4. Activate & configure the preferred payment types in your shop admin panel
 
+## Installation 
+Easy installation of Novalnet Payment Bundle for OroCommerce will be done through the following steps:
+
+### Installation via Composer
+#### Follow the below steps and run each command in your terminal from the shop root directory
+
+ ##### 1. Start with upgrading Composer to the latest version to make sure that the composer.json file will support all the latest versions.
+ ```
+ composer self-update
+ ```
+ ##### 2. Then, install the composer package using the Composer require command:
+ ```
+ composer require novalnet/commerce-novalnet --prefer-dist --update-no-dev
+ ```
+ ##### 3. Next, remove old cache:
+ ```
+ sudo rm -rf var/cache/prod
+ ```
+ ##### 4. When you are finished with adding the package, use the oro:platform:update
+ ```
+ php bin/console oro:platform:update --env=prod --force
+ ```
+ ##### 5: Finally, make sure to properly clean the cache:
+ ```
+  php bin/console cache:clear --env=prod
+ ```
+### Upgrading the Novalnet Payment Bundle
+
+ ##### 1. It is recommended to take a proper backup before Removing the existing Novalnet payment bundle for disaster recovery.
+
+ ##### 2. To install the Novalnet payment bundle, run the following command in your terminal from the shop root directory.
+ ```
+ composer require novalnet/commerce-novalnet --prefer-dist --update-no-dev
+ ```
+ ##### 3. Next, remove old cache:
+ ```
+ sudo rm -rf var/cache/prod
+ ```
+ ##### 4. When you are finished with adding the package, use the oro:platform:update
+ ```
+ php bin/console oro:platform:update --env=prod --force
+ ```
+ ##### 5: Finally, make sure to properly clean the cache:
+ ```
+ php bin/console cache:clear --env=prod
+ ```
 ## License  
 See our License Agreement at: https://www.novalnet.com/payment-plugins-free-license/
 ## Documentation & Support
