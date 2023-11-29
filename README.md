@@ -90,7 +90,7 @@ Easy installation of Novalnet Payment Bundle for OroCommerce will be done throug
  ```
 ### Upgrading the Novalnet Payment Bundle
 
- ##### 1. It is recommended to take a proper backup before Removing the existing Novalnet payment bundle for disaster recovery.
+ ##### 1. It is recommended to take a proper backup before Removing the existing Novalnet payment bundle for disaster recovery.<br>
 
  ##### 2. To install the Novalnet payment bundle, run the following command in your terminal from the shop root directory.
  ```
@@ -108,8 +108,10 @@ Easy installation of Novalnet Payment Bundle for OroCommerce will be done throug
  ```
  php bin/console cache:clear --env=prod
  ```
-## License  
-See our License Agreement at: https://www.novalnet.com/payment-plugins-free-license/
+## Licenses
+As a European Payment institution, Novalnet holds all necessary payment licenses to accept and process payments worldwide. We also comply with European data protection regulations to guarantee advanced data protection worldwide.  
+See here for [Freeware License Agreement](https://www.novalnet.com/payment-plugins-free-license/).
+
 ## Documentation & Support
 For more information about the Novalnet Payment Bundle for OroCommerce and pricing, please get in touch with us:  <a href="mailto:sales@novalnet.de"> sales@novalnet.de </a> or +49 89 9230683-20<br>
 
