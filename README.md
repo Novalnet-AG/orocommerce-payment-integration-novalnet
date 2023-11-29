@@ -45,20 +45,20 @@ For detailed documentation and other technical inquiries, please send us an emai
 -	giropay
 -	Barzahlen/viacash
 -	Przelewy24
-- 	eps
+- eps
 -	PayPal
 -	PostFinance Card
-- 	PostFinance E-Finance
-- 	Bancontact
-- 	Multibanco
-- 	Online bank transfer
-- 	Alipay
-- 	WeChat pay
-- 	Trustly
+- PostFinance E-Finance
+- Bancontact
+- Multibanco
+- Online bank transfer
+- Alipay
+- WeChat pay
+- Trustly
 
 ## Downloads
 Download of Novalnet Payment Bundle for OroCommerce will be done through the following steps:
-1. **Download** the payment bundle from <a href="https://extensions.oroinc.com/orocommerce/extension/novalnet-payment-extension/"> here</a> or <a href="https://www.novalnet.de/kontakt/sales"> contacting us</a>.
+1. **Download** the payment bundle from <a href="https://extensions.oroinc.com/orocommerce/extension/novalnet-payment-extension/"> here</a> or <a href="https://www.novalnet.de/kontakt/sales"> contact us</a>.
 2. Install the Novalnet Payment Bundle to your OroCommerce shop via composer
 3. Include Merchant Details in the shop admin panel 
 4. Activate & configure the preferred payment types in your shop admin panel
