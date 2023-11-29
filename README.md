@@ -68,7 +68,7 @@ Easy installation of Novalnet Payment Bundle for OroCommerce will be done throug
 
 ### Installation via Composer
 Follow the below steps and run each command in your terminal from the shop root directory
- ##### 1. Start with upgrading Composer to the latest version to make sure that the composer.json file will support all the latest versions.
+ ##### 1. Start with upgrading Composer to the latest version and make sure that the composer.json file will support all the latest versions.
  ```
  composer self-update
  ```
@@ -76,35 +76,35 @@ Follow the below steps and run each command in your terminal from the shop root 
  ```
  composer require novalnet/commerce-novalnet --prefer-dist --update-no-dev
  ```
- ##### 3. Next, remove old cache:
+ ##### 3. Next, clear the cache:
  ```
  sudo rm -rf var/cache/prod
  ```
- ##### 4. When you are finished with adding the package, use the oro:platform:update
+ ##### 4. When you are done adding the package, use the oro:platform:update command line for platform update
  ```
  php bin/console oro:platform:update --env=prod --force
  ```
- ##### 5: Finally, make sure to properly clean the cache:
+ ##### 5: Finally, ensure you clean the cache.
  ```
   php bin/console cache:clear --env=prod
  ```
 ### Upgrading the Novalnet Payment Bundle
 
- ##### 1. It is recommended to take a proper backup before Removing the existing Novalnet payment bundle for disaster recovery.<br>
+ ##### 1. It's strongly advised to back up the existing Novalnet payment bundle prior to uninstallation for disaster recovery purposes.<br>
 
  ##### 2. To install the Novalnet payment bundle, run the following command in your terminal from the shop root directory.
  ```
  composer require novalnet/commerce-novalnet --prefer-dist --update-no-dev
  ```
- ##### 3. Next, remove old cache:
+ ##### 3. Next, clear the cache:
  ```
  sudo rm -rf var/cache/prod
  ```
- ##### 4. When you are finished with adding the package, use the oro:platform:update
+ ##### 4. When you are done adding the package, use the oro:platform:update command line for platform update
  ```
  php bin/console oro:platform:update --env=prod --force
  ```
- ##### 5: Finally, make sure to properly clean the cache:
+ ##### 5: Finally, ensure you clean the cache.
  ```
  php bin/console cache:clear --env=prod
  ```
@@ -124,5 +124,5 @@ Web: www.novalnet.de
 
 ## Who is Novalnet AG?
 <p>Novalnet AG is a <a href="https://www.novalnet.de/zahlungsinstitut"> leading financial service institution </a> offering payment gateways for processing online payments. Operating in the market as a full payment service provider, Novalnet AG provides online merchants with user-friendly payment integration with all major shop systems and self-programmed sites.</p> 
-<p>Accept, manage and monitor payments all on one platform with one single contract!</p>
-<p>Our SaaS engine is <a href="https://www.novalnet.de/pci-dss-zertifizierung"> PCI DSS </a> certified and designed to enable real-time risk management, secured payments via escrow accounts, efficient receivables management, dynamic member and subscription management, customized payment solutions for various business models (e.g. marketplaces, affiliate programs etc.) etc.</p>
+<p>Accept, manage and monitor payments all-in-one platform with one single contract!</p>
+<p>Our SaaS engine is <a href="https://www.novalnet.de/pci-dss-zertifizierung"> PCI DSS </a> certified, empowers businesses with real-time risk management mechanisms, secure escrow account payments, streamlined receivables management, dynamic member and subscription administration, and customized payment solutions tailored to diverse business models, including marketplaces and affiliate programs..</p>
