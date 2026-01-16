@@ -1,0 +1,94 @@
+.nn-test-mode{
+    position: relative;
+    background-color: #0080c9;
+    color: #fff;
+    padding: 10px 20px;
+    margin-bottom: 8px;
+    font-size: 10px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    line-height: 0.8px;
+    border-radius: 0px 0px 5px 5px;
+    transition: transform 0.5s ease 0.5s;
+    animation: novalnet-blinker 4s linear infinite;
+    font-weight: bold;
+    float: right;
+}
+
+@keyframes novalnet-blinker {
+    100% {
+    opacity: 0;
+    }
+}
+.nn-info-box{
+    position: relative;
+    width: auto;
+    height: auto;
+    background: content-box;
+    font-size: 14px;
+    color: #333;
+    margin: 20px 0px;
+    padding: 1em 0;
+    border-left: 5px solid #0080c9;
+    box-shadow: 0 0 8px 0px rgba(0,0,0,.4);
+    clear: both;
+}
+
+.nn-info-box ul {
+    margin: 0 20px 0px 20px;
+    padding: 0;
+}
+
+.nn-info-box li {
+    list-style-type: none;
+}
+
+.info-box p {
+    padding: 0 1em;
+    margin-bottom: 0px;
+}
+
+.info-box a {
+    padding: 0 1em;
+    margin-bottom: 0px;
+}
+
+.nn-bold {
+    font-weight: bold;
+}
+
+.novalnet_cc_overlay {
+    position: fixed;
+    width: 100%;
+    height: 100% !important;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    cursor: pointer;
+}
+
+#novalnet_instalment_table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#novalnet_instalment_table td, #novalnet_instalment_table th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#novalnet_instalment_table tr:nth-child(even){background-color: #f2f2f2;}
+
+#novalnet_instalment_table tr:hover {background-color: #ddd;}
+
+#novalnet_instalment_table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #545456;
+  color: white;
+}
