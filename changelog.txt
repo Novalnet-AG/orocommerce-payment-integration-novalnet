@@ -1,0 +1,27 @@
+*** Changelog ***
+
+= 12.0.2-p1 - 2026.04.28
+* New - Implemented Direct debit ACH, Blik, Naver Pay, KakaoPay, MB Way, and TWINT payment methods
+* New - EPC/SPC QR code implemented for Invoice, Invoice with payment guarantee, Instalment by Invoice payments, and Prepayment
+* New - Implemented Account Holder field for Direct Debit SEPA, Direct Debit SEPA with Payment Guarantee, and Instalment by Direct Debit SEPA, in compliance with Verification of Payee (VoP) regulations
+* New - Implemented Cancel all instalments and Cancel all remaining instalment for instalments payment
+* Enhanced - Extension of Instalment Payment cycles till 36 cycles	 	
+* Enhanced - iDEAL payment logo and title to iDEAL | Wero
+* Removed - Sofort, giropay, and Barzahlen/viacash payment methods
+* Removed - One-click shopping for PayPal payment
+
+= 12.0.1 - 2023.11.29
+* Fix - Compatibility for OroCommerce 5.1.0
+
+= 12.0.0 - 2022.09.20
+* Major version release: Entire restructure & optimization of the older version with usability, additional features, and customizations.
+
+= 1.2.1 - 2021.11.26 =
+* Fix - Chrome Samesite Cookies
+* Fix - Compatibility for OroCommerce 4.1.9
+
+= 1.2.0 - 2022.03.31 =
+* Fix   - Compatibility for SAP commerce cloud 2105
+
+= 1.0.0 - 2019.10.15 =
+* New release

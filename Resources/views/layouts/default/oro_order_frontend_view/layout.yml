@@ -1,0 +1,12 @@
+layout:
+    actions:
+        - '@setBlockTheme':
+            themes: '@Novalnet/layouts/default/oro_order_frontend_view/layout.html.twig'
+        - '@add':
+            id: novalnet_transaction_details_container
+            blockType: container
+            parentId: order_body
+            options:
+                vars:
+                    transactionDetails: '=data["novalnet_transaction_data_provider"].getTransactionDetails(data["order"])'
+            prepend: false
