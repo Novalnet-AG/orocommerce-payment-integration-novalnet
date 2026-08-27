@@ -1,0 +1,3 @@
+dynamic-imports:
+    novalnet:
+        - novalnet/js/app/components/novalnet-payment-settings-component

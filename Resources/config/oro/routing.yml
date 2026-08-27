@@ -1,0 +1,21 @@
+novalnet_frontend_ajax:
+    resource:     "@NovalnetBundle/Controller/Frontend/AjaxNovalnetController.php"
+    type:         attribute
+    prefix:       /novalnet
+    options:
+        frontend: true
+        expose: true
+
+novalnet_settings:
+    resource:     "@NovalnetBundle/Controller/NovalnetSettingsController.php"
+    type:         attribute
+    prefix:       /novalnet-settings
+    options:
+        expose: true
+        
+novalnet_extension:
+    resource:     "@NovalnetBundle/Controller/NovalnetExtensionController.php"
+    type:         attribute
+    prefix:       /novalnet-extension
+    options:
+        expose: true

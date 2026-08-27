@@ -1,0 +1,266 @@
+{% import '@OroUI/macros.html.twig' as UI %}
+<div class="widget-content" id="novalnet-refund-widget">
+    <div class="row-fluid form-horizontal">
+        <div class="responsive-block">
+			<div class="alert alert-error" id="nn-error-msg" role="alert" style="display:none"></div>
+			{% if transactionDetails.paymentType in ['INSTALMENT_INVOICE', 'INSTALMENT_DIRECT_DEBIT_SEPA'] and  transactionDetails.instalmentDetails %}
+				{% if transactionDetails.instalmentDetails['cancel_type'] is not defined or transactionDetails.instalmentDetails['cancel_type'] is empty %}
+				
+				<button class="btn btn-primary" data-tid="{{transactionDetails.tid}}" id="nn_cancel_all_cycles">
+					{{ 'novalnet.cancel_all_cycles'|trans }}
+				</button>
+				
+				<button class="btn btn-primary" data-tid="{{transactionDetails.tid}}" id="nn_cancel_remaining_cycles">
+					{{ 'novalnet.cancel_remaining_cycles'|trans }}
+				</button>
+				{% endif %}
+						
+				<table id="novalnet_instalment_table">
+					<tr>
+						<th>{{ 'novalnet.sno'|trans}}</th>
+						<th>{{ 'novalnet.transaction_id'|trans}}</th>
+						<th>{{ 'novalnet.amount'|trans}}</th>
+						<th>{{ 'novalnet.next_instalment_date'|trans}}</th>
+						<th>{{ 'novalnet.status'|trans}}</th>
+						<th>{{ 'novalnet.instalment_refund'|trans}}</th>
+					</tr>
+					{% for key, value in transactionDetails.instalmentDetails['cycle_dates'] %}
+					{% set tid  = transactionDetails.instalmentDetails[key].tid ? transactionDetails.instalmentDetails[key].tid : '' %}
+					{% set instalmentRefundedAmount = transactionDetails.instalmentDetails[key]['refunded_amount']|default(0) %}
+					
+					
+					{% if transactionDetails.status == 'DEACTIVATED' %}
+						{% set cycleStatus  = 'CANCELLED' %}
+					{% elseif tid != '' %}
+						{% if instalmentRefundedAmount >= transactionDetails.instalmentDetails['cycle_amount'] %}
+							{% set cycleStatus  = 'REFUNDED' %}
+						{% else %}
+							{% set cycleStatus  = 'COMPLETED' %}
+						{% endif %}
+					{% else %}
+						{% set cycleStatus  = '-' %}
+					{% endif %}
+					
+					{% if transactionDetails.instalmentDetails['cancel_type'] == 'cancel_all_cycles' %}
+						{% if tid != '' %}
+							{% set cycleStatus  = 'REFUNDED' %}
+						{% else %}
+							{% set cycleStatus  = 'CANCELLED' %}
+						{% endif %}
+					{% elseif transactionDetails.instalmentDetails['cancel_type'] == 'cancel_remaining_cycles' and tid == ''%}
+							{% set cycleStatus  = 'CANCELLED' %}
+					{% endif %}
+					
+					<tr>
+					<td>{{ key }}</td>
+					<td>{{ tid }}</td>
+					
+					{% set cycleAmount = transactionDetails.instalmentDetails['formatted_cycle_amount'] %}
+					{% if key == transactionDetails.instalmentDetails['total_cycles'] %}
+						{% set cycleAmount = transactionDetails.instalmentDetails['last_cycle_amount'] %}
+					{% endif %}
+					<td>{{ cycleAmount|oro_format_currency({'currency': transactionDetails.instalmentDetails['currency']}) }}</td>
+					
+					<td>{{ transactionDetails.instalmentDetails.cycle_dates[key + 1]|default('') }}</td>
+					<td>{{ cycleStatus }}</td>
+					
+					<td>
+						{% if tid != '' %}
+							{% if cycleStatus == 'COMPLETED' %}
+								<button class="btn btn-primary novalnet_show_instalment_refund" data-id="{{ key }}">{{ 'novalnet.refund_label'|trans}}</button>
+							{% endif %}
+							
+							<div id="novalnet_instalment_refund_table_{{key}}" class="novalnet_instalment_refund_table" style="display:none">
+								<div class="control-group control-group-choice">
+								  <div class="controls">
+									<div>
+									  <label for="novalnet_refund_amount_{{key}}"> {{ 'novalnet.refund_amount'|trans }}:</label>
+									</div>
+									<div>
+									  <input type="text" id="novalnet_refund_amount_{{key}}" value="{{transactionDetails.instalmentDetails['cycle_amount'] - instalmentRefundedAmount}}">
+									</div>
+								  </div>
+								</div>	
+								
+								<div class="control-group control-group-choice">
+								  <div class="controls">
+									<div>
+									  <label for="novalnet_refund_reason_{{key}}"> {{ 'novalnet.refund_reason'|trans }} :</label>
+									</div>
+									<div>
+									  <input type="text" id="novalnet_refund_reason_{{key}}" value="">
+									</div>
+								  </div>
+								</div>	
+										
+								<div class="control-group control-group-choice">
+									<div class="controls text-center">
+										<button id="nn-refund-button" data-payment="instalment" class="novalnet_submit_refund_form btn btn-primary" data-id="{{key}}" data-tid="{{tid}}" class="btn btn-primary">{{ 'novalnet.confirm'|trans }}</button>
+										&nbsp;&nbsp;
+										<button class="novalnet_hide_instalment_refund btn" data-id="{{key}}" data-tid="{{tid}}">{{ 'novalnet.cancel'|trans }}</button>
+									</div>
+								</div>
+
+							</div>
+						{% endif %}
+					</td>
+					</tr>
+					{% endfor %}
+				</table>
+			{% else %}
+				<div class="control-group control-group-choice">
+					<div class="control-label wrap">
+						<label for="nn-refund-amount" class="required" aria-required="true"> {{ 'novalnet.refund_amount'|trans}} : <span style="color:red">*</span></label>
+					</div>
+					<div class="controls">
+						<input type="text" id="nn-refund-amount" value="{{ transactionDetails.amountToRefund }}" required="required">
+					</div>
+				</div>
+				<div class="control-group control-group-choice">
+					<div class="control-label wrap">
+						<label for="nn-refund-reason"> {{ 'novalnet.refund_reason'|trans}} </label>
+					</div>
+					<div class="controls">
+						<input type="text" id="nn-refund-reason" value="">
+					</div>
+				</div>
+				<div class="form-actions widget-actions">
+					<button id="nn-refund-button" class="btn btn-primary" data-tid={{ transactionDetails.tid }} data-payment=''>{{ 'novalnet.refund_label'|trans}}</button>
+				</div>
+			{% endif %}
+			<div class="control-group control-group-choice">
+				<div class="controls">
+					<input type="hidden" id="nn-payment-access-key" value="{{ transactionDetails.paymentAccessKey }}">
+				</div>
+			</div>
+			<div class="control-group control-group-choice">
+				<div class="controls">
+					<input type="hidden" id="nn-payment-transaction-id" value="{{ transactionDetails.paymentTransactionID }}">
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script>    
+	loadModules(['jquery', 'routing', 'oroui/js/mediator', 'orotranslation/js/translator', 'oroui/js/delete-confirmation'], function ($, routing, mediator, __, DeleteConfirmation) {
+
+		$('.novalnet_show_instalment_refund').on('click', function () {
+			var tableId = $(this).attr('data-id');
+			$('#novalnet_instalment_refund_table_' + tableId).show();
+			$(this).hide();
+		});
+
+		$('.novalnet_hide_instalment_refund').on('click', function () {
+			var tableId = $(this).attr('data-id');
+			$('#novalnet_instalment_refund_table_' + tableId).hide();
+			$('.novalnet_show_instalment_refund[data-id="' + tableId + '"]').show();
+		});
+		
+		$('#nn_cancel_all_cycles, #nn_cancel_remaining_cycles').on('click', function(event) {
+			
+			var cancelType = $(this).attr('id');
+			var tid = $(this).attr('data-tid');
+			
+			var confirmMsg = cancelType + '_alert';
+			
+			const confirm = new DeleteConfirmation({
+				title: __('novalnet.confirm'),
+				okText: __('novalnet.yes'),
+				cancelText: __('novalnet.no'),
+				content: __('novalnet.' + confirmMsg)
+			});
+
+			confirm.on('ok', function () {
+				var paymentAccessKey = $('#nn-payment-access-key').val();
+				var paymentTransactionID = $('#nn-payment-transaction-id').val();
+				
+				var requestUrl = routing.generate("novalnet_transaction_execute_manage_transaction", { tid:  tid, paymentAccessKey: paymentAccessKey, paymentTransactionID: paymentTransactionID, transactionAction: 'instalment_cancel', cancelType: cancelType});
+				
+				$.ajax({
+					url: requestUrl,
+					type: 'POST',
+				}).done(function(data) {
+					if(data.result.status_code == 100) {
+						location.reload();
+						mediator.execute(
+						'showFlashMessage',
+						'success',
+						 data.result.status_text
+						);
+					}
+					else {
+						$('#nn-error-msg').show();
+						$('#nn-error-msg').html(data.result.status_text);
+					}
+				}).fail(function(jqXHR, textStatus, errorThrown) {
+					$('#nn-error-msg').show();
+					$('#nn-error-msg').html(errorThrown);
+				});
+				
+			});
+				
+			confirm.open();
+		});
+
+		$('#nn-refund-button').on('click', function(event) {
+			var tid = $(this).attr('data-tid');
+			var paymentAccessKey = $('#nn-payment-access-key').val();
+			var paymentTransactionID = $('#nn-payment-transaction-id').val();
+			
+			var id = $(this).attr('data-id');
+			var payment = $(this).attr('data-payment');
+			var requestUrl;
+			if($(this).attr('id') == 'nn-refund-button') {
+				var refundAmount = '';
+				var refundReason = '';
+				var instalmentCycle = '';
+				if (payment === 'instalment') {
+					refundAmount = $('#novalnet_refund_amount_' + id).val();
+					refundReason = $('#novalnet_refund_reason_' + id).val();
+					instalmentCycle = id;
+				} else {
+					refundReason = $('#nn-refund-reason').val();
+					refundAmount = $('#nn-refund-amount').val();
+				}
+				
+				$('#nn-error-msg').hide();
+				if(refundAmount == '' || refundAmount == 'undefined')
+				{
+					event.preventDefault();
+					event.stopImmediatePropagation();
+					$('#nn-error-msg').show();
+					$('#nn-error-msg').html('Please enter the refund amount');
+					return;
+				}
+				$('#nn-error-msg').hide();
+				$('#nn-refund-button').attr('disabled', 'disabled');
+				requestUrl = routing.generate("novalnet_transaction_execute_refund", { tid:  tid, amount: refundAmount, reason: refundReason, paymentAccessKey: paymentAccessKey, paymentTransactionID: paymentTransactionID, instalmentCycle: instalmentCycle});
+			} 
+			
+			$.ajax({
+				url: requestUrl,
+				type: 'POST',
+			}).done(function(data) {
+				if(data.result.status_code == 100) {
+					location.reload();
+					mediator.execute(
+					'showFlashMessage',
+					'success',
+					 data.result.status_text
+					);
+				}
+				else {
+					$('#nn-error-msg').show();
+					$('#nn-error-msg').html(data.result.status_text);
+				}
+			}).fail(function(jqXHR, textStatus, errorThrown) {
+				$('#nn-error-msg').show();
+				$('#nn-error-msg').html(errorThrown);
+			});
+		});
+	});
+	</script>    
+
+</div>
+
+
